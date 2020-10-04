@@ -1,13 +1,14 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+/* eslint-disable react/require-default-props */
+import React, { ReactNode } from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
 
-type Props = {
-  children?: ReactNode
-  title?: string
-}
+type LayoutProps = {
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'This is the default title' }: LayoutProps) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -20,22 +21,25 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>Home</a>
         </Link>{' '}
         |{' '}
-        <Link href="/about">
-          <a>About</a>
+        <Link href="/posts">
+          <a>Posts</a>
         </Link>{' '}
         |{' '}
-        <Link href="/users">
-          <a>Users List</a>
+        <Link href="/photos">
+          <a>Photos</a>
         </Link>{' '}
-        | <a href="/api/users">Users API</a>
+        |{' '}
+        <Link href="/projects">
+          <a>Projects</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/about">
+          <a>About</a>
+        </Link>
       </nav>
     </header>
     {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
