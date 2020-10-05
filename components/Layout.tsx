@@ -9,37 +9,45 @@ type LayoutProps = {
 };
 
 const Layout = ({ children, title = 'This is the default title' }: LayoutProps) => (
-  <div>
+  <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/posts">
-          <a>Posts</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/photos">
-          <a>Photos</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/projects">
-          <a>Projects</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </nav>
-    </header>
-    {children}
-  </div>
+    <div className="px-10 py-5 lg:py-10 lg:my-10">
+      <header className="lg:absolute mb-16">
+        <nav className="flex lg:flex-col justify-between">
+          <Link href="/">
+            <a className="lg:mb-2 font-bold">sal olivares</a>
+          </Link>
+          <ul className="flex lg:flex-col space-x-3 lg:space-x-0">
+            <li>
+              <Link href="/posts">
+                <a>Posts</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/photos">
+                <a>Photos</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects">
+                <a>Projects</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div className="max-w-screen-sm mx-auto">{children}</div>
+    </div>
+  </>
 );
 
 export default Layout;
