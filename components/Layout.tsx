@@ -2,7 +2,6 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useRouter } from 'next/dist/client/router';
 
 type LayoutProps = {
   children?: ReactNode;
@@ -11,15 +10,12 @@ type LayoutProps = {
 
 const navLinks = [
   { link: '/posts', name: 'Posts' },
-  { link: '/photos', name: 'Photos' },
   { link: '/projects', name: 'Projects' },
+  { link: '/photos', name: 'Photos' },
   { link: '/about', name: 'About' },
 ];
 
 const Layout = ({ children, title = 'Sal Olivares' }: LayoutProps) => {
-  const router = useRouter();
-  const { pathname } = router;
-
   return (
     <>
       <Head>
@@ -40,7 +36,7 @@ const Layout = ({ children, title = 'Sal Olivares' }: LayoutProps) => {
                 <li>
                   <Link href={navLink.link}>
                     <a className="text-black transition duration-300 ease-in-out no-underline hover:underline">
-                      {navLink.name} {pathname === navLink.link ? <span>{' <'}</span> : null}
+                      {navLink.name}
                     </a>
                   </Link>
                 </li>

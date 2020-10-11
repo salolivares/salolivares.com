@@ -1,3 +1,3 @@
-const UnderConstruction = () => <div>Under Contruction</div>;
+const UnderConstruction = () => <div>Under Construction</div>;
 
 export default UnderConstruction;

@@ -5,7 +5,6 @@ a {
   @apply underline;
 }
 
-
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
