@@ -13,7 +13,10 @@ const AboutPage = () => (
         and enjoy evangelizing others to the wonders of TypeScript.
       </p>
       <p>In my free time I enjoy watching movies, discovering new places to eat, and try my best to stay fit.</p>
-      <p>You can find me on GitHub or Twitter.</p>
+      <p>
+        You can find me on <a href="https://github.com/salolivares">GitHub</a> or{' '}
+        <a href="https://twitter.com/0x102c">Twitter</a>.
+      </p>
     </ContentSection>
   </Layout>
 );

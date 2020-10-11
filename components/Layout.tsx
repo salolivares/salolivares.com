@@ -8,6 +8,13 @@ type LayoutProps = {
   title?: string;
 };
 
+const navLinks = [
+  { link: '/posts', name: 'Posts' },
+  { link: '/photos', name: 'Photos' },
+  { link: '/projects', name: 'Projects' },
+  { link: '/about', name: 'About' },
+];
+
 const Layout = ({ children, title = 'This is the default title' }: LayoutProps) => (
   <>
     <Head>
@@ -19,29 +26,16 @@ const Layout = ({ children, title = 'This is the default title' }: LayoutProps) 
       <header className="lg:absolute mb-16">
         <nav className="flex lg:flex-col justify-between">
           <Link href="/">
-            <a className="lg:mb-2 font-bold">sal olivares</a>
+            <a className="lg:mb-2 font-bold no-underline text-black">sal olivares</a>
           </Link>
           <ul className="flex lg:flex-col space-x-3 lg:space-x-0">
-            <li>
-              <Link href="/posts">
-                <a>Posts</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/photos">
-                <a>Photos</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects">
-                <a>Projects</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </li>
+            {navLinks.map((navLink) => (
+              <li>
+                <Link href={navLink.link}>
+                  <a className="no-underline text-black">{navLink.name}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>

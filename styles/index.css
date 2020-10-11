@@ -1,6 +1,10 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
+a {
+  @apply underline;
+}
+
 
 /* Start purging... */
 @tailwind components;
