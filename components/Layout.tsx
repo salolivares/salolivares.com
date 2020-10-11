@@ -15,7 +15,7 @@ const Layout = ({ children, title = 'This is the default title' }: LayoutProps) 
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <div className="px-10 py-5 lg:py-10 lg:my-10">
+    <div className="mx-10 my-5 lg:my-20">
       <header className="lg:absolute mb-16">
         <nav className="flex lg:flex-col justify-between">
           <Link href="/">
