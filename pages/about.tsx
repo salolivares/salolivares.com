@@ -1,9 +1,9 @@
 import Layout from '../components/Layout';
-import ParagraphSection from '../components/ParagraphSection';
+import ContentSection from '../components/ContentSection';
 
 const AboutPage = () => (
   <Layout title="About | Sal Olivares">
-    <ParagraphSection>
+    <ContentSection>
       <img alt="Sal Olivares" src="/assets/images/me.jpg" />
       <p>My name is Sal.</p>
       <p>
@@ -14,7 +14,7 @@ const AboutPage = () => (
       </p>
       <p>In my free time I enjoy watching movies, discovering new places to eat, and try my best to stay fit.</p>
       <p>You can find me on GitHub or Twitter.</p>
-    </ParagraphSection>
+    </ContentSection>
   </Layout>
 );
 
