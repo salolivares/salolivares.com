@@ -1,11 +1,12 @@
 /* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
+import Head from './Head';
 
 type LayoutProps = {
   children?: ReactNode;
   title?: string;
+  description?: string;
 };
 
 const navLinks = [
@@ -15,14 +16,10 @@ const navLinks = [
   { link: '/about', name: 'About' },
 ];
 
-const Layout = ({ children, title = 'Sal Olivares' }: LayoutProps) => {
+const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: LayoutProps) => {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Head title={title} description={description} />
       <div className="mx-10 my-5 lg:my-20">
         <header className="lg:absolute mb-16">
           <nav className="flex lg:flex-col justify-between">
@@ -50,4 +47,4 @@ const Layout = ({ children, title = 'Sal Olivares' }: LayoutProps) => {
   );
 };
 
-export default Layout;
+export default Wrapper;

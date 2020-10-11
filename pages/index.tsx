@@ -1,8 +1,8 @@
-import Layout from '../components/Layout';
+import Wrapper from '../components/layout/Wrapper';
 import ContentSection from '../components/ContentSection';
 
 const IndexPage = () => (
-  <Layout title="Sal Olivares">
+  <Wrapper title="Sal Olivares" description="Sal Olivares. Software Engineer.">
     <ContentSection className="pr-64">
       <p>Hi! I&apos;m Sal.</p>
       <p>
@@ -11,7 +11,7 @@ const IndexPage = () => (
       </p>
       <p>I also enjoy taking and editing photos.</p>
     </ContentSection>
-  </Layout>
+  </Wrapper>
 );
 
 export default IndexPage;

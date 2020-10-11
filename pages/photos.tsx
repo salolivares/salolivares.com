@@ -1,12 +1,12 @@
-import Layout from '../components/Layout';
+import Wrapper from '../components/layout/Wrapper';
 import PageHeader from '../components/PageHeader';
 import UnderConstruction from '../components/UnderConstruction';
 
 const PhotosPage = () => (
-  <Layout title="Photos | Sal Olivares">
+  <Wrapper title="Photos | Sal Olivares">
     <PageHeader>Photos</PageHeader>
     <UnderConstruction />
-  </Layout>
+  </Wrapper>
 );
 
 export default PhotosPage;
