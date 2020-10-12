@@ -26,7 +26,7 @@ const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) =>
             <PostDate dateString={post.date} />
           </div>
           <Link href={`/posts/${post.params.year}/${post.params.month}/${post.params.day}/${post.params.slug}`}>
-            <a className="no-underline hover:underline font-semibold">{post.title}</a>
+            <a className="no-underline hover:underline font-medium">{post.title}</a>
           </Link>
         </div>
       ))}
