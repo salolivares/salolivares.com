@@ -19,17 +19,18 @@ export const getStaticProps = async () => {
 const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Wrapper title="Posts | Sal Olivares">
     <PageHeader>Posts</PageHeader>
-    {posts.map((post) => (
-      <div key={`${post.date}-${post.params.slug}`}>
-        <Link href={`/posts/${post.params.year}/${post.params.month}/${post.params.day}/${post.params.slug}`}>
-          <a className="no-underline hover:underline">{post.title}</a>
-        </Link>
-        <div>
-          <PostDate dateString={post.date} />
+    <div className="divide-y">
+      {posts.map((post) => (
+        <div key={`${post.date}-${post.params.slug}`} className="flex flex-col lg:flex-row lg:items-center py-2">
+          <div className="text-gray-500 text-xs font-light tracking-wide w-40">
+            <PostDate dateString={post.date} />
+          </div>
+          <Link href={`/posts/${post.params.year}/${post.params.month}/${post.params.day}/${post.params.slug}`}>
+            <a className="no-underline hover:underline font-semibold">{post.title}</a>
+          </Link>
         </div>
-        <hr />
-      </div>
-    ))}
+      ))}
+    </div>
   </Wrapper>
 );
 

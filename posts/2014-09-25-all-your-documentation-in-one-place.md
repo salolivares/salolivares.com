@@ -1,6 +1,6 @@
 ---
 layout: post
-title: All your documentation in one place.
+title: All your documentation in one place
 share: n
 date: 2014-09-25
 ---
