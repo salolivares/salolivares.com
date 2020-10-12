@@ -30,7 +30,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: LayoutP
             </Link>
             <ul className="flex lg:flex-col space-x-3 lg:space-x-0">
               {navLinks.map((navLink) => (
-                <li>
+                <li key={navLink.link}>
                   <Link href={navLink.link}>
                     <a className="text-black transition duration-300 ease-in-out no-underline hover:underline">
                       {navLink.name}

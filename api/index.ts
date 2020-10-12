@@ -4,17 +4,35 @@
 /* eslint-disable no-restricted-syntax */
 import matter from 'gray-matter';
 
-export const getAllPosts = async () => {
+type PostParams = { year: string; month: string; day: string; slug: string };
+
+// ! Assume filename of YYYY-XX-DD-TITLE........
+const parsePostfilename = (filename: string): PostParams => {
+  const date = filename.split('-');
+  const slug = date.slice(3).join('-').replace('.md', '');
+
+  return {
+    year: date[0],
+    month: date[1],
+    day: date[2],
+    slug,
+  };
+};
+
+export const getAllPosts = async (): Promise<{ params: PostParams; title: string; date: string }[]> => {
   const context = require.context('../posts', false, /\.md$/);
   const posts = [];
 
   for (const key of context.keys()) {
-    const post = key.slice(2);
+    const postFilename = key.slice(2);
     // eslint-disable-next-line no-await-in-loop
-    const file = await import(`../posts/${post}`);
+    const file = await import(`../posts/${postFilename}`);
     const content = matter(file.default);
+
+    const params = parsePostfilename(postFilename);
+
     posts.push({
-      slug: post.replace('.md', ''),
+      params,
       title: content.data.title,
       date: content.data.date.toJSON(),
     });
@@ -23,8 +41,8 @@ export const getAllPosts = async () => {
   return posts;
 };
 
-export const getPostBySlug = async (slug: string) => {
-  const file = await import(`../posts/${slug}.md`);
+export const getPost = async ({ year, month, day, slug }: PostParams) => {
+  const file = await import(`../posts/${year}-${month}-${day}-${slug}.md`);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const content = matter(file.default);
 
