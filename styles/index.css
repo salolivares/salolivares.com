@@ -18,9 +18,12 @@ a {
   .post-content pre {
     @apply rounded-lg;
   }
-
   .post-content p {
     @apply my-3;
+  }
+
+  .Typewriter {
+    @apply inline;
   }
 }
 

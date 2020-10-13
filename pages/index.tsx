@@ -1,5 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import Typewriter from 'typewriter-effect/dist/react';
 import Wrapper from '../components/layout/Wrapper';
 import ContentSection from '../components/ContentSection';
+import FAV_THINGS from '../utils/favs';
+import { shuffleArray } from '../utils/utils';
 
 const IndexPage = () => (
   <Wrapper title="Sal Olivares" description="Sal Olivares. Software Engineer.">
@@ -9,7 +14,19 @@ const IndexPage = () => (
         I&apos;m an engineer trying his best to document his experiences. You&apos;ll find my thoughts on development
         tools, TypeScript, and other random things.
       </p>
-      <p>I also enjoy taking and editing photos.</p>
+      <p>
+        I also enjoy{' '}
+        <Typewriter
+          options={{
+            strings: shuffleArray(FAV_THINGS.map((h) => `${h}.`)),
+            autoStart: true,
+            loop: true,
+            skipAddStyles: true,
+            delay: 50,
+            deleteSpeed: 30,
+          }}
+        />
+      </p>
     </ContentSection>
   </Wrapper>
 );
