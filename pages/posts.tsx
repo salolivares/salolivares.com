@@ -22,11 +22,11 @@ const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) =>
     <div className="divide-y">
       {posts.map((post) => (
         <div key={`${post.date}-${post.params.slug}`} className="flex flex-col lg:flex-row lg:items-center py-2">
-          <div className="text-gray-500 text-xs font-light tracking-wide w-40">
+          <div className="text-gray-600 text-xs font-light tracking-wide w-40">
             <PostDate dateString={post.date} />
           </div>
           <Link href={`/posts/${post.params.year}/${post.params.month}/${post.params.day}/${post.params.slug}`}>
-            <a className="no-underline hover:underline font-medium">{post.title}</a>
+            <a className="no-underline hover:underline font-semibold text-gray-900">{post.title}</a>
           </Link>
         </div>
       ))}
