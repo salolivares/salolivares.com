@@ -24,7 +24,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: LayoutP
         <header className="lg:absolute mb-16">
           <nav className="flex lg:flex-col justify-between">
             <Link href="/">
-              <a className="lg:mb-2 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700">
+              <a className="lg:mb-2 overflow-y-hidden h-6 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700">
                 sal olivares
               </a>
             </Link>

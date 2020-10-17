@@ -1,11 +1,18 @@
 import Wrapper from '../components/layout/Wrapper';
 import PageHeader from '../components/PageHeader';
-import UnderConstruction from '../components/UnderConstruction';
+import PhotoAlbumListItem from '../components/PhotoAlbumListItem';
 
 const PhotosPage = () => (
   <Wrapper title="Photos | Sal Olivares">
     <PageHeader>Photos</PageHeader>
-    <UnderConstruction />
+    <div className="divide-y">
+      <PhotoAlbumListItem />
+      <div>Chicago</div>
+      <div>3</div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
   </Wrapper>
 );
 
