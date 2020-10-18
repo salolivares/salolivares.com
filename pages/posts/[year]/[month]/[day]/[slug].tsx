@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import ReactMarkdown from 'react-markdown';
-import { getAllPosts, getPost } from '../../../../../api';
+import { getAllPosts, getPost } from '../../../../../api/posts';
 import CodeBlock from '../../../../../components/CodeBlock';
 import Wrapper from '../../../../../components/layout/Wrapper';
 import PageHeader from '../../../../../components/PageHeader';

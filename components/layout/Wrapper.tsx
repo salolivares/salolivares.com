@@ -1,12 +1,15 @@
 /* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 import Head from './Head';
 
-type LayoutProps = {
+type WrapperProps = {
   children?: ReactNode;
   title?: string;
   description?: string;
+  topNav?: boolean;
+  fullWidth?: boolean;
 };
 
 const navLinks = [
@@ -16,19 +19,30 @@ const navLinks = [
   { link: '/about', name: 'About' },
 ];
 
-const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: LayoutProps) => {
+const Wrapper = ({
+  children,
+  title = 'Sal Olivares',
+  description = '',
+  topNav = false,
+  fullWidth = false,
+}: WrapperProps) => {
   return (
     <>
       <Head title={title} description={description} />
-      <div className="mx-10 my-5 lg:my-20">
-        <header className="lg:absolute mb-16">
-          <nav className="flex lg:flex-col justify-between">
+      <div className={clsx('mx-10 my-5', { 'lg:my-20': !topNav })}>
+        <header className={clsx('mb-16', { 'lg:absolute': !topNav })}>
+          <nav className={clsx('flex justify-between', { 'lg:flex-col': !topNav })}>
             <Link href="/">
-              <a className="lg:mb-2 overflow-y-hidden h-6 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700">
+              <a
+                className={clsx(
+                  'overflow-y-hidden h-6 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700',
+                  { 'lg:mb-2': !topNav },
+                )}
+              >
                 sal olivares
               </a>
             </Link>
-            <ul className="flex lg:flex-col space-x-3 lg:space-x-0">
+            <ul className={clsx('flex space-x-3', { 'lg:flex-col lg:space-x-0': !topNav })}>
               {navLinks.map((navLink) => (
                 <li key={navLink.link}>
                   <Link href={navLink.link}>
@@ -41,7 +55,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: LayoutP
             </ul>
           </nav>
         </header>
-        <div className="max-w-screen-sm mx-auto">{children}</div>
+        <div className={clsx({ 'max-w-screen-sm mx-auto': !fullWidth })}>{children}</div>
       </div>
     </>
   );
