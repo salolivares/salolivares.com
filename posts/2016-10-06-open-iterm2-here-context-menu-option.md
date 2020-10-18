@@ -7,11 +7,17 @@ One of the things I miss most from using Ubuntu is the ability to open the termi
 
 # Setup
 1) Open up _Automator_ and create a new file and select _Services_ as your document type. 
-<img src="/assets/screenshots/2016-10-06-screen1.png" alt="Screenshot" style="width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;"/>
+
+![Screenshot](/screenshots/2016-10-06-screen1.png)
+
 2) For the _Service receives selected_ field, select _Folders_. 
-<img src="/assets/screenshots/2016-10-06-screen2.png" alt="Screenshot" style="width: 100%; margin-left:0%; margin-right:0%; margin-top:20px; margin-bottom:20px;"/>
-3) Drag _Run AppleScript_ onto the right hand window to add some of the AppleScript code that will power the service.  
-<img src="/assets/screenshots/2016-10-06-screen4.png" alt="Screenshot" style="width: 100%; margin-left:0%; margin-right:0%; margin-top:20px; margin-bottom:20px;"/>
+
+![Screenshot](/screenshots/2016-10-06-screen2.png)
+
+3) Drag _Run AppleScript_ onto the right hand window to add some of the AppleScript code that will power the service.
+
+![Screenshot](/screenshots/2016-10-06-screen4.png)
+
 4) Paste the following code:
  
 ```applescript
@@ -40,7 +46,9 @@ end cd
 ```
 
 5) Hit _Command+S_ to save the service. Whichever name you save it under will appear in the context menu when you right click on a folder.
-<img src="/assets/screenshots/2016-10-06-screen6.png" alt="Screenshot" style="width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;"/>
+
+![Screenshot](/screenshots/2016-10-06-screen6.png)
+
 6) Right click on any finder folder and click _Open in iTerm2_! Voila!
 
 # Caveats

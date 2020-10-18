@@ -12,7 +12,7 @@ const Head = ({ title, description }: HeadProps) => (
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     {description ? <meta name="description" content={description} /> : null}
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
   </NextHead>
 );
 

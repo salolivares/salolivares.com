@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from '
 import ReactMarkdown from 'react-markdown';
 import { getAllPosts, getPost } from '../../../../../api/posts';
 import CodeBlock from '../../../../../components/CodeBlock';
+import Image from '../../../../../components/Image';
 import Wrapper from '../../../../../components/layout/Wrapper';
 import PageHeader from '../../../../../components/PageHeader';
 
@@ -33,7 +34,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const Post = ({ frontmatter, markdownBody }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Wrapper>
     <PageHeader>{frontmatter.title}</PageHeader>
-    <ReactMarkdown escapeHtml={false} source={markdownBody} renderers={{ code: CodeBlock }} className="post-content" />
+    <ReactMarkdown
+      escapeHtml={false}
+      source={markdownBody}
+      renderers={{ code: CodeBlock, image: Image }}
+      className="post-content"
+    />
   </Wrapper>
 );
 
