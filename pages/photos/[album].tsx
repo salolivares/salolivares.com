@@ -24,11 +24,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const Album = ({ title, year, url, images }: InferGetServerSidePropsType<typeof getStaticProps>) => (
   <PhotoWrapper title={`${title} ${year} | Sal Olivares`}>
-    {images.map((image) => (
-      <div className="min-h-screen max-w-screen-xl flex items-center">
-        <RemoteImage url={`${url}/${image.name}`} />
+    {images.length !== 0 ? (
+      images.map((image) => (
+        <div className="min-h-screen max-w-screen-xl flex items-center">
+          <RemoteImage url={`${url}/${image.name}`} />
+        </div>
+      ))
+    ) : (
+      <div className="h-64 max-w-screen-xl flex items-center">
+        <div className="">This album is empty :(</div>
       </div>
-    ))}
+    )}
   </PhotoWrapper>
 );
 
