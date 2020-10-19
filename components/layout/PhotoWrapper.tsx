@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from './Head';
 
-type WrapperProps = {
+type PhotoWrapperProps = {
   children?: ReactNode;
   title?: string;
   description?: string;
@@ -16,19 +16,19 @@ const navLinks = [
   { link: '/about', name: 'About' },
 ];
 
-const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: WrapperProps) => {
+const PhotoWrapper = ({ children, title = 'Sal Olivares', description = '' }: PhotoWrapperProps) => {
   return (
     <>
       <Head title={title} description={description} />
-      <div className="mx-10 my-5 lg:my-20">
-        <header className="mb-16 lg:absolute">
-          <nav className="flex justify-between lg:flex-col">
+      <div className="mx-10 my-5">
+        <header className="">
+          <nav className="flex justify-between">
             <Link href="/">
-              <a className="overflow-y-hidden h-6 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700 lg:mb-2">
+              <a className="overflow-y-hidden h-6 font-bold no-underline transition-colors duration-300 ease-in-out text-black hover:text-gray-700">
                 sal olivares
               </a>
             </Link>
-            <ul className="flex space-x-3 lg:flex-col lg:space-x-0">
+            <ul className="flex space-x-3">
               {navLinks.map((navLink) => (
                 <li key={navLink.link}>
                   <Link href={navLink.link}>
@@ -41,10 +41,10 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '' }: Wrapper
             </ul>
           </nav>
         </header>
-        <div className="max-w-screen-sm mx-auto">{children}</div>
+        <div className="flex flex-col items-center">{children}</div>
       </div>
     </>
   );
 };
 
-export default Wrapper;
+export default PhotoWrapper;

@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const Post = ({ frontmatter, markdownBody }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Post = ({ frontmatter, markdownBody }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Wrapper>
     <PageHeader>{frontmatter.title}</PageHeader>
     <ReactMarkdown
