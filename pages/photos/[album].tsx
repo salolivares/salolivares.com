@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
 import { getAlbum, getAllAlbums } from '../../api/albums';
-import PhotoWrapper from '../../components/layout/PhotoWrapper';
+import Wrapper from '../../components/layout/Wrapper';
 import RemoteImage from '../../components/RemoteImage';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Album = ({ title, year, url, images }: InferGetServerSidePropsType<typeof getStaticProps>) => (
-  <PhotoWrapper title={`${title} ${year} | Sal Olivares`}>
+  <Wrapper title={`${title} ${year} | Sal Olivares`} photoMode>
     {images.length !== 0 ? (
       images.map((image) => (
         <div className="min-h-screen max-w-screen-xl flex items-center">
@@ -35,7 +35,7 @@ const Album = ({ title, year, url, images }: InferGetServerSidePropsType<typeof 
         <div className="">This album is empty :(</div>
       </div>
     )}
-  </PhotoWrapper>
+  </Wrapper>
 );
 
 export default Album;
