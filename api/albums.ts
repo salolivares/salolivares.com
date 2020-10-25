@@ -1,5 +1,5 @@
 type PhotoAlbum = { url: string; title: string; country?: string; year: string; images: AlbumImage[] };
-type AlbumImage = { name: string };
+type AlbumImage = { id: string; name: string; camera: string; description?: string };
 
 export const PHOTO_ALBUMS: PhotoAlbum[] = [
   {
@@ -7,7 +7,11 @@ export const PHOTO_ALBUMS: PhotoAlbum[] = [
     title: 'Chicago',
     country: 'USA',
     year: '2019',
-    images: [{ name: 'airbnb' }, { name: 'downtown' }, { name: 'grant_park' }],
+    images: [
+      { id: 'airbnb', name: 'Airbnb', camera: 'Canon EOS Rebel T3i' },
+      { id: 'downtown', name: 'Chicago downtown', camera: 'Canon EOS Rebel T3i' },
+      { id: 'grant_park', name: 'Grant park', camera: 'Canon EOS Rebel T3i' },
+    ],
   },
   {
     url: '2018-japan',
@@ -15,19 +19,19 @@ export const PHOTO_ALBUMS: PhotoAlbum[] = [
     country: 'Japan',
     year: '2018',
     images: [
-      { name: 'tokyo_construction' },
-      { name: 'skytree_view' },
-      { name: 'shinjuku' },
-      { name: 'nakagin_capsule_tower' },
-      { name: 'imperial_palace' },
-      { name: 'odaiba' },
-      { name: 'castle' },
-      { name: 'edwin' },
-      { name: 'gion_street' },
-      { name: 'kyoto_streets' },
-      { name: 'kyoto_tracks' },
-      { name: 'monkey_park' },
-      { name: 'pika_hat' },
+      { id: 'tokyo_construction', name: 'Skyrise construction', camera: 'Canon EOS Rebel T3i' },
+      { id: 'skytree_view', name: 'Skytree view', camera: 'Canon EOS Rebel T3i' },
+      { id: 'shinjuku', name: 'Busy streets of Shinjuku', camera: 'Canon EOS Rebel T3i' },
+      { id: 'nakagin_capsule_tower', name: 'Nakagin capsule tower', camera: 'Canon EOS Rebel T3i' },
+      { id: 'imperial_palace', name: 'The imperial palace', camera: 'Canon EOS Rebel T3i' },
+      { id: 'odaiba', name: 'The big ball', camera: 'Canon EOS Rebel T3i' },
+      { id: 'castle', name: 'Temple', camera: 'Canon EOS Rebel T3i' },
+      { id: 'edwin', name: 'Edwin', camera: 'Canon EOS Rebel T3i' },
+      { id: 'gion_street', name: 'Streets of Gion', camera: 'Canon EOS Rebel T3i' },
+      { id: 'kyoto_streets', name: 'Kyoto streets', camera: 'Canon EOS Rebel T3i' },
+      { id: 'kyoto_tracks', name: 'Kyoto tracks', camera: 'Canon EOS Rebel T3i' },
+      { id: 'monkey_park', name: 'Kyoto Monkey park', camera: 'Canon EOS Rebel T3i' },
+      { id: 'pika_hat', name: 'Pika pika', camera: 'Canon EOS Rebel T3i' },
     ],
   },
   { url: '2017-japan', title: 'Tokyo', country: 'Japan', year: '2017', images: [] },

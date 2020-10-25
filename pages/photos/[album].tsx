@@ -27,7 +27,7 @@ const Album = ({ title, year, url, images }: InferGetServerSidePropsType<typeof 
     {images.length !== 0 ? (
       images.map((image) => (
         <div className="min-h-screen max-w-screen-xl flex items-center">
-          <RemoteImage url={`${url}/${image.name}`} />
+          <RemoteImage url={`${url}/${image.id}`} />
         </div>
       ))
     ) : (
