@@ -43,9 +43,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode
             </ul>
           </nav>
         </header>
-        <div className={clsx({ 'max-w-screen-sm mx-auto': !photoMode }, { 'flex flex-col items-center': photoMode })}>
-          {children}
-        </div>
+        <div className={clsx({ 'max-w-screen-sm mx-auto': !photoMode }, { '': photoMode })}>{children}</div>
       </div>
     </>
   );
