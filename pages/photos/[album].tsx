@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/require-await */
-import { GetStaticPaths, GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 import { getAlbum, getAllAlbums } from '../../api/albums';
-import PhotoWrapper from '../../components/layout/PhotoWrapper';
+import Wrapper from '../../components/layout/Wrapper';
 import RemoteImage from '../../components/RemoteImage';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
@@ -22,20 +23,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Album = ({ title, year, url, images }: InferGetServerSidePropsType<typeof getStaticProps>) => (
-  <PhotoWrapper title={`${title} ${year} | Sal Olivares`}>
-    {images.length !== 0 ? (
-      images.map((image) => (
-        <div className="min-h-screen max-w-screen-xl flex items-center">
-          <RemoteImage url={`${url}/${image.name}`} />
+const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<typeof getStaticProps>) => (
+  <Wrapper title={`${title} ${year} | Sal Olivares`} photoMode>
+    <div className="flex flex-col items-center">
+      {images.length !== 0 ? (
+        images.map((image) => (
+          <div key={image.id} className="min-h-screen flex items-center">
+            <Link href={`${albumUrl}/${image.id}`}>
+              <a className="max-w-screen-xl">
+                <RemoteImage url={`${albumUrl}/${image.id}`} />
+              </a>
+            </Link>
+          </div>
+        ))
+      ) : (
+        <div className="h-64 max-w-screen-xl flex items-center">
+          <div className="">This album is empty :(</div>
         </div>
-      ))
-    ) : (
-      <div className="h-64 max-w-screen-xl flex items-center">
-        <div className="">This album is empty :(</div>
-      </div>
-    )}
-  </PhotoWrapper>
+      )}
+    </div>
+  </Wrapper>
 );
 
 export default Album;
