@@ -9,10 +9,10 @@ import { shuffleArray } from '../utils/utils';
 const IndexPage = () => (
   <Wrapper title="Sal Olivares" description="Sal Olivares. Software Engineer.">
     <ContentSection className="lg:pr-64">
-      <p>Hi! I&apos;m Sal.</p>
+      <p>Hi, I&apos;m Sal.</p>
       <p>
-        I&apos;m an engineer trying his best to document his experiences. You&apos;ll find my thoughts on development
-        tools, TypeScript, and other random things.
+        I&apos;m a software engineer trying his best to document his experiences. You can usually find me evangelizing
+        others to the wonders of TypeScript.
       </p>
       <p>
         I also enjoy{' '}

@@ -15,7 +15,6 @@ const navLinks = [
   { link: '/posts', name: 'Posts' },
   { link: '/projects', name: 'Projects' },
   { link: '/photos', name: 'Photos' },
-  { link: '/about', name: 'About' },
 ];
 
 const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode = false }: WrapperProps) => {
