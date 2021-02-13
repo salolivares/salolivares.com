@@ -10,7 +10,7 @@ export default function PostDate({ dateString, className }: PostDateProps) {
   const date = parseISO(dateString);
   return (
     <time className={className} dateTime={dateString}>
-      {format(date, 'LLLL d, yyyy')}
+      {format(date, 'LLLL yyyy')}
     </time>
   );
 }
