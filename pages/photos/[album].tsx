@@ -5,11 +5,17 @@ import { getAlbum, getAllAlbums } from '../../api/albums';
 import Wrapper from '../../components/layout/Wrapper';
 import RemoteImage from '../../components/RemoteImage';
 
+// https://github.com/vercel/next.js/discussions/17600
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const albumUrl = params?.album as string;
 
+  // album url is guaranteed to exist since getStaticPaths guarantees
+  // only valid urls are accepted
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const album = getAlbum(albumUrl)!;
+
   return {
-    props: getAlbum(albumUrl),
+    props: album,
   };
 };
 

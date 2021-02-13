@@ -1,4 +1,4 @@
-type PhotoAlbum = { url: string; title: string; country?: string; year: string; images: AlbumImage[] };
+export type PhotoAlbum = { url: string; title: string; country?: string; year: string; images: AlbumImage[] };
 type AlbumImage = { id: string; name: string; camera: string; description?: string };
 type Photo = AlbumImage & { albumUrl: string; albumTitle: string };
 
@@ -39,9 +39,7 @@ export const PHOTO_ALBUMS: PhotoAlbum[] = [
   { url: '2017-chikis', title: 'Chikis', year: '2017', images: [] },
 ];
 
-export const getAlbum = (albumUrl: string) => {
-  return PHOTO_ALBUMS.find((album) => album.url === albumUrl);
-};
+export const getAlbum = (albumUrl: string) => PHOTO_ALBUMS.find((album) => album.url === albumUrl);
 
 export const getAllAlbums = () => PHOTO_ALBUMS;
 

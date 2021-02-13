@@ -13,7 +13,7 @@ a {
 @layer components {
   .post-content {}
   .post-content h1 {
-    @apply mt-8 mb-2 text-2xl font-semibold;
+    @apply mt-8 mb-4 text-2xl font-semibold;
   }
   .post-content pre {
     @apply rounded-lg;

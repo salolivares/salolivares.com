@@ -1,5 +1,5 @@
 ---
-title: Open iTerm2 Here Context Menu option for Finder
+title: Open iTerm2 Here context menu option 
 date: 2016-10-07
 ---
 
