@@ -45,7 +45,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode
         <header className={clsx({ 'mb-16 lg:absolute': !photoMode })}>
           <nav className={clsx('flex justify-between', { 'lg:flex-col': !photoMode })}>
             <Link href="/">
-              <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 lg:mb-2">
+              <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400 lg:mb-2">
                 sal olivares
               </a>
             </Link>
