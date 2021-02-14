@@ -36,13 +36,17 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode
   return (
     <>
       <Head title={title} description={description} />
-      <div className={clsx('mx-5 my-5 lg:mx-10', { 'lg:my-20': !photoMode })}>
+      <div
+        className={clsx('mx-5 my-5', {
+          'lg:my-20 lg:mx-auto lg:max-w-screen-lg': !photoMode,
+        })}
+      >
         <ThemeToggleButton
           switchTheme={switchTheme}
           theme={theme}
           className={clsx('hidden', { 'lg:block lg:absolute top-5 right-5': !photoMode })}
         />
-        <header className={clsx({ 'mb-16 lg:absolute': !photoMode })}>
+        <header className={clsx({ 'mb-16 lg:absolute': !photoMode, 'max-w-screen-xl mx-auto': photoMode })}>
           <nav className={clsx('flex justify-between', { 'lg:flex-col': !photoMode })}>
             <Link href="/">
               <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400 lg:mb-2">
@@ -67,7 +71,7 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode
             />
           </nav>
         </header>
-        <div className={clsx({ 'max-w-screen-sm mx-auto': !photoMode }, { '': photoMode })}>{children}</div>
+        <div className={clsx({ 'max-w-screen-sm mx-auto': !photoMode })}>{children}</div>
       </div>
     </>
   );
