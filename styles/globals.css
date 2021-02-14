@@ -11,6 +11,10 @@ a {
 
 /* Write your own custom component styles here */
 @layer components {
+  /*
+   * ─── POST CONTENT ───────────────────────────────────────────────────────────────
+   */
+
   .post-content {}
   .post-content h1 {
     @apply mt-8 mb-4 text-2xl font-semibold;
@@ -21,6 +25,10 @@ a {
   .post-content p {
     @apply my-3;
   }
+
+  /*
+   * ─── TYPEWRITER CSS ─────────────────────────────────────────────────────────────
+   */
 
   .Typewriter {
     @apply inline;
@@ -39,7 +47,7 @@ a {
       color: transparent;
     }
     50% {
-      color: black;
+      color: inherit;
     }
   }
 
@@ -48,7 +56,7 @@ a {
       color: transparent;
     }
     50% {
-      color: black;
+      color: inherit;
     }
   }
 
@@ -57,7 +65,7 @@ a {
       color: transparent;
     }
     50% {
-      color: black;
+      color: inherit;
     }
   }
 
@@ -66,7 +74,7 @@ a {
       color: transparent;
     }
     50% {
-      color: black;
+      color: inherit;
     }
   }
 
@@ -75,7 +83,7 @@ a {
       color: transparent;
     }
     50% {
-      color: black;
+      color: inherit;
     }
   }
 }
