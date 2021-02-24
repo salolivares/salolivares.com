@@ -1,12 +1,12 @@
-import Wrapper from '../components/Wrapper';
+import Container from '../components/Container';
 import PageHeader from '../components/PageHeader';
 import UnderConstruction from '../components/UnderConstruction';
 
 const ProjectsPage = () => (
-  <Wrapper title="Projects | Sal Olivares">
+  <Container title="Projects | Sal Olivares">
     <PageHeader>Projects</PageHeader>
     <UnderConstruction />
-  </Wrapper>
+  </Container>
 );
 
 export default ProjectsPage;

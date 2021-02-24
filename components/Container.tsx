@@ -19,7 +19,7 @@ const navLinks = [
   { link: '/photos', name: 'Photos' },
 ];
 
-const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode = false }: WrapperProps) => {
+const Container = ({ children, title = 'Sal Olivares', description = '', photoMode = false }: WrapperProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -77,4 +77,4 @@ const Wrapper = ({ children, title = 'Sal Olivares', description = '', photoMode
   );
 };
 
-export default Wrapper;
+export default Container;

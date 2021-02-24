@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { getAllPhotos, getPhoto } from '../../../api/albums';
-import Wrapper from '../../../components/Wrapper';
+import Container from '../../../components/Container';
 import RemoteImage from '../../../components/RemoteImage';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Photo = ({ id, name, camera, albumUrl, albumTitle }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Wrapper title={`${name} - ${albumTitle} | Sal Olivares`} photoMode>
+  <Container title={`${name} - ${albumTitle} | Sal Olivares`} photoMode>
     <div className="min-h-screen flex items-center justify-center">
       <RemoteImage className="max-w-screen-xl" url={`${albumUrl}/${id}`} />
     </div>
@@ -37,7 +37,7 @@ const Photo = ({ id, name, camera, albumUrl, albumTitle }: InferGetStaticPropsTy
         Camera: <span className="font-semibold">{camera}</span>
       </div>
     </div>
-  </Wrapper>
+  </Container>
 );
 
 export default Photo;

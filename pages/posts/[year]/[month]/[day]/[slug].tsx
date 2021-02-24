@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { getAllPosts, getPost } from '../../../../../api/posts';
 import CodeBlock from '../../../../../components/CodeBlock';
 import Image from '../../../../../components/Image';
-import Wrapper from '../../../../../components/Wrapper';
+import Container from '../../../../../components/Container';
 import PageHeader from '../../../../../components/PageHeader';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
@@ -32,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Post = ({ frontmatter, markdownBody }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Wrapper>
+  <Container>
     <PageHeader>{frontmatter.title}</PageHeader>
     <ReactMarkdown
       escapeHtml={false}
@@ -40,7 +40,7 @@ const Post = ({ frontmatter, markdownBody }: InferGetStaticPropsType<typeof getS
       renderers={{ code: CodeBlock, image: Image }}
       className="post-content"
     />
-  </Wrapper>
+  </Container>
 );
 
 export default Post;

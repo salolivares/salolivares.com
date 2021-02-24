@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { getAllPosts } from '../api/posts';
-import Wrapper from '../components/Wrapper';
+import Container from '../components/Container';
 import PageHeader from '../components/PageHeader';
 import PostDate from '../components/PostDate';
 
@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
 };
 
 const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Wrapper title="Posts | Sal Olivares">
+  <Container title="Posts | Sal Olivares">
     <PageHeader>Posts</PageHeader>
     <div className="divide-y dark:divide-opacity-50 dark:divide-gray-400">
       {posts.map((post) => (
@@ -31,7 +31,7 @@ const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) =>
         </div>
       ))}
     </div>
-  </Wrapper>
+  </Container>
 );
 
 export default PostsPage;

@@ -1,9 +1,9 @@
-import Wrapper from '../components/Wrapper';
+import Container from '../components/Container';
 import ContentSection from '../components/ContentSection';
 import Image from '../components/Image';
 
 const AboutPage = () => (
-  <Wrapper title="About | Sal Olivares">
+  <Container title="About | Sal Olivares">
     <ContentSection>
       <Image alt="Sal Olivares" src="/pictures/me.jpg" />
       <p>My name is Sal.</p>
@@ -19,7 +19,7 @@ const AboutPage = () => (
         <a href="https://twitter.com/0x102c">Twitter</a>.
       </p>
     </ContentSection>
-  </Wrapper>
+  </Container>
 );
 
 export default AboutPage;

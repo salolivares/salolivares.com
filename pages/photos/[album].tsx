@@ -2,7 +2,7 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { getAlbum, getAllAlbums } from '../../api/albums';
-import Wrapper from '../../components/Wrapper';
+import Container from '../../components/Container';
 import RemoteImage from '../../components/RemoteImage';
 
 // https://github.com/vercel/next.js/discussions/17600
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Wrapper title={`${title} ${year} | Sal Olivares`} photoMode>
+  <Container title={`${title} ${year} | Sal Olivares`} photoMode>
     <div className="flex flex-col items-center">
       {images.length !== 0 ? (
         images.map((image) => (
@@ -48,7 +48,7 @@ const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<t
         </div>
       )}
     </div>
-  </Wrapper>
+  </Container>
 );
 
 export default Album;

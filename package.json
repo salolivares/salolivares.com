@@ -1,5 +1,6 @@
 {
-  "name": "salolivares-website",
+  "name": "salolivares.com",
+  "description": "my personal site",
   "private": "true",
   "version": "1.0.0",
   "scripts": {

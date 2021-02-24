@@ -1,14 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/react';
-import Wrapper from '../components/Wrapper';
+import Container from '../components/Container';
 import ContentSection from '../components/ContentSection';
 import FAV_THINGS from '../utils/favs';
 import { shuffleArray } from '../utils/utils';
 import { Socials } from '../components/Socials';
 
-const IndexPage = () => (
-  <Wrapper title="Sal Olivares" description="Sal Olivares. Software Engineer.">
+const Home = () => (
+  <Container title="Sal Olivares" description="Sal Olivares. Software Engineer.">
     <div className="lg:max-w-md mx-auto">
       <ContentSection className="">
         <p>Hi, I&apos;m Sal.</p>
@@ -32,7 +32,7 @@ const IndexPage = () => (
       </ContentSection>
       <Socials />
     </div>
-  </Wrapper>
+  </Container>
 );
 
-export default IndexPage;
+export default Home;
