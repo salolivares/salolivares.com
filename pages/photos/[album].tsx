@@ -2,7 +2,7 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { getAlbum, getAllAlbums } from '../../api/albums';
-import Wrapper from '../../components/layout/Wrapper';
+import Wrapper from '../../components/Wrapper';
 import RemoteImage from '../../components/RemoteImage';
 
 // https://github.com/vercel/next.js/discussions/17600

@@ -1,4 +1,4 @@
-import Wrapper from '../components/layout/Wrapper';
+import Wrapper from '../components/Wrapper';
 import PageHeader from '../components/PageHeader';
 import UnderConstruction from '../components/UnderConstruction';
 

@@ -1,4 +1,4 @@
-import Wrapper from '../components/layout/Wrapper';
+import Wrapper from '../components/Wrapper';
 import ContentSection from '../components/ContentSection';
 import Image from '../components/Image';
 

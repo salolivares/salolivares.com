@@ -4,7 +4,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import Head from './Head';
-import { ThemeToggleButton } from '../ThemeToggleButton';
+import { ThemeToggleButton } from './ThemeToggleButton';
 
 type WrapperProps = {
   children?: ReactNode;

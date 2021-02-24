@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/react';
-import Wrapper from '../components/layout/Wrapper';
+import Wrapper from '../components/Wrapper';
 import ContentSection from '../components/ContentSection';
 import FAV_THINGS from '../utils/favs';
 import { shuffleArray } from '../utils/utils';

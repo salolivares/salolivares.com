@@ -1,5 +1,5 @@
 import { PHOTO_ALBUMS } from '../api/albums';
-import Wrapper from '../components/layout/Wrapper';
+import Wrapper from '../components/Wrapper';
 import PageHeader from '../components/PageHeader';
 import PhotoAlbumListItem from '../components/PhotoAlbumListItem';
 

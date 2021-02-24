@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { getAllPosts, getPost } from '../../../../../api/posts';
 import CodeBlock from '../../../../../components/CodeBlock';
 import Image from '../../../../../components/Image';
-import Wrapper from '../../../../../components/layout/Wrapper';
+import Wrapper from '../../../../../components/Wrapper';
 import PageHeader from '../../../../../components/PageHeader';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { getAllPhotos, getPhoto } from '../../../api/albums';
-import Wrapper from '../../../components/layout/Wrapper';
+import Wrapper from '../../../components/Wrapper';
 import RemoteImage from '../../../components/RemoteImage';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
