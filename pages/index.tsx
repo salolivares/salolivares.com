@@ -9,7 +9,7 @@ import { Socials } from '../components/Socials';
 
 export default function Home() {
   return (
-    <Container title="Sal Olivares" description="Sal Olivares. Software Engineer.">
+    <Container>
       <div className="lg:max-w-md mx-auto">
         <ContentSection className="">
           <p>Hi, I&apos;m Sal.</p>

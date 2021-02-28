@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable react/require-default-props */
 import React, { ReactNode, useEffect, useState } from 'react';
 import Link from 'next/link';
