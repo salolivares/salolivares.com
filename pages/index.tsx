@@ -10,8 +10,8 @@ import { Socials } from '../components/Socials';
 export default function Home() {
   return (
     <Container>
-      <div className="lg:max-w-md mx-auto">
-        <ContentSection className="">
+      <div className="max-w-2xl mx-auto mb-16">
+        <ContentSection>
           <p>Hi, I&apos;m Sal.</p>
           <p>
             I&apos;m a software engineer trying his best to document his experiences. You can usually find me

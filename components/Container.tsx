@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ThemeToggleButton } from './ThemeToggleButton';
+import Footer from './Footer';
 
 type WrapperProps = {
   children?: ReactNode;
@@ -64,31 +65,34 @@ const Container = (props: WrapperProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
       </Head>
-      <nav className="flex justify-between items-center max-w-4xl w-full mx-auto p-8 my-0 md:my-8">
-        <a href="#skip" className="sr-only focus:not-sr-only">
-          Skip to content
-        </a>
-        <Link href="/">
-          <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400 lg:mb-2">
-            sal olivares
+      <div className="px-8">
+        <nav className="flex justify-between items-center max-w-2xl mx-auto my-8 md:my-14">
+          <a href="#skip" className="sr-only focus:not-sr-only">
+            Skip to content
           </a>
-        </Link>
-        <ul className="flex sm:space-x-6 space-x-3">
-          {navLinks.map((navLink) => (
-            <li key={navLink.link}>
-              <Link href={navLink.link}>
-                <a className="text-black dark:text-neutral transition duration-300 ease-in-out no-underline hover:underline">
-                  {navLink.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="" />
-      </nav>
-      <main id="skip" className="flex flex-col justify-center px-8">
-        {children}
-      </main>
+          <Link href="/">
+            <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400">
+              sal olivares
+            </a>
+          </Link>
+          <ul className="flex sm:space-x-6 space-x-3">
+            {navLinks.map((navLink) => (
+              <li key={navLink.link}>
+                <Link href={navLink.link}>
+                  <a className="text-black dark:text-neutral transition duration-300 ease-in-out no-underline">
+                    {navLink.name}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-2" />
+        </nav>
+        <main id="skip" className="flex flex-col justify-center">
+          {children}
+          <Footer />
+        </main>
+      </div>
     </>
   );
 };

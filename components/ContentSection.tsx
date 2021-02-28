@@ -7,7 +7,7 @@ type ContentSectionProps = {
 };
 
 const ContentSection = ({ children, className = '' }: ContentSectionProps) => (
-  <div className={`space-y-3 ${className}`}>{children}</div>
+  <div className={`space-y-5 ${className}`}>{children}</div>
 );
 
 export default ContentSection;
