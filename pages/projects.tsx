@@ -4,8 +4,10 @@ import UnderConstruction from '../components/UnderConstruction';
 
 const ProjectsPage = () => (
   <Container title="Projects | Sal Olivares">
-    <PageHeader>Projects</PageHeader>
-    <UnderConstruction />
+    <div className="max-w-2xl mx-auto mb-16 w-full">
+      <PageHeader>Projects</PageHeader>
+      <UnderConstruction />
+    </div>
   </Container>
 );
 

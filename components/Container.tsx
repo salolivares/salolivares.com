@@ -66,7 +66,7 @@ const Container = (props: WrapperProps) => {
         <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
       </Head>
       <div className="px-8">
-        <nav className="flex justify-between items-center max-w-2xl mx-auto my-8 md:my-14">
+        <nav className="flex justify-between items-center w-full max-w-2xl mx-auto my-8 md:my-14">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>

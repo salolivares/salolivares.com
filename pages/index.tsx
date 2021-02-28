@@ -6,13 +6,14 @@ import ContentSection from '../components/ContentSection';
 import FAV_THINGS from '../utils/favs';
 import { shuffleArray } from '../utils/utils';
 import { Socials } from '../components/Socials';
+import PageHeader from '../components/PageHeader';
 
 export default function Home() {
   return (
     <Container>
       <div className="max-w-2xl mx-auto mb-16">
         <ContentSection>
-          <p>Hi, I&apos;m Sal.</p>
+          <PageHeader>Hi, I&apos;m Sal.</PageHeader>
           <p>
             I&apos;m a software engineer trying his best to document his experiences. You can usually find me
             evangelizing others to the wonders of TypeScript.

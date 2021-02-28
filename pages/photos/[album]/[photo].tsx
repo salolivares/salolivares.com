@@ -28,7 +28,7 @@ const Photo = ({ id, name, camera, albumUrl, albumTitle }: InferGetStaticPropsTy
     <div className="min-h-screen flex items-center justify-center">
       <RemoteImage className="max-w-screen-xl" url={`${albumUrl}/${id}`} />
     </div>
-    <div className="flex justify-between max-w-screen-sm mx-auto my-24">
+    <div className="flex justify-between w-full max-w-2xl mx-auto my-24">
       <div>
         <h1 className="font-semibold">{name}</h1>
         <div>Ⓒ Sal Olivares. All Rights Reserved.</div>
