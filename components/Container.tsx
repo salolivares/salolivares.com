@@ -73,7 +73,7 @@ const Container = (props: WrapperProps) => {
             sal olivares
           </a>
         </Link>
-        <ul className="flex sm:space-x-8 space-x-3">
+        <ul className="flex sm:space-x-6 space-x-3">
           {navLinks.map((navLink) => (
             <li key={navLink.link}>
               <Link href={navLink.link}>
