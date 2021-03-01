@@ -13,7 +13,7 @@ type WrapperProps = {
 };
 
 const navLinks = [
-  { link: '/blog', name: 'Blog' },
+  { link: '/posts', name: 'Posts' },
   { link: '/projects', name: 'Projects' },
   { link: '/photos', name: 'Photos' },
 ];

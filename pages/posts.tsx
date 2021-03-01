@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
 };
 
 const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Container title="Blog | Sal Olivares">
+  <Container title="Posts | Sal Olivares">
     <div className="max-w-2xl mx-auto mb-16 w-full">
       <PageHeader>Posts</PageHeader>
       <div className="divide-y dark:divide-opacity-50 dark:divide-gray-400">
@@ -27,7 +27,7 @@ const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) =>
             <div className="text-gray-500 dark:text-gray-400 text-xs font-light tracking-wide w-40">
               <PostDate dateString={post.publishedOn!} />
             </div>
-            <Link href={`/blog/${post.slug!}`}>
+            <Link href={`/posts/${post.slug!}`}>
               <a className="no-underline hover:underline font-semibold text-gray-900 dark:text-neutral">{post.title}</a>
             </Link>
           </div>
