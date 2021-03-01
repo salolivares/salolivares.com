@@ -2,7 +2,7 @@
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/react';
 import Container from '../components/Container';
-import ContentSection from '../components/ContentSection';
+import Content from '../components/Content';
 import FAV_THINGS from '../utils/favs';
 import { shuffleArray } from '../utils/utils';
 import { Socials } from '../components/Socials';
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <Container>
       <div className="max-w-2xl mx-auto mb-16">
-        <ContentSection>
+        <Content>
           <PageHeader>Hi, I&apos;m Sal.</PageHeader>
           <p>
             I&apos;m a software engineer trying his best to document his experiences. You can usually find me
@@ -31,7 +31,7 @@ export default function Home() {
               }}
             />
           </div>
-        </ContentSection>
+        </Content>
         <Socials />
       </div>
     </Container>
