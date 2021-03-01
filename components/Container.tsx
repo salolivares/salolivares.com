@@ -63,7 +63,6 @@ const Container = (props: WrapperProps) => {
         {(meta as any).date && <meta property="article:published_time" content={(meta as any).date} />}
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
       </Head>
       <div className="px-8">
         <nav className="flex justify-between items-center w-full max-w-2xl mx-auto my-8 md:my-14">
