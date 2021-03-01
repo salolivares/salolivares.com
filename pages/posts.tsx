@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
-import { getAllPosts } from '../api/posts';
+import { getAllPosts } from '../api/mdx';
 import Container from '../components/Container';
 import PageHeader from '../components/PageHeader';
 import PostDate from '../components/PostDate';
