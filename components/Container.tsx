@@ -69,11 +69,13 @@ const Container = (props: WrapperProps) => {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          <Link href="/">
-            <a className="overflow-y-hidden h-6 font-bold no-underline flex-grow transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400">
-              sal olivares
-            </a>
-          </Link>
+          <div className="flex-grow">
+            <Link href="/">
+              <a className="overflow-y-hidden h-6 font-bold transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400">
+                sal olivares
+              </a>
+            </Link>
+          </div>
           <ul className="flex sm:space-x-6 space-x-3">
             {navLinks.map((navLink) => (
               <li key={navLink.link}>
@@ -85,7 +87,7 @@ const Container = (props: WrapperProps) => {
               </li>
             ))}
           </ul>
-          <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-2" />
+          <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-4" />
         </nav>
         <main id="skip" className="flex flex-col justify-center">
           {children}

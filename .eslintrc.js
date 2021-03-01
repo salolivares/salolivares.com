@@ -32,7 +32,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/restrict-template-expressions', 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
