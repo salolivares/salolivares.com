@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 import fs from 'fs';
 import matter from 'gray-matter';
-import mdxPrism from 'mdx-prism';
 import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -40,7 +39,7 @@ export async function getFileBySlug(
     components: MDXComponents,
     mdxOptions: {
       remarkPlugins: [require('remark-autolink-headings'), require('remark-slug'), require('remark-code-titles')],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [require('mdx-prism')],
     },
   });
 
