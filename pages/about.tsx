@@ -1,11 +1,11 @@
+import Image from 'next/image';
 import Container from '../components/Container';
 import ContentSection from '../components/ContentSection';
-import Image from '../components/Image';
 
 const AboutPage = () => (
   <Container title="About | Sal Olivares">
     <ContentSection>
-      <Image alt="Sal Olivares" src="/pictures/me.jpg" />
+      <Image alt="Sal Olivares" src="/images/pictures/me.jpg" layout="fill" />
       <p>My name is Sal.</p>
       <p>
         I&apos;m a software engineer with a passion for technology and photography. I love learning about the bleeding
