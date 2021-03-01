@@ -23,7 +23,7 @@ module.exports = {
         },
         dark: {
             css: {
-                color: '#d8d4cf',
+                color: theme('colors.gray.300'),
                 a: {
                   color: theme('colors.blue.400'),
                   '&:hover': {
@@ -32,7 +32,7 @@ module.exports = {
                   code: { color: theme('colors.blue.400') }
                 },
                 'h1,h2,h3,h4,h5,h6': {
-                    color: '#d8d4cf',
+                    color: theme('colors.gray.100'),
                 },
                 strong: {
                     color: theme('colors.gray.300'),

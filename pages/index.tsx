@@ -13,7 +13,7 @@ export default function Home() {
     <Container>
       <div className="max-w-2xl mx-auto mb-16">
         <Content>
-          <PageHeader>Hi, I&apos;m Sal.</PageHeader>
+          <h1>Hi, I&apos;m Sal.</h1>
           <p>
             I&apos;m a software engineer trying his best to document his experiences. You can usually find me
             evangelizing others to the wonders of TypeScript.

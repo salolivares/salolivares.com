@@ -11,3 +11,6 @@ Repo for my personal site.
 
 ## deployment
 Vercel automatically takes care of production deployments and preview deployments.
+
+## credits
+* [Lee Robinson](https://leerob.io/) for mdx architecture, fonts, and code syntax css

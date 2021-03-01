@@ -71,7 +71,7 @@ const Container = (props: WrapperProps) => {
           </a>
           <div className="flex-grow">
             <Link href="/">
-              <a className="overflow-y-hidden h-6 font-bold transition-colors duration-300 ease-in-out text-black dark:text-neutral hover:text-gray-700 dark:hover:text-gray-400">
+              <a className="overflow-y-hidden h-6 font-bold transition-colors duration-300 ease-in-out text-black dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-400">
                 sal olivares
               </a>
             </Link>
@@ -80,7 +80,7 @@ const Container = (props: WrapperProps) => {
             {navLinks.map((navLink) => (
               <li key={navLink.link}>
                 <Link href={navLink.link}>
-                  <a className="text-black dark:text-neutral transition duration-300 ease-in-out no-underline">
+                  <a className="text-black dark:text-gray-100 transition duration-300 ease-in-out no-underline">
                     {navLink.name}
                   </a>
                 </Link>
