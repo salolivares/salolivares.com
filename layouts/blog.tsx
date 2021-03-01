@@ -1,9 +1,15 @@
 import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 import Container from '../components/Container';
-import { Frontmatter } from '../api/mdx';
+import { EnhancedFrontmatter } from '../api/mdx';
 
-export default function BlogLayout({ children, frontmatter }: { children: React.ReactNode; frontmatter: Frontmatter }) {
+export default function BlogLayout({
+  children,
+  frontmatter,
+}: {
+  children: React.ReactNode;
+  frontmatter: EnhancedFrontmatter;
+}) {
   return (
     <Container>
       <article>
