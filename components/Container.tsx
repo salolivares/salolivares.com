@@ -62,36 +62,35 @@ const Container = (props: WrapperProps) => {
         <meta name="twitter:image" content={meta.image} />
         {(meta as any).date && <meta property="article:published_time" content={(meta as any).date} />}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width" />
       </Head>
-      <div className="px-8">
-        <nav className="flex justify-between items-center w-full max-w-2xl mx-auto my-8 md:my-14">
-          <a href="#skip" className="sr-only focus:not-sr-only">
-            Skip to content
-          </a>
-          <div className="flex-grow">
-            <Link href="/">
-              <a className="overflow-y-hidden h-6 font-bold transition-colors duration-300 ease-in-out hover:text-gray-700 dark:hover:text-gray-400">
-                sal olivares
-              </a>
-            </Link>
-          </div>
-          <ul className="flex sm:space-x-6 space-x-3">
-            {navLinks.map((navLink) => (
-              <li key={navLink.link}>
-                <Link href={navLink.link}>
-                  <a className="transition duration-300 ease-in-out no-underline">{navLink.name}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-4" />
-        </nav>
-        <main id="skip" className="flex flex-col justify-center">
-          {children}
-          <Footer />
-        </main>
-      </div>
+      <nav className="flex justify-between items-center w-full mx-auto max-w-4xl p-8 my-0 md:my-8">
+        <a href="#skip" className="sr-only focus:not-sr-only">
+          Skip to content
+        </a>
+        <div className="flex-grow">
+          <Link href="/">
+            <a className="font-bold transition-colors duration-300 ease-in-out hover:text-gray-700 dark:hover:text-gray-400">
+              <div className="inline">sal</div>
+              <div className="xsm:inline hidden"> olivares</div>
+            </a>
+          </Link>
+        </div>
+        <ul className="flex sm:space-x-6 space-x-3 flex-shrink">
+          {navLinks.map((navLink) => (
+            <li key={navLink.link}>
+              <Link href={navLink.link}>
+                <a className="transition duration-300 ease-in-out no-underline">{navLink.name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-3" />
+      </nav>
+      <main id="skip" className="flex flex-col justify-center px-8">
+        {children}
+        <Footer />
+      </main>
     </>
   );
 };

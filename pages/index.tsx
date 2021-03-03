@@ -10,7 +10,7 @@ import { Socials } from '../components/Socials';
 export default function Home() {
   return (
     <Container>
-      <div className="max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <Content>
           <h1>Hi, I&apos;m Sal.</h1>
           <p>

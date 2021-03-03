@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      screens:{
+        'xsm': '420px'
+      },
       typography: (theme) => ({
         DEFAULT: {
             css: {
