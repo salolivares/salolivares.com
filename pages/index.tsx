@@ -6,7 +6,6 @@ import Content from '../components/Content';
 import FAV_THINGS from '../utils/favs';
 import { shuffleArray } from '../utils/utils';
 import { Socials } from '../components/Socials';
-import PageHeader from '../components/PageHeader';
 
 export default function Home() {
   return (
