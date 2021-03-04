@@ -1,8 +1,4 @@
-export type PhotoAlbum = { url: string; title: string; country?: string; year: string; images: AlbumImage[] };
-type AlbumImage = { id: string; name: string; camera: string; description?: string };
-type Photo = AlbumImage & { albumUrl: string; albumTitle: string };
-
-export const PHOTO_ALBUMS: PhotoAlbum[] = [
+export default [
   {
     url: '2019-chicago',
     title: 'Chicago',
@@ -35,32 +31,25 @@ export const PHOTO_ALBUMS: PhotoAlbum[] = [
       { id: 'pika_hat', name: 'Pika pika', camera: 'Canon EOS Rebel T3i' },
     ],
   },
-  { url: '2017-japan', title: 'Tokyo', country: 'Japan', year: '2017', images: [] },
+  {
+    url: '2017-japan',
+    title: 'Tokyo',
+    country: 'Japan',
+    year: '2017',
+    images: [
+      { id: 'skytree', name: 'Tokyo Skytree', camera: 'Canon EOS Rebel T3i' },
+      { id: 'asahi-flag', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'airbnb', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'flower', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'sky', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'senso-ji', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'lanterns', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'olympics', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'subway', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'tokyo', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'tree', name: '', camera: 'Canon EOS Rebel T3i' },
+      { id: 'vending-machines', name: '', camera: 'Canon EOS Rebel T3i' },
+    ],
+  },
   { url: '2017-chikis', title: 'Chikis', year: '2017', images: [] },
 ];
-
-export const getAlbum = (albumUrl: string) => PHOTO_ALBUMS.find((album) => album.url === albumUrl);
-
-export const getAllAlbums = () => PHOTO_ALBUMS;
-
-export const getAllPhotos = (): Photo[] => {
-  const photos: Photo[] = [];
-
-  PHOTO_ALBUMS.forEach((album) => {
-    album.images.forEach((image) => {
-      photos.push({ ...image, albumUrl: album.url, albumTitle: album.title });
-    });
-  });
-
-  return photos;
-};
-
-export const getPhoto = (albumUrl: string, photoId: string): Photo => {
-  const album = getAlbum(albumUrl);
-  if (!album) throw new Error('Album not found');
-
-  const photo = album.images.find((image) => image.id === photoId);
-  if (!photo) throw new Error('Photo not found');
-
-  return { ...photo, albumUrl: album.url, albumTitle: album.title };
-};

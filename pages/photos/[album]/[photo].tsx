@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { getAllPhotos, getPhoto } from '../../../api/albums';
+import { getAllPhotos, getPhoto } from '../../../lib/albums';
 import Container from '../../../components/Container';
 import RemoteImage from '../../../components/RemoteImage';
 

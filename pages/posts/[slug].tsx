@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
-import { getFileBySlug, getFiles } from '../../api/mdx';
+import { getFileBySlug, getFiles } from '../../lib/mdx';
 import MDXComponents from '../../components/MDXComponents';
 import BlogLayout from '../../layouts/blog';
 

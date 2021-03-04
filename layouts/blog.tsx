@@ -1,6 +1,6 @@
 /* eslint-disable  */
 import { format, parseISO } from 'date-fns';
-import { EnhancedFrontmatter } from '../api/mdx';
+import { EnhancedFrontmatter } from '../lib/mdx';
 import Container from '../components/Container';
 
 export default function BlogLayout({

@@ -1,4 +1,4 @@
-import { PHOTO_ALBUMS } from '../api/albums';
+import PHOTO_ALBUMS from '../data/photo-albums';
 import Container from '../components/Container';
 import PageHeader from '../components/PageHeader';
 import PhotoAlbumListItem from '../components/PhotoAlbumListItem';
