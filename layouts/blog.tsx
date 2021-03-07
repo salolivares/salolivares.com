@@ -11,7 +11,12 @@ export default function BlogLayout({
   frontmatter: EnhancedFrontmatter;
 }) {
   return (
-    <Container title={`${frontmatter.title} | Sal Olivares`} description={frontmatter.summary} type="article">
+    <Container 
+      title={`${frontmatter.title} | Sal Olivares`} 
+      description={frontmatter.summary} 
+      type="article" 
+      date={frontmatter.publishedOn && new Date(frontmatter.publishedOn).toISOString()}
+    >
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4">
           {frontmatter.title}
