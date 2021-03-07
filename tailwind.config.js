@@ -46,6 +46,12 @@ module.exports = {
                 figcaption: {
                     color: theme('colors.gray.500'),
                 },
+                hr: { borderColor: theme('colors.gray.700') },
+                blockquote: {
+                  borderLeftColor: theme('colors.gray.700'),
+                  color: theme('colors.gray.300')
+                },
+
             },
         },
       }),
