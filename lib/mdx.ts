@@ -11,6 +11,7 @@ export interface Frontmatter {
   slug: string | null;
   title?: string;
   publishedOn?: string;
+  updatedOn?: string;
   summary?: string;
   [key: string]: any;
 }
