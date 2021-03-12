@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
-import { getAlbum, getAllAlbums } from '../../api/albums';
-import Wrapper from '../../components/layout/Wrapper';
+import { getAlbum, getAllAlbums } from '../../lib/albums';
+import Container from '../../components/Container';
 import RemoteImage from '../../components/RemoteImage';
 
 // https://github.com/vercel/next.js/discussions/17600
@@ -29,14 +29,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Wrapper title={`${title} ${year} | Sal Olivares`} photoMode>
-    <div className="flex flex-col items-center">
+const Album = ({
+  title,
+  year,
+  url: albumUrl,
+  images,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
+  <Container title={`${title} ${year} | Sal Olivares`}>
+    <div className="flex flex-col mx-auto">
       {images.length !== 0 ? (
         images.map((image) => (
-          <div key={image.id} className="min-h-screen flex items-center">
+          <div
+            key={image.id}
+            className="max-w-screen-xl min-h-screen flex items-center flex-shrink m-4"
+          >
             <Link href={`${albumUrl}/${image.id}`}>
-              <a className="max-w-screen-xl">
+              <a>
                 <RemoteImage url={`${albumUrl}/${image.id}`} />
               </a>
             </Link>
@@ -48,7 +56,7 @@ const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<t
         </div>
       )}
     </div>
-  </Wrapper>
+  </Container>
 );
 
 export default Album;

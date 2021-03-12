@@ -9,8 +9,17 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
-        <body className="dark:bg-neutral dark:text-neutral">
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/inter-var-latin.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        </Head>
+        <body className="dark:bg-neutral dark:text-gray-100">
           <Main />
           <NextScript />
         </body>

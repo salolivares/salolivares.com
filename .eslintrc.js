@@ -28,8 +28,11 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'import/prefer-default-export':'off',
+    '@typescript-eslint/no-unsafe-assignment':'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
