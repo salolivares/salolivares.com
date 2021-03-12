@@ -39,7 +39,11 @@ export async function getFileBySlug(
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     mdxOptions: {
-      remarkPlugins: [require('remark-autolink-headings'), require('remark-slug'), require('remark-code-titles')],
+      remarkPlugins: [
+        require('remark-autolink-headings'),
+        require('remark-slug'),
+        require('remark-code-titles'),
+      ],
       rehypePlugins: [require('mdx-prism')],
     },
   });

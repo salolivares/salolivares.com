@@ -25,7 +25,10 @@ export function getStaticPaths() {
   };
 }
 
-export default function Blog({ mdxSource, frontmatter }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Blog({
+  mdxSource,
+  frontmatter,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const content = hydrate(mdxSource, { components: MDXComponents });
 
   return <BlogLayout frontmatter={frontmatter}>{content}</BlogLayout>;

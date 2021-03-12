@@ -60,7 +60,9 @@ const Container = (props: WrapperProps) => {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        {(meta as any).date && <meta property="article:published_time" content={(meta as any).date} />}
+        {(meta as any).date && (
+          <meta property="article:published_time" content={(meta as any).date} />
+        )}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width" />
       </Head>

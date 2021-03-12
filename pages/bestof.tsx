@@ -10,7 +10,10 @@ export async function getStaticProps() {
   return { props: bestof };
 }
 
-export default function BestOf({ mdxSource, frontmatter }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BestOf({
+  mdxSource,
+  frontmatter,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const content = hydrate(mdxSource, { components: MDXComponents });
 
   return <BestOfLayout frontmatter={frontmatter}>{content}</BestOfLayout>;

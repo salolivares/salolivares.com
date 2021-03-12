@@ -1,6 +1,12 @@
 import PHOTO_ALBUMS from '../data/photo-albums';
 
-export type PhotoAlbum = { url: string; title: string; country?: string; year: string; images: AlbumImage[] };
+export type PhotoAlbum = {
+  url: string;
+  title: string;
+  country?: string;
+  year: string;
+  images: AlbumImage[];
+};
 type AlbumImage = { id: string; name: string; camera: string; description?: string };
 type Photo = AlbumImage & { albumUrl: string; albumTitle: string };
 

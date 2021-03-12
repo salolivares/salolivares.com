@@ -14,8 +14,8 @@ export default function Home() {
         <Content>
           <h1>Hi, I&apos;m Sal.</h1>
           <p>
-            I&apos;m a software engineer trying his best to document his experiences. You can usually find me
-            evangelizing others to the wonders of TypeScript.
+            I&apos;m a software engineer trying his best to document his experiences. You can
+            usually find me evangelizing others to the wonders of TypeScript.
           </p>
           <div className="h-16">
             <p className="inline">I also enjoy </p>

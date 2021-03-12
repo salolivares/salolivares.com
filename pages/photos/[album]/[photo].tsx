@@ -23,7 +23,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Photo = ({ id, name, camera, albumUrl, albumTitle }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Photo = ({
+  id,
+  name,
+  camera,
+  albumUrl,
+  albumTitle,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Container title={`${name} - ${albumTitle} | Sal Olivares`} photoMode>
     <div className="min-h-screen flex items-center justify-center">
       <RemoteImage className="max-w-screen-xl" url={`${albumUrl}/${id}`} />

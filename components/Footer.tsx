@@ -2,7 +2,12 @@ import Link from 'next/link';
 import NowPlaying from './NowPlaying';
 
 const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a className="text-gray-500 hover:text-gray-600 transition" target="_blank" rel="noopener noreferrer" href={href}>
+  <a
+    className="text-gray-500 hover:text-gray-600 transition"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={href}
+  >
     {children}
   </a>
 );

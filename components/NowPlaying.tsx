@@ -29,7 +29,9 @@ export default function NowPlaying() {
           <p className="text-gray-800 dark:text-gray-200 font-medium">Not Playing</p>
         )}
         <span className="mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">{' – '}</span>
-        <p className="text-gray-500 dark:text-gray-300 max-w-max truncate">{data?.artist ?? 'Spotify'}</p>
+        <p className="text-gray-500 dark:text-gray-300 max-w-max truncate">
+          {data?.artist ?? 'Spotify'}
+        </p>
       </div>
     </div>
   );

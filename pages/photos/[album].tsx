@@ -29,12 +29,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Album = ({ title, year, url: albumUrl, images }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Album = ({
+  title,
+  year,
+  url: albumUrl,
+  images,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Container title={`${title} ${year} | Sal Olivares`}>
     <div className="flex flex-col mx-auto">
       {images.length !== 0 ? (
         images.map((image) => (
-          <div key={image.id} className="max-w-screen-xl min-h-screen flex items-center flex-shrink m-4">
+          <div
+            key={image.id}
+            className="max-w-screen-xl min-h-screen flex items-center flex-shrink m-4"
+          >
             <Link href={`${albumUrl}/${image.id}`}>
               <a>
                 <RemoteImage url={`${albumUrl}/${image.id}`} />

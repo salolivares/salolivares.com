@@ -7,7 +7,11 @@ interface ThemeToggleButtonProps {
   className?: string;
 }
 
-export const ThemeToggleButton = ({ switchTheme, theme: passedInTheme, className = '' }: ThemeToggleButtonProps) => {
+export const ThemeToggleButton = ({
+  switchTheme,
+  theme: passedInTheme,
+  className = '',
+}: ThemeToggleButtonProps) => {
   let theme = passedInTheme;
   if (passedInTheme == null || passedInTheme === 'null') theme = 'light';
 
