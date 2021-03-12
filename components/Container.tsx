@@ -70,7 +70,7 @@ const Container = (props: WrapperProps) => {
         </a>
         <div className="flex-grow">
           <Link href="/">
-            <a className="font-bold transition-colors duration-300 ease-in-out hover:text-gray-700 dark:hover:text-gray-400">
+            <a className="font-bold transition-colors duration-300 ease-in-out text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400">
               <div className="inline">sal</div>
               <div className="xsm:inline hidden"> olivares</div>
             </a>
@@ -80,7 +80,9 @@ const Container = (props: WrapperProps) => {
           {navLinks.map((navLink) => (
             <li key={navLink.link}>
               <Link href={navLink.link}>
-                <a className="transition duration-300 ease-in-out no-underline">{navLink.name}</a>
+                <a className="transition duration-300 ease-in-out no-underline text-gray-900 dark:text-gray-100">
+                  {navLink.name}
+                </a>
               </Link>
             </li>
           ))}

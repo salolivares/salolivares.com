@@ -11,6 +11,12 @@ export default async (_: any, res: NextApiResponse) => {
   }
 
   const song = await response.json();
+
+  if (song.item === null) {
+    // Probably a podcast or something else
+    return res.status(200).json({ isPlaying: false });
+  }
+
   const isPlaying = song.is_playing;
   const title = song.item.name;
   const artist = song.item.artists.map((_artist: { name: any }) => _artist.name).join(', ');
