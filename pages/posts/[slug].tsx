@@ -6,13 +6,13 @@ import BlogLayout from '../../layouts/blog';
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const slug = params?.slug as string;
-  const post = await getFileBySlug('blog', slug);
+  const post = await getFileBySlug('posts', slug);
 
   return { props: post };
 }
 
 export function getStaticPaths() {
-  const posts = getFiles('blog');
+  const posts = getFiles('posts');
   const paths = posts.map((post) => ({
     params: {
       slug: post.replace(/\.mdx/, ''),

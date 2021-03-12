@@ -7,7 +7,7 @@ import PostDate from '../components/PostDate';
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export const getStaticProps = async () => {
-  const posts = getAllFilesFrontMatter('blog');
+  const posts = getAllFilesFrontMatter('posts');
   const sortedPosts = posts.sort((a, b) => +new Date(b.publishedOn!) - +new Date(a.publishedOn!));
 
   return {
