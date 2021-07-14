@@ -1,4 +1,4 @@
-const FAV_THINGS = [
+export default [
   'taking and editing photos',
   'longboarding',
   'fixing node installations',
@@ -17,5 +17,3 @@ const FAV_THINGS = [
   'freshly baked cookies',
   'minimalist design',
 ];
-
-export default FAV_THINGS;

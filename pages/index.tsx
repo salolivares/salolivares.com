@@ -3,7 +3,7 @@
 import Typewriter from 'typewriter-effect/dist/react';
 import Container from '../components/Container';
 import Content from '../components/Content';
-import FAV_THINGS from '../utils/favs';
+import FAVE_THINGS from '../data/fave-things';
 import { shuffleArray } from '../utils/utils';
 import { Socials } from '../components/Socials';
 
@@ -21,7 +21,7 @@ export default function Home() {
             <p className="inline">I also enjoy </p>
             <Typewriter
               options={{
-                strings: shuffleArray(FAV_THINGS.map((h) => `${h}.`)),
+                strings: shuffleArray(FAVE_THINGS.map((h) => `${h}.`)),
                 autoStart: true,
                 loop: true,
                 skipAddStyles: true,

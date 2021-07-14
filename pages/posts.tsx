@@ -23,7 +23,7 @@ const PostsPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) =>
       <PageHeader>Posts</PageHeader>
       <div className="divide-y dark:divide-opacity-50 dark:divide-gray-400">
         {posts.map((post) => (
-          <div key={`${post.slug!}`} className="flex flex-col lg:flex-row lg:items-center py-2">
+          <div key={`${post.slug!}`} className="flex flex-col lg:flex-row lg:items-center py-4">
             <div className="text-gray-500 dark:text-gray-400 text-xs font-light tracking-wide w-40">
               <PostDate dateString={post.publishedOn!} />
             </div>
