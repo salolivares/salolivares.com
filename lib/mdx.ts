@@ -7,6 +7,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrism from 'rehype-prism-plus';
 
 export interface Frontmatter {
   slug: string | null;
@@ -39,8 +41,7 @@ export async function getFileBySlug(
   const { data, content } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [require('remark-code-titles')],
-      rehypePlugins: [require('mdx-prism'), rehypeAutolinkHeadings, rehypeSlug],
+      rehypePlugins: [rehypePrism, rehypeAutolinkHeadings, rehypeSlug, rehypeCodeTitles],
     },
   });
 
