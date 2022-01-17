@@ -3,9 +3,12 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
-import renderToString from 'next-mdx-remote/render-to-string';
-import { MdxRemote } from 'next-mdx-remote/types';
-import MDXComponents from '../components/MDXComponents';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrism from 'rehype-prism-plus';
 
 export interface Frontmatter {
   slug: string | null;
@@ -30,21 +33,15 @@ export function getFiles(type: string) {
 export async function getFileBySlug(
   type: string,
   slug?: string,
-): Promise<{ mdxSource: MdxRemote.Source; frontmatter: EnhancedFrontmatter }> {
+): Promise<{ mdxSource: MDXRemoteSerializeResult; frontmatter: EnhancedFrontmatter }> {
   const source = slug
     ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
+  const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [
-        require('remark-autolink-headings'),
-        require('remark-slug'),
-        require('remark-code-titles'),
-      ],
-      rehypePlugins: [require('mdx-prism')],
+      rehypePlugins: [rehypePrism, rehypeAutolinkHeadings, rehypeSlug, rehypeCodeTitles],
     },
   });
 

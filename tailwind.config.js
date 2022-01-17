@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './layouts/**/*.{js,ts,jsx,tsx}'],
+  content: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './layouts/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -64,11 +64,6 @@ module.exports = {
       ...theme('colors'),
       'neutral':'#d8d4cf'
     })
-  },
-  variants: {
-    extend:{
-      typography: ['dark']
-    }
   },
   plugins: [require("@tailwindcss/typography")],
 }
