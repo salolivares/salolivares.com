@@ -1,46 +1,50 @@
 /* eslint-disable react/require-default-props */
-import React, { ReactNode, useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { ThemeToggleButton } from './ThemeToggleButton';
-import Footer from './Footer';
+import React, { ReactNode, useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { ThemeToggleButton } from './ThemeToggleButton'
+import Footer from './Footer'
 
 type WrapperProps = {
-  children?: ReactNode;
-  [index: string]: any;
-};
+  children?: ReactNode
+  title?: string
+  description?: string
+  type?: string
+  image?: string
+  [index: string]: any
+}
 
 const navLinks = [
   { link: '/posts', name: 'Posts' },
   { link: '/projects', name: 'Projects' },
-  { link: '/photos', name: 'Photos' },
-];
+  { link: '/photos', name: 'Photos' }
+]
 
 const Container = (props: WrapperProps) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
 
   const switchTheme = () => {
     if (isMounted) {
-      setTheme(theme === 'light' ? 'dark' : 'light');
+      setTheme(theme === 'light' ? 'dark' : 'light')
     }
-  };
+  }
 
-  const { children, ...customMeta } = props;
-  const router = useRouter();
+  const { children, ...customMeta } = props
+  const router = useRouter()
   const meta = {
     title: 'Sal Olivares',
     description: 'Software Engineer and TypeScript enthusiast',
-    image: '',
+    image: '/static/images/twitter_banner.png',
     type: 'website',
-    ...customMeta,
-  };
+    ...customMeta
+  }
 
   return (
     <>
@@ -96,7 +100,7 @@ const Container = (props: WrapperProps) => {
         <Footer />
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
