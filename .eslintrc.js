@@ -6,8 +6,8 @@ module.exports = {
     sourceType: 'module', // Allows for the use of imports
     project: ['./tsconfig.json'],
     ecmaFeatures: {
-      jsx: true, // Allows for the parsing of JSX
-    },
+      jsx: true // Allows for the parsing of JSX
+    }
   },
   plugins: ['@typescript-eslint'],
   extends: [
@@ -18,7 +18,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    'prettier'
   ],
   rules: {
     'react/jsx-props-no-spreading': 'off',
@@ -35,8 +35,8 @@ module.exports = {
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
-      },
-    ],
-  },
-};
+        aspects: ['invalidHref', 'preferButton']
+      }
+    ]
+  }
+}

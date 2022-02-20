@@ -1,11 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import Typewriter from 'typewriter-effect/dist/react';
-import Container from '../components/Container';
-import Content from '../components/Content';
-import FAVE_THINGS from '../data/fave-things';
-import { shuffleArray } from '../utils/utils';
-import { Socials } from '../components/Socials';
+import Typewriter from 'typewriter-effect/dist/react'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import FAV_THINGS from '../data/fav-things'
+import { shuffleArray } from '../utils/utils'
+import { Socials } from '../components/Socials'
 
 export default function Home() {
   return (
@@ -21,12 +21,12 @@ export default function Home() {
             <p className="inline">I also enjoy </p>
             <Typewriter
               options={{
-                strings: shuffleArray(FAVE_THINGS.map((h) => `${h}.`)),
+                strings: shuffleArray(FAV_THINGS.map((h) => `${h}.`)),
                 autoStart: true,
                 loop: true,
                 skipAddStyles: true,
                 delay: 50,
-                deleteSpeed: 30,
+                deleteSpeed: 30
               }}
             />
           </div>
@@ -34,5 +34,5 @@ export default function Home() {
         <Socials />
       </div>
     </Container>
-  );
+  )
 }
