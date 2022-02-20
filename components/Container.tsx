@@ -1,46 +1,49 @@
-/* eslint-disable react/require-default-props */
-import React, { ReactNode, useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { ThemeToggleButton } from './ThemeToggleButton';
-import Footer from './Footer';
+import React, { ReactNode, useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { ThemeToggleButton } from './ThemeToggleButton'
+import Footer from './Footer'
+import { BASE_URL } from '../lib/config'
 
 type WrapperProps = {
-  children?: ReactNode;
-  [index: string]: any;
-};
+  children?: ReactNode
+  title?: string
+  description?: string
+  type?: string
+  image?: string
+  [index: string]: any
+}
 
 const navLinks = [
   { link: '/posts', name: 'Posts' },
   { link: '/projects', name: 'Projects' },
-  { link: '/photos', name: 'Photos' },
-];
+  { link: '/photos', name: 'Photos' }
+]
 
 const Container = (props: WrapperProps) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
 
   const switchTheme = () => {
     if (isMounted) {
-      setTheme(theme === 'light' ? 'dark' : 'light');
+      setTheme(theme === 'light' ? 'dark' : 'light')
     }
-  };
+  }
 
-  const { children, ...customMeta } = props;
-  const router = useRouter();
+  const { children, ...customMeta } = props
+  const router = useRouter()
   const meta = {
     title: 'Sal Olivares',
     description: 'Software Engineer and TypeScript enthusiast',
-    image: '',
     type: 'website',
-    ...customMeta,
-  };
+    ...customMeta
+  }
 
   return (
     <>
@@ -54,12 +57,18 @@ const Container = (props: WrapperProps) => {
         <meta property="og:site_name" content="Sal Olivares" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={meta.image} />
+        <meta
+          property="og:image"
+          content={meta.image ?? `${router.basePath}/static/images/seo_banner.png`}
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@0x102c" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
+        <meta
+          name="twitter:image"
+          content={meta.image ?? `${BASE_URL}/static/images/twitter_banner.png`}
+        />
         {(meta as any).date && (
           <meta property="article:published_time" content={(meta as any).date} />
         )}
@@ -96,7 +105,7 @@ const Container = (props: WrapperProps) => {
         <Footer />
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
