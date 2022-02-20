@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React, { ReactNode, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -6,6 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ThemeToggleButton } from './ThemeToggleButton'
 import Footer from './Footer'
+import { BASE_URL } from '../lib/config'
 
 type WrapperProps = {
   children?: ReactNode
@@ -67,7 +67,7 @@ const Container = (props: WrapperProps) => {
         <meta name="twitter:description" content={meta.description} />
         <meta
           name="twitter:image"
-          content={meta.image ?? `${router.basePath}/static/images/twitter_banner.png`}
+          content={meta.image ?? `${BASE_URL}/static/images/twitter_banner.png`}
         />
         {(meta as any).date && (
           <meta property="article:published_time" content={(meta as any).date} />
