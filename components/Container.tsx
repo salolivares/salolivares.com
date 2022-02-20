@@ -41,6 +41,7 @@ const Container = (props: WrapperProps) => {
   const meta = {
     title: 'Sal Olivares',
     description: 'Software Engineer and TypeScript enthusiast',
+    image: `${BASE_URL}/static/images/seo_banner.png`,
     type: 'website',
     ...customMeta
   }
@@ -57,18 +58,12 @@ const Container = (props: WrapperProps) => {
         <meta property="og:site_name" content="Sal Olivares" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-        <meta
-          property="og:image"
-          content={meta.image ?? `${router.basePath}/static/images/seo_banner.png`}
-        />
+        <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@0x102c" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta
-          name="twitter:image"
-          content={meta.image ?? `${BASE_URL}/static/images/twitter_banner.png`}
-        />
+        <meta name="twitter:image" content={meta.image} />
         {(meta as any).date && (
           <meta property="article:published_time" content={(meta as any).date} />
         )}
