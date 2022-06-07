@@ -11,32 +11,17 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   extends: [
-    'airbnb-typescript',
-    'airbnb/hooks',
+    'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
     'prettier'
   ],
   rules: {
-    'react/jsx-props-no-spreading': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/restrict-template-expressions': 'off',
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton']
-      }
-    ]
+    '@typescript-eslint/restrict-template-expressions': 'off'
   }
 }

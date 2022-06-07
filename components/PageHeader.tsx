@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 interface PageHeaderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
-const PageHeader = ({ children }: PageHeaderProps) => (
-  <h1 className="font-bold text-3xl md:text-4xl tracking-tight mb-4">{children}</h1>
-);
+function PageHeader({ children }: PageHeaderProps) {
+  return <h1 className="font-bold text-3xl md:text-4xl tracking-tight mb-4">{children}</h1>
+}
 
-export default PageHeader;
+export default PageHeader

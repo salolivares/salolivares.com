@@ -13,7 +13,7 @@ type WrapperProps = {
   description?: string
   type?: string
   image?: string
-  [index: string]: any
+  [index: string]: unknown
 }
 
 const navLinks = [

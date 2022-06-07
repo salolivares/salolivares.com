@@ -1,16 +1,18 @@
-import Link from 'next/link';
-import NowPlaying from './NowPlaying';
+import Link from 'next/link'
+import NowPlaying from './NowPlaying'
 
-const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    className="text-gray-500 hover:text-gray-600 transition"
-    target="_blank"
-    rel="noopener noreferrer"
-    href={href}
-  >
-    {children}
-  </a>
-);
+function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      className="text-gray-500 hover:text-gray-600 transition"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={href}
+    >
+      {children}
+    </a>
+  )
+}
 
 export default function Footer() {
   return (
@@ -43,5 +45,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
