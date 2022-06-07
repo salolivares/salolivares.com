@@ -1,9 +1,8 @@
 import { Music, PauseCircle } from 'react-feather'
 import useSWR from 'swr'
-
 import { fetcher } from '../lib/fetcher'
 
-export default function NowPlaying() {
+export function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher)
 
   const Icon = data?.isPlaying ? (

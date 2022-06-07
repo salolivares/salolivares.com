@@ -1,14 +1,13 @@
-/* eslint-disable react/require-default-props */
 import Link from 'next/link'
 
-interface PhotoAlbumListItemProps {
+interface Props {
   url: string
   title: string
   country?: string
   year: string
 }
 
-function PhotoAlbumListItem({ url, title, country, year }: PhotoAlbumListItemProps) {
+export function PhotoAlbumListItem({ url, title, country, year }: Props) {
   return (
     <Link href={url}>
       <a className="no-underline flex flex-col items-center justify-center h-32 py-2 group transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:bg-opacity-25">
@@ -20,5 +19,3 @@ function PhotoAlbumListItem({ url, title, country, year }: PhotoAlbumListItemPro
     </Link>
   )
 }
-
-export default PhotoAlbumListItem

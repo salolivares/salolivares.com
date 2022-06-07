@@ -1,8 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable global-require */
-interface RemoteImageProps {
+interface Props {
   url: string
   alt?: string
   className?: string
@@ -10,7 +7,7 @@ interface RemoteImageProps {
 
 const HOST = 'https://photos.salolivares.com'
 
-function RemoteImage({ url, alt = '', className = '' }: RemoteImageProps) {
+export function RemoteImage({ url, alt = '', className = '' }: Props) {
   return (
     <picture className={className}>
       <source
@@ -25,5 +22,3 @@ function RemoteImage({ url, alt = '', className = '' }: RemoteImageProps) {
     </picture>
   )
 }
-
-export default RemoteImage

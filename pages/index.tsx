@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/react'
-import Container from '../components/Container'
-import Content from '../components/Content'
+import { Container } from '../components/Container'
+import { Content } from '../components/Content'
 import FAV_THINGS from '../data/fav-things'
 import { shuffleArray } from '../utils/utils'
 import { Socials } from '../components/Socials'

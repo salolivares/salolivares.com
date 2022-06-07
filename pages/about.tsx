@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Container from '../components/Container'
-import Content from '../components/Content'
+import { Container } from '../components/Container'
+import { Content } from '../components/Content'
 
 const ASPECT_RATIO = 2048 / 1365
 

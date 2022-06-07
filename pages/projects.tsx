@@ -1,5 +1,5 @@
-import Container from '../components/Container'
-import Content from '../components/Content'
+import { Container } from '../components/Container'
+import { Content } from '../components/Content'
 
 export default function ProjectsPage() {
   return (

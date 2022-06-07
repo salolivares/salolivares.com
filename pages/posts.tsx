@@ -2,9 +2,9 @@
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { getAllFilesFrontMatter } from '../lib/mdx'
-import Container from '../components/Container'
-import PageHeader from '../components/PageHeader'
-import PostDate from '../components/PostDate'
+import { Container } from '../components/Container'
+import { PageHeader } from '../components/PageHeader'
+import { PostDate } from '../components/PostDate'
 
 export const getStaticProps = () => {
   const posts = getAllFilesFrontMatter('posts')

@@ -1,7 +1,7 @@
 import PHOTO_ALBUMS from '../data/photo-albums'
-import Container from '../components/Container'
-import PageHeader from '../components/PageHeader'
-import PhotoAlbumListItem from '../components/PhotoAlbumListItem'
+import { Container } from '../components/Container'
+import { PageHeader } from '../components/PageHeader'
+import { PhotoAlbumListItem } from '../components/PhotoAlbumListItem'
 
 function PhotosPage() {
   return (

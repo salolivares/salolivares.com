@@ -1,9 +1,8 @@
-/* eslint-disable  */
 import { format, parseISO } from 'date-fns'
 import { EnhancedFrontmatter } from '../lib/mdx'
-import Container from '../components/Container'
+import { Container } from '../components/Container'
 
-export default function BlogLayout({
+export function BlogLayout({
   children,
   frontmatter
 }: {

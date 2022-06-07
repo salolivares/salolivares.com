@@ -4,10 +4,10 @@ import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ThemeToggleButton } from './ThemeToggleButton'
-import Footer from './Footer'
+import { Footer } from './Footer'
 import { BASE_URL } from '../lib/config'
 
-type WrapperProps = {
+interface Props {
   children?: ReactNode
   title?: string
   description?: string
@@ -22,7 +22,7 @@ const navLinks = [
   { link: '/photos', name: 'Photos' }
 ]
 
-const Container = (props: WrapperProps) => {
+export function Container(props: Props) {
   const [isMounted, setIsMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
@@ -102,5 +102,3 @@ const Container = (props: WrapperProps) => {
     </>
   )
 }
-
-export default Container

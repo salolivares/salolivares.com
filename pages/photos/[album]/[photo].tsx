@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { getAllPhotos, getPhoto } from '../../../lib/albums'
-import Container from '../../../components/Container'
-import RemoteImage from '../../../components/RemoteImage'
+import { Container } from '../../../components/Container'
+import { RemoteImage } from '../../../components/RemoteImage'
 
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+// https://github.com/vercel/next.js/discussions/17600
+export const getStaticProps = ({ params }: GetStaticPropsContext) => {
   const albumUrl = params?.album as string
   const photoId = params?.photo as string
 
@@ -13,7 +13,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const photos = getAllPhotos()
   const paths = photos.map((photo) => ({ params: { album: photo.albumUrl, photo: photo.id } }))
 

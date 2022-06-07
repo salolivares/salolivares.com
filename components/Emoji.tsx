@@ -1,10 +1,9 @@
-/* eslint-disable react/require-default-props */
-interface EmojiProps {
+interface Props {
   label?: string
   symbol: string
 }
 
-function Emoji({ label, symbol }: EmojiProps) {
+export function Emoji({ label, symbol }: Props) {
   return (
     <span
       className="emoji"
@@ -16,5 +15,3 @@ function Emoji({ label, symbol }: EmojiProps) {
     </span>
   )
 }
-
-export default Emoji

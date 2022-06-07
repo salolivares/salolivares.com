@@ -1,11 +1,10 @@
-/* eslint-disable react/require-default-props */
 import { ReactNode } from 'react'
 
-type ContentProps = {
+interface Props {
   children?: ReactNode
   className?: string
 }
 
-export default function Content({ children, className = '' }: ContentProps) {
+export function Content({ children, className = '' }: Props) {
   return <div className={`prose dark:prose-dark max-w-none ${className}`}>{children}</div>
 }

@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/require-await */
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { getAlbum, getAllAlbums } from '../../lib/albums'
-import Container from '../../components/Container'
-import RemoteImage from '../../components/RemoteImage'
+import { Container } from '../../components/Container'
+import { RemoteImage } from '../../components/RemoteImage'
 
 // https://github.com/vercel/next.js/discussions/17600
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+export const getStaticProps = ({ params }: GetStaticPropsContext) => {
   const albumUrl = params?.album as string
 
   // album url is guaranteed to exist since getStaticPaths guarantees
@@ -19,7 +18,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const albums = getAllAlbums()
   const paths = albums.map((album) => ({ params: { album: album.url } }))
 
