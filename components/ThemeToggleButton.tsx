@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import { Moon, Sun } from 'react-feather'
 
 interface Props {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import querystring from 'querystring'
 
 const basic = Buffer.from(

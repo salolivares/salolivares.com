@@ -2,7 +2,6 @@ import { parseISO, format } from 'date-fns'
 
 interface Props {
   dateString: string
-  // eslint-disable-next-line react/require-default-props
   className?: string
 }
 
