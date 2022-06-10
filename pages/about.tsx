@@ -15,19 +15,10 @@ function AboutPage() {
             height={500}
             width={500 * ASPECT_RATIO}
           />
-          <p>Hello there!</p>
+          <p>Hello there 🧙‍♂️</p>
           <p>
-            I&apos;m a software engineer with a passion for technology and photography. I love
-            learning about the bleeding edge in software development (frameworks, tooling,
-            languages), thinking about code ergonomics, and endlessly tinkering with my development
-            tools.
-          </p>
-          <p>
-            I usually work on all parts of the software stack from deployment to frontend design.
-          </p>
-          <p>
-            In my free time I enjoy watching movies, discovering new places to eat, and try my best
-            to stay fit.
+            I&apos;m a software engineer that digs technology and photography. I love endlessly
+            tinkering with my development tools and I&apos;m always on the hunt for a new hobby.
           </p>
         </Content>
       </div>

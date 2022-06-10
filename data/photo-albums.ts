@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     url: '2019-chicago',
@@ -7,8 +8,8 @@ export default [
     images: [
       { id: 'airbnb', name: 'Airbnb', camera: 'Canon EOS Rebel T3i' },
       { id: 'downtown', name: 'Chicago downtown', camera: 'Canon EOS Rebel T3i' },
-      { id: 'grant_park', name: 'Grant park', camera: 'Canon EOS Rebel T3i' },
-    ],
+      { id: 'grant_park', name: 'Grant park', camera: 'Canon EOS Rebel T3i' }
+    ]
   },
   {
     url: '2018-japan',
@@ -28,8 +29,8 @@ export default [
       { id: 'kyoto_streets', name: 'Kyoto streets', camera: 'Canon EOS Rebel T3i' },
       { id: 'kyoto_tracks', name: 'Kyoto tracks', camera: 'Canon EOS Rebel T3i' },
       { id: 'monkey_park', name: 'Kyoto Monkey park', camera: 'Canon EOS Rebel T3i' },
-      { id: 'pika_hat', name: 'Pika pika', camera: 'Canon EOS Rebel T3i' },
-    ],
+      { id: 'pika_hat', name: 'Pika pika', camera: 'Canon EOS Rebel T3i' }
+    ]
   },
   {
     url: '2017-japan',
@@ -48,8 +49,8 @@ export default [
       { id: 'subway', name: '', camera: 'Canon EOS Rebel T3i' },
       { id: 'tokyo', name: '', camera: 'Canon EOS Rebel T3i' },
       { id: 'tree', name: '', camera: 'Canon EOS Rebel T3i' },
-      { id: 'vending-machines', name: '', camera: 'Canon EOS Rebel T3i' },
-    ],
+      { id: 'vending-machines', name: '', camera: 'Canon EOS Rebel T3i' }
+    ]
   },
-  { url: '2017-chikis', title: 'Chikis', year: '2017', images: [] },
-];
+  { url: '2017-chikis', title: 'Chikis', year: '2017', images: [] }
+]

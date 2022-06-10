@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   'taking and editing photos',
   'longboarding',
@@ -15,5 +16,5 @@ export default [
   'winning at monopoly deal against my girlfriend',
   'board games',
   'freshly baked cookies',
-  'minimalist design',
-];
+  'minimalist design'
+]
