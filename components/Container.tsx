@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { ThemeToggleButton } from './ThemeToggleButton'
 import { Footer } from './Footer'
 import { BASE_URL } from '../lib/config'
+import { EnhancedOmit } from '../utils/types'
 
 interface Props {
   children?: ReactNode
@@ -15,6 +16,8 @@ interface Props {
   image?: string
   [index: string]: unknown
 }
+
+type Meta = EnhancedOmit<Required<Props>, 'children'>
 
 const navLinks = [
   { link: '/posts', name: 'Posts' },
@@ -38,7 +41,7 @@ export function Container(props: Props) {
 
   const { children, ...customMeta } = props
   const router = useRouter()
-  const meta = {
+  const meta: Meta = {
     title: 'Sal Olivares',
     description: 'Software Engineer and TypeScript enthusiast',
     image: `${BASE_URL}/static/images/seo_banner.png`,
@@ -64,9 +67,7 @@ export function Container(props: Props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        {(meta as any).date && (
-          <meta property="article:published_time" content={(meta as any).date} />
-        )}
+        {meta.date && <meta property="article:published_time" content={String(meta.date)} />}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width" />
       </Head>

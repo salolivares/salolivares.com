@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect/dist/react'
 import { Container } from '../components/Container'
 import { Content } from '../components/Content'
 import FAV_THINGS from '../data/fav-things'
-import { shuffleArray } from '../utils/utils'
+import { shuffleArray } from '../utils/array'
 import { Socials } from '../components/Socials'
 
 export default function Home() {
