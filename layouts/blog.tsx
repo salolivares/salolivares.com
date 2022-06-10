@@ -25,7 +25,9 @@ export function BlogLayout({
             {frontmatter.readingTime.text}
           </p>
         </div>
-        <div className="prose dark:prose-dark max-w-none w-full">{children}</div>
+        <div className="prose dark:prose-dark prose-headings:mt-10 prose-headings:mb-5 max-w-none w-full">
+          {children}
+        </div>
       </article>
     </Container>
   )
