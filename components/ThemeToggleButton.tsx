@@ -1,19 +1,14 @@
-/* eslint-disable react/require-default-props */
-import { Moon, Sun } from 'react-feather';
+import { Moon, Sun } from 'react-feather'
 
-interface ThemeToggleButtonProps {
-  switchTheme: () => void;
-  theme: string | undefined;
-  className?: string;
+interface Props {
+  switchTheme: () => void
+  theme: string | undefined
+  className?: string
 }
 
-export const ThemeToggleButton = ({
-  switchTheme,
-  theme: passedInTheme,
-  className = '',
-}: ThemeToggleButtonProps) => {
-  let theme = passedInTheme;
-  if (passedInTheme == null || passedInTheme === 'null') theme = 'light';
+export function ThemeToggleButton({ switchTheme, theme: passedInTheme, className = '' }: Props) {
+  let theme = passedInTheme
+  if (passedInTheme == null || passedInTheme === 'null') theme = 'light'
 
   return (
     <button
@@ -24,5 +19,5 @@ export const ThemeToggleButton = ({
     >
       {theme === 'light' ? <Moon /> : <Sun />}
     </button>
-  );
-};
+  )
+}

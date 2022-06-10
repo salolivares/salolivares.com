@@ -4,17 +4,20 @@ import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ThemeToggleButton } from './ThemeToggleButton'
-import Footer from './Footer'
+import { Footer } from './Footer'
 import { BASE_URL } from '../lib/config'
+import { EnhancedOmit } from '../utils/types'
 
-type WrapperProps = {
+interface Props {
   children?: ReactNode
   title?: string
   description?: string
   type?: string
   image?: string
-  [index: string]: any
+  [index: string]: unknown
 }
+
+type Meta = EnhancedOmit<Required<Props>, 'children'>
 
 const navLinks = [
   { link: '/posts', name: 'Posts' },
@@ -22,7 +25,7 @@ const navLinks = [
   { link: '/photos', name: 'Photos' }
 ]
 
-const Container = (props: WrapperProps) => {
+export function Container(props: Props) {
   const [isMounted, setIsMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
@@ -38,7 +41,7 @@ const Container = (props: WrapperProps) => {
 
   const { children, ...customMeta } = props
   const router = useRouter()
-  const meta = {
+  const meta: Meta = {
     title: 'Sal Olivares',
     description: 'Software Engineer and TypeScript enthusiast',
     image: `${BASE_URL}/static/images/seo_banner.png`,
@@ -64,9 +67,7 @@ const Container = (props: WrapperProps) => {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        {(meta as any).date && (
-          <meta property="article:published_time" content={(meta as any).date} />
-        )}
+        {meta.date && <meta property="article:published_time" content={String(meta.date)} />}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width" />
       </Head>
@@ -102,5 +103,3 @@ const Container = (props: WrapperProps) => {
     </>
   )
 }
-
-export default Container

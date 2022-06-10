@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable import/prefer-default-export */
 export const shuffleArray = <T>(arr: T[]): T[] => {
   const newArr = arr.slice()
 

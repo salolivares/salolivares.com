@@ -1,12 +1,12 @@
-import Container from '../components/Container';
-import { EnhancedFrontmatter } from '../lib/mdx';
+import { Container } from '../components/Container'
+import { EnhancedFrontmatter } from '../lib/mdx'
 
-export default function BestOf({
+export function BestOfLayout({
   children,
-  frontmatter,
+  frontmatter
 }: {
-  children: React.ReactNode;
-  frontmatter: EnhancedFrontmatter;
+  children: React.ReactNode
+  frontmatter: EnhancedFrontmatter
 }) {
   return (
     <Container
@@ -18,5 +18,5 @@ export default function BestOf({
         <div className="prose dark:prose-dark w-full">{children}</div>
       </article>
     </Container>
-  );
+  )
 }
