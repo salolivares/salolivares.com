@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@mdx-js/loader': ^2.1.1
   '@mdx-js/react': ^2.1.1
+  '@next/font': ^13.0.6
   '@next/mdx': ^12.1.6
   '@tailwindcss/typography': ^0.5.8
   '@types/mdx-js__react': ^1.5.5
@@ -44,6 +45,7 @@ specifiers:
 dependencies:
   '@mdx-js/loader': 2.1.1
   '@mdx-js/react': 2.1.1_react@18.2.0
+  '@next/font': 13.0.6
   '@next/mdx': 12.1.6_svepmivmajrgriivp7ha5q4gca
   clsx: 1.2.1
   date-fns: 2.28.0
@@ -195,6 +197,10 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/font/13.0.6:
+    resolution: {integrity: sha512-5vxNmvnV0CbYjQGtztD5Axft9C7npKihbQpiFhnDwdb99f9K/QSFfcJqxz0E5QBkf67O2niVGJ5lApJDu78w0w==}
+    dev: false
 
   /@next/mdx/12.1.6_svepmivmajrgriivp7ha5q4gca:
     resolution: {integrity: sha512-pyE8CZQ3xHs5rIXp6Js4zN3+u77Y50YFw5kHMtbW1Gfw6zwl9UcJci4K27vURDAItoVFdcwZZ4kvuI2YjO1Cwg==}
