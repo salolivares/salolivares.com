@@ -44,9 +44,7 @@ function Album({
               className="max-w-screen-xl min-h-screen flex items-center flex-shrink m-4"
             >
               <Link href={`${albumUrl}/${image.id}`}>
-                <a>
-                  <RemoteImage url={`${albumUrl}/${image.id}`} />
-                </a>
+                <RemoteImage url={`${albumUrl}/${image.id}`} />
               </Link>
             </div>
           ))

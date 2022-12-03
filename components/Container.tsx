@@ -76,20 +76,22 @@ export function Container(props: Props) {
           Skip to content
         </a>
         <div className="flex-grow">
-          <Link href="/">
-            <a className="font-bold transition-colors duration-300 ease-in-out text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400">
-              <div className="inline">sal</div>
-              <div className="xsm:inline hidden"> olivares</div>
-            </a>
+          <Link
+            href="/"
+            className="font-bold transition-colors duration-300 ease-in-out text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400"
+          >
+            <div className="inline">sal</div>
+            <div className="xsm:inline hidden"> olivares</div>
           </Link>
         </div>
         <ul className="flex sm:space-x-6 space-x-3 flex-shrink">
           {navLinks.map((navLink) => (
             <li key={navLink.link}>
-              <Link href={navLink.link}>
-                <a className="transition duration-300 ease-in-out no-underline text-gray-900 dark:text-gray-100">
-                  {navLink.name}
-                </a>
+              <Link
+                href={navLink.link}
+                className="transition duration-300 ease-in-out no-underline text-gray-900 dark:text-gray-100"
+              >
+                {navLink.name}
               </Link>
             </li>
           ))}

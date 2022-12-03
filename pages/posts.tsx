@@ -28,10 +28,11 @@ function PostsPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
               <div className="text-gray-500 dark:text-gray-400 text-xs font-normal tracking-wide w-40">
                 <PostDate dateString={post.publishedOn!} />
               </div>
-              <Link href={`/posts/${post.slug!}`}>
-                <a className="no-underline hover:underline font-semibold text-gray-900 dark:text-gray-100">
-                  {post.title}
-                </a>
+              <Link
+                href={`/posts/${post.slug!}`}
+                className="no-underline hover:underline font-semibold text-gray-900 dark:text-gray-100"
+              >
+                {post.title}
               </Link>
             </div>
           ))}

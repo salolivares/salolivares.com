@@ -6,11 +6,7 @@ function CustomLink(props: React.HTMLProps<HTMLAnchorElement>) {
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
 
   if (isInternalLink) {
-    return (
-      <Link href={href}>
-        <a {...props} />
-      </Link>
-    )
+    return <Link href={href} {...(props as any)}></Link>
   }
 
   return <a target="_blank" rel="noopener noreferrer" {...props} />
