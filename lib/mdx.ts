@@ -1,13 +1,12 @@
-import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 import readingTime from 'reading-time'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrism from 'rehype-prism-plus'
+import { readdirSync, readFileSync } from 'fs'
+import { bundleMDX } from 'mdx-bundler'
 
 export interface Frontmatter {
   slug: string | null
@@ -23,43 +22,48 @@ export interface EnhancedFrontmatter extends Frontmatter {
   readingTime: ReturnType<typeof readingTime>
 }
 
-const root = process.cwd()
-
 export function getFiles(type: string) {
-  return fs.readdirSync(path.join(root, 'data', type))
+  return readdirSync(path.join(process.cwd(), 'data', type))
 }
 
 export async function getFileBySlug(
   type: string,
   slug?: string
-): Promise<{ mdxSource: MDXRemoteSerializeResult; frontmatter: EnhancedFrontmatter }> {
+): Promise<{ code: string; frontmatter: EnhancedFrontmatter }> {
   const source = slug
-    ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
-    : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
+    ? readFileSync(path.join(process.cwd(), 'data', type, `${slug}.mdx`), 'utf8')
+    : readFileSync(path.join(process.cwd(), 'data', `${type}.mdx`), 'utf8')
 
-  const { data, content } = matter(source)
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [rehypePrism, rehypeAutolinkHeadings, rehypeSlug, rehypeCodeTitles]
+  const { code, frontmatter } = await bundleMDX({
+    source,
+    mdxOptions(options) {
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeAutolinkHeadings,
+        rehypeSlug,
+        rehypeCodeTitles,
+        rehypePrism
+      ]
+      return options
     }
   })
 
   return {
-    mdxSource,
+    code,
     frontmatter: {
-      wordCount: content.split(/\s+/gu).length,
-      readingTime: readingTime(content),
+      wordCount: source.split(/\s+/gu).length,
+      readingTime: readingTime(source),
       slug: slug || null,
-      ...data
+      ...frontmatter
     }
   }
 }
 
 export function getAllFilesFrontMatter(type: string): Frontmatter[] {
-  const files = fs.readdirSync(path.join(root, 'data', type))
+  const files = readdirSync(path.join(process.cwd(), 'data', type))
 
   return files.reduce<Frontmatter[]>((allPosts, postSlug) => {
-    const source = fs.readFileSync(path.join(root, 'data', type, postSlug), 'utf8')
+    const source = readFileSync(path.join(process.cwd(), 'data', type, postSlug), 'utf8')
     const { data } = matter(source)
 
     return [
