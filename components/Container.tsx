@@ -51,6 +51,8 @@ export function Container(props: Props) {
 
   return (
     <>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
