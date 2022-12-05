@@ -1,5 +1,7 @@
+import { getMDXComponent } from 'mdx-bundler/client'
 import { InferGetStaticPropsType } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
+import { useMemo } from 'react'
+import { MDXComponents } from '../components/MDXComponents'
 import { BestOfLayout } from '../layouts/bestof'
 import { getFileBySlug } from '../lib/mdx'
 
@@ -10,12 +12,13 @@ export async function getStaticProps() {
 }
 
 export default function BestOf({
-  mdxSource,
+  code,
   frontmatter
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const Component = useMemo(() => getMDXComponent(code), [code])
   return (
     <BestOfLayout frontmatter={frontmatter}>
-      <MDXRemote {...mdxSource} />
+      <Component components={MDXComponents} />
     </BestOfLayout>
   )
 }

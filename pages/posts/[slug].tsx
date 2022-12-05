@@ -1,7 +1,9 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
 import { getFileBySlug, getFiles } from '../../lib/mdx'
 import { BlogLayout } from '../../layouts/blog'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { useMemo } from 'react'
+import { MDXComponents } from '../../components/MDXComponents'
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const slug = params?.slug as string
@@ -24,13 +26,15 @@ export function getStaticPaths() {
   }
 }
 
-export default function Blog({
-  mdxSource,
+export default function Post({
+  code,
   frontmatter
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const Component = useMemo(() => getMDXComponent(code), [code])
+
   return (
     <BlogLayout frontmatter={frontmatter}>
-      <MDXRemote {...mdxSource} />
+      <Component components={MDXComponents} />
     </BlogLayout>
   )
 }
