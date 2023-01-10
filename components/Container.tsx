@@ -7,7 +7,6 @@ import { ThemeToggleButton } from './ThemeToggleButton'
 import { Footer } from './Footer'
 import { BASE_URL } from '../lib/config'
 import { EnhancedOmit } from '../utils/types'
-import Image from 'next/image'
 
 interface Props {
   children?: ReactNode
