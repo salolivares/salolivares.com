@@ -27,7 +27,7 @@ const navLinks = [
 
 export function Container(props: Props) {
   const [isMounted, setIsMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   useEffect(() => {
     setIsMounted(true)
@@ -35,7 +35,7 @@ export function Container(props: Props) {
 
   const switchTheme = () => {
     if (isMounted) {
-      setTheme(theme === 'light' ? 'dark' : 'light')
+      setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
     }
   }
 
@@ -98,7 +98,9 @@ export function Container(props: Props) {
             </li>
           ))}
         </ul>
-        <ThemeToggleButton switchTheme={switchTheme} theme={theme} className="ml-3" />
+        {isMounted && (
+          <ThemeToggleButton switchTheme={switchTheme} theme={resolvedTheme} className="ml-3" />
+        )}
       </nav>
       <main id="skip" className="flex flex-col justify-center px-8">
         {children}
