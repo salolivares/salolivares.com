@@ -6,10 +6,7 @@ interface Props {
   className?: string
 }
 
-export function ThemeToggleButton({ switchTheme, theme: passedInTheme, className = '' }: Props) {
-  let theme = passedInTheme
-  if (passedInTheme == null || passedInTheme === 'null') theme = 'light'
-
+export function ThemeToggleButton({ switchTheme, theme, className = '' }: Props) {
   return (
     <button
       type="button"
@@ -17,7 +14,7 @@ export function ThemeToggleButton({ switchTheme, theme: passedInTheme, className
       className={`${className} hover:text-gray-700 dark:hover:text-gray-400`}
       onClick={switchTheme}
     >
-      {theme === 'light' ? <Moon /> : <Sun />}
+      {theme === 'light' ? <Sun /> : <Moon />}
     </button>
   )
 }
