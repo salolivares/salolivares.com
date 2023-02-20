@@ -3,8 +3,8 @@ import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { getAllFilesFrontMatter } from '../lib/mdx'
 import { Container } from '../components/Container'
-import { PageHeader } from '../components/PageHeader'
 import { PostDate } from '../components/PostDate'
+import { Content } from '../components/Content'
 
 export const getStaticProps = () => {
   const posts = getAllFilesFrontMatter('posts')
@@ -21,7 +21,9 @@ function PostsPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Container title="Posts | Sal Olivares">
       <div className="max-w-2xl mx-auto mb-16 w-full">
-        <PageHeader>Posts</PageHeader>
+        <Content>
+          <h1>Posts</h1>
+        </Content>
         <div className="divide-y dark:divide-opacity-50 dark:divide-gray-400">
           {posts.map((post) => (
             <div key={`${post.slug!}`} className="flex flex-col lg:flex-row lg:items-center py-4">
