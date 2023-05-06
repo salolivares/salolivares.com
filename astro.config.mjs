@@ -7,5 +7,9 @@ import image from '@astrojs/image';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://salolivares.com',
-  integrations: [sitemap(), tailwind(), image({ serviceEntryPoint: '@astrojs/image/sharp' })],
+  integrations: [
+    sitemap(),
+    tailwind({ config: { applyBaseStyles: false } }),
+    image({ serviceEntryPoint: '@astrojs/image/sharp' }),
+  ],
 });
