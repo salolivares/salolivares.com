@@ -76,6 +76,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply leading-relaxed;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    margin: auto;
+    padding: 20px;
+    max-width: 65ch;
+    min-width: 360px;
+    overflow-wrap: break-word;
+    scroll-behavior: smooth;
   }
 }
