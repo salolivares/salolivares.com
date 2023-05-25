@@ -10,12 +10,19 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout title={`Blog | ${SITE_TITLE}`}>
-  <section>
+  <h1>Blog</h1>
+  <section class="mt-6">
     <ul class="list-none m-0">
       {
         posts.map((post) => (
           <li class="flex">
-            <FormattedDate date={post.data.pubDate} class="basis-32" />
+            <time datetime={post.data.pubDate.toISOString()} class="basis-32">
+              {post.data.pubDate.toLocaleDateString('fr-ca', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+              })}
+            </time>
             <a href={`/blog/${post.slug}/`} class="underline">
               {post.data.title}
             </a>
