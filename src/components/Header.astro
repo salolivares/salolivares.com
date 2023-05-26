@@ -1,11 +1,13 @@
 ---
+import { config } from '@/config';
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+
+const title = config.title;
 ---
 
 <header class="mb-10 sm:mt-5">
   <div class="font-bold text-2xl mb-1 lowercase">
-    {SITE_TITLE}
+    {title}
   </div>
   <nav class="flex gap-3">
     <HeaderLink href="/">Home</HeaderLink>

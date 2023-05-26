@@ -1,7 +1,5 @@
 ---
-import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (await getCollection('blog')).sort(
@@ -9,7 +7,7 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<BaseLayout title={`Blog | ${SITE_TITLE}`}>
+<BaseLayout title="Blog">
   <h1>Blog</h1>
   <section class="mt-6">
     <ul class="list-none m-0">

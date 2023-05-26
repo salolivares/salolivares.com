@@ -3,15 +3,23 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
+import { config } from '@/config';
+
 export interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = 'images/social-banner.png' } = Astro.props;
+const {
+  title: propTitle,
+  description = config.description,
+  image = 'images/social-banner.png',
+} = Astro.props;
+
+const title = propTitle ? `${propTitle} | ${config.title}` : config.title;
 ---
 
 <!-- Global Metadata -->
