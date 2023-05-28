@@ -1,5 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 
+function removeDupes(array: string[]) {
+  if (array.length === 0) return array;
+  const dedupedItems = new Set(array.map((str) => str.toLowerCase()));
+  return Array.from(dedupedItems);
+}
+
 const blog = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
@@ -14,6 +20,7 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
+    tags: z.array(z.string()).default([]).transform(removeDupes),
     heroImage: z.string().optional(),
   }),
 });

@@ -10,6 +10,6 @@ const { href, class: className, ...props } = Astro.props;
 const isActive = false;
 ---
 
-<a href={href} class:list={[className, 'hover:underline']} {...props}>
+<a href={href} class:list={[className, 'hover:underline']} rel="prefetch" {...props}>
   <slot />
 </a>
