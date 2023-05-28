@@ -1,14 +1,19 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
+import type { MarkdownLayoutProps } from 'astro';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  // https://docs.astro.build/en/core-concepts/layouts/#using-one-layout-for-md-mdx-and-astro
+  frontmatter?: MarkdownLayoutProps<Props>['frontmatter'];
 }
 
-const { title, description, image } = Astro.props;
+const isMarkdown = Astro.props.frontmatter !== undefined;
+
+const { title, description, image } = Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ const { title, description, image } = Astro.props;
   </head>
   <body>
     <Header />
-    <main>
+    <main class:list={[{ 'prose prose-hr:my-5': isMarkdown }]}>
       <slot />
     </main>
   </body>
