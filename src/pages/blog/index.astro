@@ -21,7 +21,7 @@ const posts = (await getCollection('blog')).sort(
                 day: 'numeric',
               })}
             </time>
-            <a href={`/blog/${post.slug}/`} class="underline">
+            <a href={`/blog/${post.slug}`} class="underline">
               {post.data.title}
             </a>
           </li>

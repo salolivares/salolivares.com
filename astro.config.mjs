@@ -20,6 +20,11 @@ export default defineConfig({
     }),
     prefetch(),
   ],
+  markdown: {
+    shikiConfig: {
+      theme: 'one-dark-pro',
+    },
+  },
   vite: {
     plugins: [rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {
