@@ -2,7 +2,6 @@
 title: 'Open iTerm2 Here context menu option'
 description: 'Add a finder context menu item for opening terminals in MacOS'
 pubDate: '2016-10-07'
-heroImage: '/placeholder-hero.jpg'
 ---
 
 One of the things I miss most from using Ubuntu is the ability to open the terminal from any directory. Instead of _cd_-ing down a long directory path you can add an _Open iTerm Here_ option to Finder's context menu (right click) for easy directory access to terminal. 
