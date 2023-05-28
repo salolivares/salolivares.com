@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { config } from '../config';
+import { config } from '../site.config';
 
 export async function get(context) {
   const posts = await getCollection('blog');
