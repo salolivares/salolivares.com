@@ -7,23 +7,23 @@ function removeDupes(array: string[]) {
 }
 
 const blog = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    // Transform string to Date object
-    pubDate: z
-      .string()
-      .or(z.date())
-      .transform((val) => new Date(val)),
-    updatedDate: z
-      .string()
-      .optional()
-      .transform((str) => (str ? new Date(str) : undefined)),
-    tags: z.array(z.string()).default([]).transform(removeDupes),
-    heroImage: z.string().optional(),
-    published: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      // Transform string to Date object
+      pubDate: z
+        .string()
+        .or(z.date())
+        .transform((val) => new Date(val)),
+      updatedDate: z
+        .string()
+        .optional()
+        .transform((str) => (str ? new Date(str) : undefined)),
+      tags: z.array(z.string()).default([]).transform(removeDupes),
+      heroImage: image().optional(),
+      published: z.boolean().default(false),
+    }),
 });
 
 export const collections = { blog };

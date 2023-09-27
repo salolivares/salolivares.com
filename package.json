@@ -10,32 +10,31 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.16.5",
-    "@astrojs/prefetch": "^0.2.3",
-    "@astrojs/rss": "^2.3.2",
-    "@astrojs/sitemap": "^1.2.1",
-    "@astrojs/tailwind": "^3.1.1",
+    "@astrojs/prefetch": "^0.4.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
     "@fontsource/inter": "^4.5.15",
     "@resvg/resvg-js": "^2.4.1",
-    "@tailwindcss/typography": "^0.5.9",
-    "astro": "^2.2.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "astro": "^3.1.4",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.211.0",
     "satori": "^0.9.1",
     "satori-html": "^0.3.2",
-    "sharp": "^0.31.3",
-    "tailwind-merge": "^1.12.0",
-    "tailwindcss": "^3.3.1",
-    "tailwindcss-animate": "^1.0.5"
+    "sharp": "^0.32.6",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "eslint": "^8.37.0",
-    "eslint-plugin-astro": "^0.26.1",
-    "prettier": "^2.8.7",
-    "prettier-plugin-astro": "^0.8.0",
-    "typescript": "^5.0.3"
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8.50.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "typescript": "^5.2.2"
   }
 }
