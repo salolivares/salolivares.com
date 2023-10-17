@@ -7,6 +7,7 @@ function removeDupes(array: string[]) {
 }
 
 const blog = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -26,4 +27,22 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const photos = defineCollection({
+  type: 'data',
+  schema: z.object({
+    url: z.string(),
+    title: z.string(),
+    country: z.string(),
+    year: z.number(),
+    published: z.boolean().default(false),
+    images: z.array(
+      z.object({
+        id: z.string(),
+        name: z.string().optional(),
+        camera: z.string(),
+      }),
+    ),
+  }),
+});
+
+export const collections = { blog, photos };

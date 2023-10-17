@@ -1,0 +1,12 @@
+{
+  "url": "2019-chicago",
+  "title": "Chicago",
+  "country": "USA",
+  "year": 2019,
+  "pubished": true,
+  "images": [
+    { "id": "airbnb", "name": "Airbnb", "camera": "Canon EOS Rebel T3i" },
+    { "id": "downtown", "name": "Chicago downtown", "camera": "Canon EOS Rebel T3i" },
+    { "id": "grant_park", "name": "Grant park", "camera": "Canon EOS Rebel T3i" }
+  ]
+}

@@ -1,15 +1,36 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const photos = (
+  await getCollection('photos', ({ data }) => {
+    // Only return published posts in production
+    return import.meta.env.PROD ? data.published === true : true;
+  })
+).sort((a, b) => b.data.year - a.data.year);
+
+const allImages = photos
+  .map((photo) =>
+    photo.data.images.map((image) => ({
+      ...image,
+      year: photo.data.year,
+      title: photo.data.title,
+    })),
+  )
+  .flat();
+
+// select random image from all images
+const randomImage = allImages[Math.floor(Math.random() * allImages.length)];
 ---
 
 <BaseLayout title="Photos">
   <h1>Photos</h1>
   <section class="mt-6">
     <div>
-      featured image here
+      {randomImage.title} - {randomImage.year}
     </div>
     <ul class="m-0 list-none">
-      <li>Image</li>
+      {photos.map((photo) => <li>{photo.data.title}</li>)}
     </ul>
   </section>
 </BaseLayout>
