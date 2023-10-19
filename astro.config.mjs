@@ -19,6 +19,9 @@ export default defineConfig({
       theme: 'one-dark-pro',
     },
   },
+  image: {
+    domains: ['photos.salolivares.com'],
+  },
   vite: {
     plugins: [rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {

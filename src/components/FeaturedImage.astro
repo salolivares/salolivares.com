@@ -1,0 +1,17 @@
+---
+import RemoteImage from './RemoteImage.astro';
+
+export interface Props {
+  image: {
+    src: string;
+    title: string;
+    name?: string;
+  };
+}
+
+const { image } = Astro.props;
+---
+
+<div>
+  <RemoteImage src={image.src} alt={image.title} />
+</div>

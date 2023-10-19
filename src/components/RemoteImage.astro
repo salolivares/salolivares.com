@@ -1,0 +1,18 @@
+---
+// Component used to load remote images from photos.salolivares.com
+
+const host = 'https://photos.salolivares.com';
+const { src, alt = '' } = Astro.props;
+---
+
+<picture>
+  <source
+    srcset={`${host}/${src}_1280.webp 1280w, ${host}/${src}_2880.webp 2880w`}
+    type="image/webp"
+  />
+  <source
+    srcset={`${host}/${src}_1280.jpg 1280w, ${host}/${src}_2880.jpg 2880w`}
+    type="image/jpeg"
+  />
+  <img alt={alt} loading="lazy" src={`${host}/${src}_1280.jpg`} width="1280" height="853" />
+</picture>
