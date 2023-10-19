@@ -3,7 +3,7 @@
   "title": "Tokyo",
   "country": "Japan",
   "year": 2017,
-  "pubished": true,
+  "published": true,
   "images": [
     { "id": "skytree", "name": "Tokyo Skytree", "camera": "Canon EOS Rebel T3i" },
     { "id": "asahi-flag", "camera": "Canon EOS Rebel T3i" },
