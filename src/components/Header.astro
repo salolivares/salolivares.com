@@ -1,6 +1,7 @@
 ---
 import { config } from '@/site.config';
 import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const title = config.title;
 ---
@@ -13,5 +14,6 @@ const title = config.title;
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/blog">Blog</HeaderLink>
     <HeaderLink href="/photos">Photos</HeaderLink>
+    <ThemeToggle />
   </nav>
 </header>
