@@ -23,6 +23,7 @@ const blog = defineCollection({
         .transform((str) => (str ? new Date(str) : undefined)),
       tags: z.array(z.string()).default([]).transform(removeDupes),
       heroImage: image().optional(),
+      heroImageAlt: z.string().optional(),
       published: z.boolean().default(false),
     }),
 });
