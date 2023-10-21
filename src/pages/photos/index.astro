@@ -1,6 +1,5 @@
 ---
 import FeaturedImage from '@/components/FeaturedImage.astro';
-import RemoteImage from '@/components/RemoteImage.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,6 +14,7 @@ const allImages = photos
   .map((photo) =>
     photo.data.images.map((image) => ({
       ...image,
+      country: photo.data.country,
       year: photo.data.year,
       title: photo.data.title,
       src: `${photo.data.url}/${image.id}`,
@@ -27,8 +27,8 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 
 <BaseLayout title="Photos">
   <h1>Photos</h1>
+  <FeaturedImage image={featuredImage} class="mt-6" />
   <section class="mt-6">
-    <FeaturedImage image={featuredImage} />
     <ul class="m-0 list-none">
       {photos.map((photo) => <li>{photo.data.title}</li>)}
     </ul>

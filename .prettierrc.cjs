@@ -3,7 +3,7 @@ module.exports = {
   singleQuote: true,
   printWidth: 100,
   tabWidth: 2,
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: '*.astro',
