@@ -31,9 +31,8 @@ const blog = defineCollection({
 const photos = defineCollection({
   type: 'data',
   schema: z.object({
-    url: z.string(),
     title: z.string(),
-    country: z.string(),
+    location: z.string(),
     year: z.number(),
     published: z.boolean().default(false),
     images: z.array(

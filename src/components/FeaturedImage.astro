@@ -6,7 +6,7 @@ export interface Props {
     src: string;
     title: string;
     name?: string;
-    country: string;
+    location: string;
   };
   class: string;
 }
@@ -18,7 +18,7 @@ const name = image.name ?? 'Untitled';
 <div class:list={[className, 'flex flex-col']}>
   <RemoteImage src={image.src} alt={name} />
   <div class="mt-2 flex flex-col justify-end">
-    <div class="text-right text-sm text-gray-500">{image.country}</div>
+    <div class="text-right text-sm text-gray-500">{image.location}</div>
     <div class="text-right text-base font-semibold">{name}</div>
   </div>
 </div>

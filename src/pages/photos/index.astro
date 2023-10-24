@@ -1,7 +1,9 @@
 ---
 import FeaturedImage from '@/components/FeaturedImage.astro';
+import LucideIcon from '@/components/LucideIcon.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { MapPinned, Calendar } from 'lucide';
 
 const photos = (
   await getCollection('photos', ({ data }) => {
@@ -14,10 +16,10 @@ const allImages = photos
   .map((photo) =>
     photo.data.images.map((image) => ({
       ...image,
-      country: photo.data.country,
+      location: photo.data.location,
       year: photo.data.year,
       title: photo.data.title,
-      src: `${photo.data.url}/${image.id}`,
+      src: `${photo.id}/${image.id}`,
     })),
   )
   .flat();
@@ -28,9 +30,27 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 <BaseLayout title="Photos">
   <h1>Photos</h1>
   <FeaturedImage image={featuredImage} class="mt-6" />
-  <section class="mt-6">
+  <section class="mt-20">
     <ul class="m-0 list-none">
-      {photos.map((photo) => <li>{photo.data.title}</li>)}
+      {
+        photos.map((photo) => (
+          <li class="mt-4 flex flex-col">
+            <a href={`/photos/${photo.id}`} class="font-semibold">
+              {photo.data.title}
+            </a>
+            <div class="mt-1 flex space-x-4  text-sm text-gray-500">
+              <div class="flex items-center space-x-1">
+                <LucideIcon icon={MapPinned} width="14" />
+                <div>{photo.data.location}</div>
+              </div>
+              <div class="flex items-center space-x-1">
+                <LucideIcon icon={Calendar} width="14" />
+                <div>{photo.data.year}</div>
+              </div>
+            </div>
+          </li>
+        ))
+      }
     </ul>
   </section>
 </BaseLayout>
