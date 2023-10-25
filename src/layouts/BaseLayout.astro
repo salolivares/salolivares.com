@@ -16,13 +16,49 @@ const isMarkdown = Astro.props.frontmatter !== undefined;
 const { title, description, image } = Astro.props.frontmatter || Astro.props;
 ---
 
+<style>
+  html {
+    @apply bg-background text-foreground;
+  }
+  body {
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+    margin: auto;
+    padding: 20px;
+    max-width: 70ch;
+    min-width: 360px;
+    overflow-wrap: break-word;
+    scroll-behavior: smooth;
+  }
+</style>
+
 <html lang="en">
   <head>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+    </script>
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body>
     <Header />
-    <main class:list={[{ 'prose prose-hr:my-5': isMarkdown }]}>
+    <main class:list={[{ 'prose dark:prose-invert prose-hr:my-5': isMarkdown }]}>
       <slot />
     </main>
   </body>

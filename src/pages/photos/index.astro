@@ -5,14 +5,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { MapPinned, Calendar } from 'lucide';
 
-const photos = (
+const albums = (
   await getCollection('photos', ({ data }) => {
     // Only return published posts in production
     return import.meta.env.PROD ? data.published === true : true;
   })
 ).sort((a, b) => b.data.year - a.data.year);
 
-const allImages = photos
+const allImages = albums
   .map((photo) =>
     photo.data.images.map((image) => ({
       ...image,
@@ -33,12 +33,12 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
   <section class="mt-20">
     <ul class="m-0 list-none">
       {
-        photos.map((photo) => (
+        albums.map((photo) => (
           <li class="mt-4 flex flex-col">
             <a href={`/photos/${photo.id}`} class="font-semibold">
               {photo.data.title}
             </a>
-            <div class="mt-1 flex space-x-4  text-sm text-gray-500">
+            <div class="mt-1 flex space-x-4 text-sm text-muted-foreground">
               <div class="flex items-center space-x-1">
                 <LucideIcon icon={MapPinned} width="14" />
                 <div>{photo.data.location}</div>
