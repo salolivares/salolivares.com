@@ -1,7 +1,6 @@
 ---
 import RemoteImage from '@/components/RemoteImage.astro';
 import AlbumLayout from '@/layouts/AlbumLayout.astro';
-import BaseLayout from '@/layouts/BaseLayout.astro';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 export const getStaticPaths = (async () => {
@@ -21,55 +20,17 @@ const { album } = Astro.props;
 const { images } = album.data;
 ---
 
-<AlbumLayout title={album.data.title}>
+<AlbumLayout album={album}>
   <div class="flex flex-col items-center">
     {
       images.map((image, index) => (
-        <div
+        <RemoteImage
+          src={`${album.id}/${image.id}`}
+          alt={image.name ?? 'Untitled'}
           data-image-id={index}
-          class="flex min-h-screen max-w-screen-xl flex-shrink items-center"
-        >
-          <RemoteImage src={`${album.id}/${image.id}`} alt={image.name ?? 'Untitled'} />
-        </div>
+          class="flex min-h-screen max-w-screen-lg items-center"
+        />
       ))
     }
   </div>
-
-  <button class="fixed bottom-10 right-10" id="scrollButton">Scroll to Next Image</button>
-
-  <script>
-    const scrollButton = document.getElementById('scrollButton');
-    let currentImageIndex = 1; // Start at 1 to consider the first image already in view
-
-    function scrollToImage() {
-      const images = document.querySelectorAll('[data-image-id]');
-
-      // If at or past the last image, scroll to top
-      if (currentImageIndex >= images.length) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-        currentImageIndex = 1; // Reset index to 1 for the next cycle
-        scrollButton.textContent = 'Next Image';
-        return;
-      }
-
-      // Scroll to the next image based on the index
-      const imageToScrollTo = images[currentImageIndex];
-      if (imageToScrollTo) {
-        imageToScrollTo.scrollIntoView({
-          behavior: 'smooth',
-        });
-        currentImageIndex++;
-
-        // If after scrolling, we're at the last image, change the button text
-        if (currentImageIndex >= images.length) {
-          scrollButton.textContent = 'Scroll to Top';
-        }
-      }
-    }
-
-    scrollButton.addEventListener('click', scrollToImage);
-  </script>
 </AlbumLayout>

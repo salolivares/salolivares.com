@@ -1,13 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import AlbumHeader from '../components/AlbumHeader.astro';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
+  album: CollectionEntry<'photos'>;
 }
 
-const { title, description, image } = Astro.props;
+const { album } = Astro.props;
 ---
 
 <style>
@@ -21,7 +21,7 @@ const { title, description, image } = Astro.props;
       'calt' 1;
     margin: auto;
     padding: 20px;
-    min-width: 360px;
+    min-width: 320px;
     overflow-wrap: break-word;
     scroll-behavior: smooth;
   }
@@ -48,9 +48,10 @@ const { title, description, image } = Astro.props;
 
       window.localStorage.setItem('theme', theme);
     </script>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={album.data.title} />
   </head>
   <body>
+    <AlbumHeader title={album.data.title} />
     <main>
       <slot />
     </main>

@@ -1,0 +1,38 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const { title } = Astro.props;
+---
+
+<header
+  id="sticky-header"
+  class="fixed left-0 top-0 flex w-full justify-between p-5 transition-opacity duration-300"
+>
+  <div class="mb-1 text-2xl font-bold lowercase">
+    {title}
+  </div>
+  <ThemeToggle />
+</header>
+
+<script>
+  const header = document.getElementById('sticky-header');
+
+  window.addEventListener('scroll', () => {
+    if (header) {
+      const scrollValue = window.scrollY;
+      let opacity = 1;
+
+      // -40 since we ust p-5 above
+      const elementHeight = header.offsetHeight - 40;
+
+      if (scrollValue <= elementHeight) {
+        opacity = 1 - scrollValue / elementHeight;
+      } else {
+        opacity = 0;
+      }
+
+      header.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+      header.style.opacity = String(opacity);
+    }
+  });
+</script>
