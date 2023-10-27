@@ -30,12 +30,12 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 <BaseLayout title="Photos">
   <h1>Photos</h1>
   <FeaturedImage image={featuredImage} class="mt-6" />
-  <section class="mt-20">
+  <section class="my-20">
     <ul class="m-0 list-none">
       {
         albums.map((photo) => (
           <li class="mt-4 flex flex-col">
-            <a href={`/photos/${photo.id}`} class="font-semibold">
+            <a href={`/photos/${photo.id}`} class="font-semibold" rel="prefetch-intent">
               {photo.data.title}
             </a>
             <div class="mt-1 flex space-x-4 text-sm text-muted-foreground">

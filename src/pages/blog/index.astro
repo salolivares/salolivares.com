@@ -24,7 +24,7 @@ const posts = (
                 day: 'numeric',
               })}
             </time>
-            <a href={`/blog/${post.slug}`} class="font-semibold">
+            <a href={`/blog/${post.slug}`} class="font-semibold" rel="prefetch-intent">
               {post.data.title}
             </a>
           </li>

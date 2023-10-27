@@ -15,24 +15,38 @@ const { title } = Astro.props;
 </header>
 
 <script>
-  const header = document.getElementById('sticky-header');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const header = document.getElementById('sticky-header');
 
-  window.addEventListener('scroll', () => {
-    if (header) {
-      const scrollValue = window.scrollY;
-      let opacity = 1;
-
-      // -40 since we ust p-5 above
-      const elementHeight = header.offsetHeight - 40;
-
-      if (scrollValue <= elementHeight) {
-        opacity = 1 - scrollValue / elementHeight;
-      } else {
-        opacity = 0;
+      // If at the top of the page, adjust header opacity immediately
+      // consider within 10px as "top"
+      if (window.scrollY > 10) {
+        // If not at the top, add a delay before adjusting the header's opacity
+        setTimeout(adjustOpacity, 2000); // 2 seconds delay
       }
 
-      header.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
-      header.style.opacity = String(opacity);
-    }
+      // Attach the scroll event listener
+      window.addEventListener('scroll', adjustOpacity);
+
+      function adjustOpacity() {
+        if (header) {
+          const scrollValue = window.scrollY;
+          let opacity = 1;
+
+          // -40 since we ust p-5 above
+          const elementHeight = header.offsetHeight - 40;
+
+          if (scrollValue <= elementHeight) {
+            opacity = 1 - scrollValue / elementHeight;
+          } else {
+            opacity = 0;
+          }
+
+          header.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+          header.style.opacity = String(opacity);
+        }
+      }
+    });
   });
 </script>
