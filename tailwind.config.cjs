@@ -48,6 +48,68 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      typography: () => ({
+        // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
+        custom: {
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-quotes': 'hsl(var(--foreground))',
+            '--tw-prose-invert-body': 'hsl(var(--foreground))',
+            '--tw-prose-invert-headings': 'hsl(var(--foreground))',
+            '--tw-prose-invert-quotes': 'hsl(var(--foreground))',
+            h1: {
+              fontSize: '2.25rem',
+              lineHeight: '2.5rem',
+              fontWeight: '800',
+              letterSpacing: '-0.025em',
+              scrollMargin: '5rem',
+            },
+            h2: {
+              fontSize: '1.875rem',
+              lineHeight: '2.25rem',
+              fontWeight: '700',
+              letterSpacing: '-0.025em',
+              borderBottomWidth: '1px',
+              paddingBottom: '0.5rem',
+              scrollMargin: '5rem',
+            },
+            h3: {
+              fontSize: '1.5rem',
+              lineHeight: '2rem',
+              fontWeight: '600',
+              letterSpacing: '-0.025em',
+              scrollMargin: '5rem',
+            },
+            h4: {
+              fontSize: '1.25rem',
+              lineHeight: '1.75rem',
+              fontWeight: '600',
+              letterSpacing: '-0.025em',
+              scrollMargin: '5rem',
+            },
+            blockquote: {
+              borderLeftWidth: '2px',
+              paddingLeft: '1.5rem',
+              fontStyle: 'italic',
+              fontWeight: '400',
+            },
+            a: {
+              textDecorationLine: 'underline',
+              textUnderlineOffset: '4px',
+            },
+            'a:hover': {
+              textDecorationStyle: 'dotted',
+              textDecorationThickness: '1px',
+            },
+            abbr: {
+              textDecorationLine: 'dotted',
+              textDecorationThickness: '1px',
+              textUnderlineOffset: '4px',
+            },
+          },
+        },
+      }),
       borderRadius: {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,
