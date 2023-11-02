@@ -59,7 +59,7 @@ const { title, description, image } = Astro.props.frontmatter || Astro.props;
   </head>
   <body>
     <Header />
-    <main class:list={[{ 'prose dark:prose-invert prose-hr:my-5': isMarkdown }]}>
+    <main class:list={[{ 'prose-custom prose dark:prose-invert prose-hr:my-5': isMarkdown }]}>
       <slot />
     </main>
   </body>
