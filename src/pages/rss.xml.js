@@ -8,9 +8,11 @@ export async function get(context) {
     title: config.title,
     description: config.description,
     site: context.site,
-    items: posts.map((post) => ({
-      ...post.data,
-      link: `/blog/${post.slug}/`,
-    })),
+    items: posts
+      .filter((post) => post.data.published)
+      .map((post) => ({
+        ...post.data,
+        link: `/blog/${post.slug}/`,
+      })),
   });
 }
