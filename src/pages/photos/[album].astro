@@ -1,0 +1,39 @@
+---
+import RemoteImage from '@/components/RemoteImage.astro';
+import ScrollIndicator from '@/components/ScrollIndicator.astro';
+import AlbumLayout from '@/layouts/AlbumLayout.astro';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+export const getStaticPaths = (async () => {
+  const albums = await getCollection('photos');
+  return albums.map((album) => ({
+    params: {
+      album: album.id,
+    },
+    props: {
+      album,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { album } = Astro.props;
+const { images } = album.data;
+---
+
+<AlbumLayout album={album}>
+  <div class="flex flex-col items-center">
+    {
+      images.map((image) => (
+        <div class="flex min-h-screen max-w-screen-lg flex-col justify-center">
+          <RemoteImage src={`${album.id}/${image.id}`} alt={image.name ?? 'Untitled'} />
+          <div class="mt-2 flex flex-col justify-end">
+            <div class="text-right text-sm text-muted-foreground">{album.data.location}</div>
+            <div class="text-right text-base font-semibold">{image.name}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <ScrollIndicator />
+</AlbumLayout>

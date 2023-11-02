@@ -1,0 +1,25 @@
+<div class="fixed bottom-0 left-0 z-50 h-1 w-full">
+  <div id="scrollBar" class="h-1 w-0 bg-muted-foreground transition-all"></div>
+</div>
+
+<script>
+  let lastExecution = 0;
+  const throttleRate = 16; // Roughly 60fps
+
+  function updateScroll() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('scrollBar').style.width = scrolled + '%';
+  }
+
+  function handleScroll() {
+    const current = performance.now();
+    if (current - lastExecution > throttleRate) {
+      lastExecution = current;
+      requestAnimationFrame(updateScroll);
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+</script>

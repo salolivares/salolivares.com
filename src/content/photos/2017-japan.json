@@ -1,0 +1,18 @@
+{
+  "title": "Tokyo",
+  "location": "Japan",
+  "year": 2017,
+  "published": true,
+  "images": [
+    { "id": "skytree", "name": "Tokyo Skytree", "camera": "Canon EOS Rebel T3i" },
+    { "id": "asahi-flag", "camera": "Canon EOS Rebel T3i" },
+    { "id": "flower", "camera": "Canon EOS Rebel T3i" },
+    { "id": "sky", "camera": "Canon EOS Rebel T3i" },
+    { "id": "senso-ji", "camera": "Canon EOS Rebel T3i" },
+    { "id": "lanterns", "camera": "Canon EOS Rebel T3i" },
+    { "id": "subway", "camera": "Canon EOS Rebel T3i" },
+    { "id": "tokyo", "camera": "Canon EOS Rebel T3i" },
+    { "id": "tree", "camera": "Canon EOS Rebel T3i" },
+    { "id": "vending-machines", "camera": "Canon EOS Rebel T3i" }
+  ]
+}

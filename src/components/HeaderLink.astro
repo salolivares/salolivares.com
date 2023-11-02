@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[className, 'no-underline hover:underline hover:decoration-solid']}
+  rel="prefetch"
+  {...props}
+>
+  <slot />
+</a>

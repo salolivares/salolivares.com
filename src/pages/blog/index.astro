@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (
+  await getCollection('blog', ({ data }) => {
+    // Only return published posts in production
+    return import.meta.env.PROD ? data.published === true : true;
+  })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog">
+  <h1>Blog</h1>
+  <section class="mt-6">
+    <ul class="m-0 list-none">
+      {
+        posts.map((post) => (
+          <li class="flex">
+            <time datetime={post.data.pubDate.toISOString()} class="basis-32">
+              {post.data.pubDate.toLocaleDateString('fr-ca', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+              })}
+            </time>
+            <a href={`/blog/${post.slug}`} class="font-semibold" rel="prefetch-intent">
+              {post.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

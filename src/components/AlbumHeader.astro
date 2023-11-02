@@ -1,0 +1,57 @@
+---
+import Badge from './Badge.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const { title } = Astro.props;
+---
+
+<header
+  id="sticky-header"
+  class="fixed left-0 top-0 flex w-full justify-between p-5 transition-opacity duration-300"
+>
+  <div class="flex items-center gap-3">
+    <div class="text-2xl font-bold lowercase">
+      {title}
+    </div>
+    <div>
+      <Badge variant="secondary">2017</Badge>
+    </div>
+  </div>
+  <ThemeToggle />
+</header>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const header = document.getElementById('sticky-header');
+
+      // If at the top of the page, adjust header opacity immediately
+      // consider within 10px as "top"
+      if (window.scrollY > 10) {
+        // If not at the top, add a delay before adjusting the header's opacity
+        setTimeout(adjustOpacity, 2000); // 2 seconds delay
+      }
+
+      // Attach the scroll event listener
+      window.addEventListener('scroll', adjustOpacity);
+
+      function adjustOpacity() {
+        if (header) {
+          const scrollValue = window.scrollY;
+          let opacity = 1;
+
+          const elementHeight = header.offsetHeight - 60;
+
+          if (scrollValue <= elementHeight) {
+            opacity = 1 - scrollValue / elementHeight;
+          } else {
+            opacity = 0;
+          }
+
+          header.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+          header.style.opacity = String(opacity);
+        }
+      }
+    });
+  });
+</script>

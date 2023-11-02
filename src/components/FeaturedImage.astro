@@ -1,0 +1,23 @@
+---
+import RemoteImage from './RemoteImage.astro';
+
+export interface Props {
+  image: {
+    src: string;
+    name?: string;
+    location: string;
+  };
+  class: string;
+}
+
+const { image, class: className } = Astro.props;
+const name = image.name ?? 'Untitled';
+---
+
+<div class:list={[className, 'flex flex-col']}>
+  <RemoteImage src={image.src} alt={name} />
+  <div class="mt-2 flex flex-col justify-end">
+    <div class="text-right text-sm text-muted-foreground">{image.location}</div>
+    <div class="text-right text-base font-semibold">{name}</div>
+  </div>
+</div>

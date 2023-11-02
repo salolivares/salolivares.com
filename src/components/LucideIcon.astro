@@ -1,0 +1,26 @@
+---
+// Credit https://chan.dev/lucide-in-astro/
+
+import type { Accessibility } from 'lucide';
+type Props = {
+  icon: typeof Accessibility;
+  [key: string]: any;
+};
+
+const { icon, ...props } = Astro.props;
+
+const [, attributes, children] = icon;
+
+const componentChildren = children
+  ?.map(
+    ([shape, attributes]) =>
+      `<${shape} ${Object.entries(attributes)
+        .map(([k, v]) => `${k}="${v}"`)
+        .join(' ')} />`,
+  )
+  .join('');
+
+const componentAttributes = { ...attributes, ...props };
+---
+
+<svg {...componentAttributes} set:html={componentChildren} />
