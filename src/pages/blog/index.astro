@@ -16,8 +16,8 @@ const posts = (
     <ul class="m-0 list-none">
       {
         posts.map((post) => (
-          <li class="flex">
-            <time datetime={post.data.pubDate.toISOString()} class="basis-32">
+          <li class="mt-5 flex flex-col sm:mt-2 sm:flex-row">
+            <time datetime={post.data.pubDate.toISOString()} class="sm:basis-32">
               {post.data.pubDate.toLocaleDateString('fr-ca', {
                 year: 'numeric',
                 month: 'numeric',
