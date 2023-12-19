@@ -1,18 +1,17 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import prefetch from '@astrojs/prefetch';
 import { readFileSync } from 'node:fs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://salolivares.com',
+  prefetch: true,
   integrations: [
     sitemap(),
     tailwind({
       applyBaseStyles: false,
     }),
-    prefetch(),
   ],
   markdown: {
     shikiConfig: {

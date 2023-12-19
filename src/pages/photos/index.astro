@@ -35,7 +35,7 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
       {
         albums.map((photo) => (
           <li class="mt-4 flex flex-col">
-            <a href={`/photos/${photo.id}`} class="font-semibold" rel="prefetch-intent">
+            <a href={`/photos/${photo.id}`} class="font-semibold" data-astro-prefetch>
               {photo.data.title}
             </a>
             <div class="mt-1 flex space-x-4 text-sm text-muted-foreground">
