@@ -50,6 +50,8 @@ module.exports = {
       },
       typography: () => ({
         // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
+        // This customizes the tailwind typography plugin styles.
+        // They are mirrors from the styles.css file.
         custom: {
           css: {
             '--tw-prose-body': 'hsl(var(--foreground))',
