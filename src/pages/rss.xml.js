@@ -10,6 +10,7 @@ export async function GET(context) {
     site: context.site,
     items: posts
       .filter((post) => post.data.published)
+      .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
       .map((post) => ({
         ...post.data,
         link: `/blog/${post.slug}/`,
