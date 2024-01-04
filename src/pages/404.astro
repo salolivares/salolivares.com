@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import dog from '../assets/images/dog.jpeg';
+---
+
+<BaseLayout>
+  <h1>Welp, that's ruff.</h1>
+  <div class="mb-5 mt-1 italic text-muted-foreground">
+    My dog personally apologizes for not finding the page you were looking for.
+  </div>
+  <div class="mb-80 p-5">
+    <Image
+      src={dog}
+      alt="A picture of my dog, a white bichon frise, looking at the camera suspiciously."
+    />
+  </div>
+</BaseLayout>

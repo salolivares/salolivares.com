@@ -9,7 +9,7 @@ const { href, class: className, ...props } = Astro.props;
 <a
   href={href}
   class:list={[className, 'no-underline hover:underline hover:decoration-solid']}
-  rel="prefetch"
+  data-astro-prefetch="viewport"
   {...props}
 >
   <slot />
