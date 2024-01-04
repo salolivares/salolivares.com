@@ -1,6 +1,6 @@
 import { config } from '@/site.config';
 import { Resvg } from '@resvg/resvg-js';
-import { readFile} from "node:fs/promises";
+import { readFile } from 'node:fs/promises';
 import type { APIContext, GetStaticPathsResult } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
@@ -13,14 +13,14 @@ interface Props {
   pubDate: Date;
 }
 
-export async function get(context: APIContext) {
+export async function GET(context: APIContext) {
   const { title, pubDate } = context.props as Props;
   const date = pubDate.toLocaleDateString('en-US', {
     dateStyle: 'full',
   });
 
-  const avatarBuffer = await readFile('./public/images/avatar.png')
-  const avatar = `data:image/png;base64,${avatarBuffer.toString('base64')}`
+  const avatarBuffer = await readFile('./public/images/avatar.png');
+  const avatar = `data:image/png;base64,${avatarBuffer.toString('base64')}`;
 
   const markup = html`<div tw="flex flex-col w-full h-full items-center justify-center bg-white">
     <div tw="flex flex-col w-full h-4/5 p-10 justify-center">
@@ -59,6 +59,8 @@ export async function get(context: APIContext) {
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: config.ogImageWidth } })
     .render()
     .asPng();
+
+  return new Response(png);
 
   return {
     body: png,
