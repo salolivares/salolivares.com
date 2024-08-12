@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import AlbumHeader from '../components/AlbumHeader.astro';
 import type { CollectionEntry } from 'astro:content';
+import ScrollIndicator from '@/components/ScrollIndicator.astro';
 
 interface Props {
   album: CollectionEntry<'photos'>;
@@ -55,5 +56,6 @@ const { album } = Astro.props;
     <main>
       <slot />
     </main>
+    <ScrollIndicator />
   </body>
 </html>

@@ -1,6 +1,5 @@
 ---
 import RemoteImage from '@/components/RemoteImage.astro';
-import ScrollIndicator from '@/components/ScrollIndicator.astro';
 import AlbumLayout from '@/layouts/AlbumLayout.astro';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
@@ -34,5 +33,4 @@ const { images } = album.data;
       ))
     }
   </div>
-  <ScrollIndicator />
 </AlbumLayout>
