@@ -2,7 +2,12 @@
 import Badge from './Badge.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  year: number;
+}
+
+const { title, year } = Astro.props;
 ---
 
 <header
@@ -14,7 +19,7 @@ const { title } = Astro.props;
       {title}
     </div>
     <div>
-      <Badge variant="secondary">2017</Badge>
+      <Badge variant="secondary">{year}</Badge>
     </div>
   </div>
   <ThemeToggle />
