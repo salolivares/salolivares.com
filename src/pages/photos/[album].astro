@@ -28,8 +28,7 @@ const { images } = album.data;
         <div class="flex min-h-screen max-w-screen-lg flex-col justify-center">
           <RemoteImage src={`${album.id}/${image.id}`} alt={image.name ?? 'Untitled'} />
           <div class="mt-2 flex flex-col justify-end">
-            <div class="text-right text-sm text-muted-foreground">{album.data.location}</div>
-            <div class="text-right text-base font-semibold">{image.name}</div>
+            <div class="text-right text-base font-semibold">{image.name ?? 'Untitled'}</div>
           </div>
         </div>
       ))
