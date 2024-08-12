@@ -1,0 +1,68 @@
+{
+  "title": "Seattle",
+  "location": "USA",
+  "year": 2022,
+  "published": true,
+  "images": [
+    {
+      "id": "They never forget.",
+      "name": "They never forget.",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Seattle downtown",
+      "name": "Seattle downtown",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "The hotel",
+      "name": "The hotel",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Honesty",
+      "name": "Honesty",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Red",
+      "name": "Red",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Unknown",
+      "name": "Unknown",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Seattle Library",
+      "name": "Seattle Library",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Skyline",
+      "name": "Skyline",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Glass structures",
+      "name": "Glass structures",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Haze",
+      "name": "Haze",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "Space Needle",
+      "name": "Space Needle",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "o7",
+      "name": "o7",
+      "camera": "Canon AE-1"
+    }
+  ]
+}
