@@ -51,7 +51,7 @@ const { album } = Astro.props;
     <BaseHead title={album.data.title} />
   </head>
   <body>
-    <AlbumHeader title={album.data.title} />
+    <AlbumHeader title={album.data.title} year={album.data.year} />
     <main>
       <slot />
     </main>
