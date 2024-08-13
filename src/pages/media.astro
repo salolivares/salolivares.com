@@ -1,0 +1,22 @@
+---
+import StarRating from '@/components/StarRating.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { getMediaRankings } from '@/scripts/notion';
+
+const mediaRankings = await getMediaRankings();
+---
+
+<BaseLayout>
+  <h1>Media</h1>
+  <div class="my-6 grid grid-cols-2 gap-2">
+    {
+      mediaRankings.map((media) => (
+        <>
+          <div class="overflow-hidden text-ellipsis whitespace-nowrap font-bold">{media.name}</div>
+          <StarRating rating={media.rating} />
+        </>
+      ))
+    }
+  </div>
+</BaseLayout>
