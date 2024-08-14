@@ -10,22 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.3",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
     "@fontsource/inter": "^4.5.15",
-    "@radix-ui/react-dropdown-menu": "^2.0.6",
-    "@resvg/resvg-js": "^2.4.1",
-    "@tailwindcss/typography": "^0.5.10",
-    "astro": "^4.0.6",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/typography": "^0.5.14",
+    "astro": "^4.13.3",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^1.2.1",
-    "lucide": "^0.288.0",
-    "satori": "^0.9.1",
+    "clsx": "^2.1.1",
+    "lucide": "^0.427.0",
+    "satori": "^0.10.14",
     "satori-html": "^0.3.2",
-    "sharp": "^0.32.6",
-    "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.3.3",
+    "sharp": "^0.33.4",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.10",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
@@ -33,9 +32,9 @@
     "@typescript-eslint/parser": "^6.7.3",
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
-    "prettier": "^3.0.3",
+    "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.6",
-    "typescript": "^5.2.2"
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "typescript": "^5.5.4"
   }
 }

@@ -61,11 +61,6 @@ export async function GET(context: APIContext) {
     .asPng();
 
   return new Response(png);
-
-  return {
-    body: png,
-    encoding: 'binary',
-  };
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
