@@ -1,15 +1,16 @@
 ---
 // Component used to load remote images from photos.salolivares.com
 
-type Props = {
+interface Props {
   src: string;
   alt?: string;
   class?: string;
   [index: string]: any;
-};
+}
 
 const host = 'https://photos.salolivares.com';
-const { src, alt = '', class: className, ...rest } = Astro.props;
+const { src: propSrc, alt = '', class: className, ...rest } = Astro.props;
+const src = encodeURIComponent(propSrc);
 ---
 
 <picture class={className} {...rest}>
@@ -21,5 +22,11 @@ const { src, alt = '', class: className, ...rest } = Astro.props;
     srcset={`${host}/${src}_1280.jpg 1280w, ${host}/${src}_2880.jpg 2880w`}
     type="image/jpeg"
   />
-  <img alt={alt} loading="lazy" src={`${host}/${src}_1280.jpg`} width="1280" height="853" />
+  <img
+    alt={alt}
+    loading="lazy"
+    src={`${host}/${src}_1280.jpg`}
+    width="1280"
+    style="height: auto;"
+  />
 </picture>
