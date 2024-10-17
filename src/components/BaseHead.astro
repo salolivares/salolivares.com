@@ -5,6 +5,8 @@ import '../styles/globals.css';
 
 import { config } from '@/site.config';
 
+import SpeedInsights from '@vercel/speed-insights/astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -61,3 +63,5 @@ const socialImageURL = new URL(image, Astro.url);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImageURL} />
+
+<SpeedInsights />
