@@ -2,7 +2,7 @@
   "title": "Arizona",
   "location": "USA",
   "year": 2021,
-  "published": false,
+  "published": true,
   "images": [
     {
       "id": "petrified_forest_1",
