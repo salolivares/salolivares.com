@@ -1,7 +1,7 @@
 ---
 title: 'One cable to rule them all'
-subtitle: 'My quest for the ultimate work from home setup is over.'
-description: 'How I built the ultimate setup for both work and play using one cable'
+subtitle: 'My quest for the ultimate work from home setup is over... for now.'
+description: 'How I built the ultimate remote work setup for both work and play using one cable'
 pubDate: '2022-01-18'
 published: true
 ---
