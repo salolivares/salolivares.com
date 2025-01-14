@@ -51,7 +51,7 @@ module.exports = {
       typography: () => ({
         // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
         // This customizes the tailwind typography plugin styles.
-        // They are mirrors from the styles.css file.
+        // They are mirrors from the global.css file.
         custom: {
           css: {
             '--tw-prose-body': 'hsl(var(--foreground))',
@@ -65,15 +65,14 @@ module.exports = {
             '--tw-prose-invert-code': 'hsl(var(--foreground))',
             '--tw-prose-invert-links': 'hsl(var(--foreground))',
             h1: {
-              fontSize: '2.25rem',
-              lineHeight: '2.5rem',
+              fontSize: '1.25rem',
+              lineHeight: '1.75rem',
               fontWeight: '800',
-              letterSpacing: '-0.025em',
               scrollMargin: '5rem',
             },
             h2: {
-              fontSize: '1.875rem',
-              lineHeight: '2.25rem',
+              fontSize: '1.125rem',
+              lineHeight: '1.75rem',
               fontWeight: '700',
               letterSpacing: '-0.025em',
               borderBottomWidth: '1px',
@@ -81,15 +80,15 @@ module.exports = {
               scrollMargin: '5rem',
             },
             h3: {
-              fontSize: '1.5rem',
-              lineHeight: '2rem',
+              fontSize: '1.125rem',
+              lineHeight: '1.75rem',
               fontWeight: '600',
               letterSpacing: '-0.025em',
               scrollMargin: '5rem',
             },
             h4: {
-              fontSize: '1.25rem',
-              lineHeight: '1.75rem',
+              fontSize: '1rem',
+              lineHeight: '1.5rem',
               fontWeight: '600',
               letterSpacing: '-0.025em',
               scrollMargin: '5rem',

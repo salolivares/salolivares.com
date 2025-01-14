@@ -1,0 +1,23 @@
+{
+  "title": "Arizona",
+  "location": "USA",
+  "year": 2021,
+  "published": true,
+  "images": [
+    {
+      "id": "petrified_forest_1",
+      "name": "Petrified Forest",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "petrified_forest_2",
+      "name": "Petrified Road",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "flagstaff",
+      "name": "Flagstaff night sky",
+      "camera": "Canon AE-1"
+    }
+  ]
+}
