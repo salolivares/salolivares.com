@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 function removeDupes(array: string[]) {
   if (array.length === 0) return array;
@@ -7,7 +8,7 @@ function removeDupes(array: string[]) {
 }
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -30,7 +31,7 @@ const blog = defineCollection({
 });
 
 const photos = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/photos' }),
   schema: z.object({
     title: z.string(),
     location: z.string(),

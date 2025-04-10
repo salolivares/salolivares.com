@@ -7,9 +7,9 @@ import { CornerDownLeft } from '@lucide/astro';
 
 type Props = CollectionEntry<'blog'>;
 
-const { data, slug } = Astro.props;
+const { data, id } = Astro.props;
 const { title, subtitle, description, heroImage, heroImageAlt = null, pubDate, updatedDate } = data;
-const ogImage = `/og-image/${slug}.png`;
+const ogImage = `/og-image/${id}.png`;
 ---
 
 <BaseLayout title={title} description={description} image={ogImage}>
