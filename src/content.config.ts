@@ -8,7 +8,7 @@ function removeDupes(array: string[]) {
 }
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.md', base: './content/blog' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -31,7 +31,7 @@ const blog = defineCollection({
 });
 
 const photos = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/photos' }),
+  loader: glob({ pattern: '**/*.json', base: './content/photos' }),
   schema: z.object({
     title: z.string(),
     location: z.string(),
