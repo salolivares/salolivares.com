@@ -3,8 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import { Image } from 'astro:assets';
-import LucideIcon from '@/components/LucideIcon.astro';
-import { CornerDownLeft } from 'lucide';
+import { CornerDownLeft } from '@lucide/astro';
 
 type Props = CollectionEntry<'blog'>;
 
@@ -36,7 +35,7 @@ const ogImage = `/og-image/${slug}.png`;
           aria-label="Back to posts"
           class="rounded-full p-6 transition-colors duration-200 hover:opacity-50 dark:hover:opacity-75"
         >
-          <LucideIcon icon={CornerDownLeft} />
+          <CornerDownLeft />
         </a>
       </div>
     </div>
