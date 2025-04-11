@@ -10,15 +10,15 @@ One of the things I miss most from using Ubuntu is the ability to open the termi
 ## Setup
 1) Open up _Automator_ and create a new file and select _Services_ as your document type. 
 
-![Screenshot](./1.png)
+![Screenshot](../../assets/blog/open-iterm2-here-context-menu-option/1.png)
 
 2) For the _Service receives selected_ field, select _Folders_. 
 
-![Screenshot](./2.png)
+![Screenshot](../../assets/blog/open-iterm2-here-context-menu-option/2.png)
 
 3) Drag _Run AppleScript_ onto the right hand window to add some of the AppleScript code that will power the service.
 
-![Screenshot](./3.png)
+![Screenshot](../../assets/blog/open-iterm2-here-context-menu-option/3.png)
 
 4) Paste the following code:
  
@@ -49,7 +49,7 @@ end cd
 
 5) Hit _Command+S_ to save the service. Whichever name you save it under will appear in the context menu when you right click on a folder.
 
-![Screenshot](./4.png)
+![Screenshot](../../assets/blog/open-iterm2-here-context-menu-option/4.png)
 
 6) Right click on any finder folder and click _Open in iTerm2_! Voila!
 
