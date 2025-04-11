@@ -13,7 +13,7 @@ export async function GET(context) {
       .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
       .map((post) => ({
         ...post.data,
-        link: `/blog/${post.slug}/`,
+        link: `/blog/${post.id}/`,
       })),
   });
 }
