@@ -1,10 +1,10 @@
 ---
-import LucideIcon from '@/components/LucideIcon.astro';
 import RemoteImage from '@/components/RemoteImage.astro';
 import AlbumLayout from '@/layouts/AlbumLayout.astro';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
-import { CornerDownLeft } from 'lucide';
+import { CornerDownLeft } from '@lucide/astro';
+
 export const getStaticPaths = (async () => {
   const albums = await getCollection('photos');
   return albums.map((album) => ({
@@ -32,14 +32,14 @@ const { images } = album.data;
         </div>
       ))
     }
-    <div class="min-h-96 mt-24 flex flex-col">
+    <div class="mt-24 flex min-h-96 flex-col">
       <a
         href="/photos"
         data-astro-prefetch="viewport"
         aria-label="Back to albums"
         class="rounded-full p-6 transition-colors duration-200 hover:opacity-50 dark:hover:opacity-75"
       >
-        <LucideIcon icon={CornerDownLeft} />
+        <CornerDownLeft />
       </a>
     </div>
   </div>

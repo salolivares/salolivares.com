@@ -66,7 +66,7 @@ export async function GET(context: APIContext) {
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { title: post.data.title, pubDate: post.data.updatedDate ?? post.data.pubDate },
   }));
 }
