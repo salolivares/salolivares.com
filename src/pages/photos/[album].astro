@@ -32,7 +32,16 @@ const { images } = album.data;
         </div>
       ))
     }
-    <div class="mt-24 flex min-h-96 flex-col">
+    {
+      // Chikis Tribute
+      album.id === 'chikis' && (
+        <div class="flex min-h-screen max-w-screen-lg flex-col justify-center font-serif">
+          <div class="text-lg">she will be missed.</div>
+          <div class="text-sm">2010 &ndash; 2024</div>
+        </div>
+      )
+    }
+    <div class="mt-24 flex min-h-96 flex-col items-center">
       <a
         href="/photos"
         data-astro-prefetch="viewport"

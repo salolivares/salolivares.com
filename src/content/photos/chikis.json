@@ -1,0 +1,36 @@
+{
+  "title": "Chikis",
+  "year": 2023,
+  "published": true,
+  "images": [
+    {
+      "id": "1",
+      "camera": "Canon EOS Rebel T3i"
+    },
+    {
+      "id": "2",
+      "camera": "Canon EOS Rebel T3i"
+    },
+    {
+      "id": "3",
+      "camera": "Canon EOS Rebel T3i"
+    },
+    {
+      "id": "4",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "5",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "6",
+      "name": "FOMO",
+      "camera": "Canon AE-1"
+    },
+    {
+      "id": "7",
+      "camera": "Canon AE-1"
+    }
+  ]
+}
