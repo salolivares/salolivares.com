@@ -3,16 +3,20 @@ layout: ../layouts/BaseLayout.astro
 title: Best Of
 description: A collection of quotes I've had the privilege and/or misfortune of coming across on the internet.
 ---
+
 # Best Of
 
 Here are a collection of quotes I’ve had the privilege and/or misfortune of coming across on the internet.
 
 ---
 
-[On self-care](https://news.ycombinator.com/item?id=35985569)
+[On the Operator Mono Font](https://www.reddit.com/r/webdev/comments/8dyn99/operator_mono_is_the_comic_sans_of_2018/dxr6oug/)
 
-	
-dj_mc_merlin
+> Man I am a sucker for all of the bullshit that people thrown around design, whether the design is good or not. You can’t just be like “I made this fucking ‘g’” you have to be all “the circle part represents humanity and the earth on which we live, all connected and infinite. The bottom stem is our desire to explore and lift ourselves to a higher mental plane.”
+>
+> Ok dude. It’s a g though.
+
+[On self-care](https://news.ycombinator.com/item?id=35985569)
 
 > The marketing is made in such a way as to portray these activities as necessary to a productive life. "Stop being such a slob! Achieve your true potential!" It's an old trick.
 >
@@ -24,13 +28,9 @@ dj_mc_merlin
 
 [On how we suck at software](https://www.reddit.com/r/webdev/duplicates/95sofq/were_all_terrible_at_what_we_do/)
 
-/u/Edward_Morbius
-
 > I'd also like to mention that "Software Engineer" is just title inflation. It's really not engineering. It's more like cubist art where the parts just seem to mostly work together.
 
 [On moving past senior software engineer](https://news.ycombinator.com/item?id=30077184)
-
-skrtskrt
 
 > To me moving beyond senior means you enable the entire team to contribute together accomplish Big Memorable Things.
 > This can mean a ton of things, which cannot all be served by a single senior+ engineer:
@@ -48,17 +48,15 @@ skrtskrt
 
 [On chocolate as an investment](https://news.ycombinator.com/item?id=27208843)
 
-creshal
-
 > Long-term hodling of chocolate is still an unsolved problem in my experience. It tends to just disappear over time.
 
 [On Stock Technical Analysis](https://www.reddit.com/r/wallstreetbets/comments/lw7z8v/update_gme_broke_through_the_pennant_next_stop_is/gpftqkc/)
 
-/u/MachinoMaestro
+/u/MachinoMaestro says:
 
 > Patterns is pure confirmation bias, change my mind
 
-/u/laqualitafaschifo responds
+/u/laqualitafaschifo responds:
 
 > its astrology for men
 
@@ -148,3 +146,4 @@ Louie. On love.
 [On Apple building a new campus.](https://www.reddit.com/r/apple/comments/59bym2/apple_expected_to_report_first_annual_revenue/d97xyv2/?context=3)
 
 > The reason they're building a spaceship campus is because they have a whole lotta people working for them now. They need to figure out how to ship a product without Jony Ive individually blessing each one with his tears.
+
