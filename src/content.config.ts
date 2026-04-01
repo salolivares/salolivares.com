@@ -30,6 +30,18 @@ const blog = defineCollection({
     }),
 });
 
+const now = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/now' }),
+  schema: z.object({
+    title: z.string().optional(),
+    pubDate: z
+      .string()
+      .or(z.date())
+      .transform((val) => new Date(val)),
+    published: z.boolean().default(false),
+  }),
+});
+
 const photos = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/photos' }),
   schema: z.object({
@@ -47,4 +59,4 @@ const photos = defineCollection({
   }),
 });
 
-export const collections = { blog, photos };
+export const collections = { blog, now, photos };
