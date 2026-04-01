@@ -11,7 +11,7 @@ content:
     path: src/content/blog
     format: yaml-frontmatter
     filename:
-      template: "{primary}.md"
+      template: '{primary}.md'
       field: create
     view:
       fields: [title, pubDate, published]
@@ -52,7 +52,7 @@ content:
     path: src/content/now
     format: yaml-frontmatter
     filename:
-      template: "{year}-{month}-{day}.md"
+      template: '{year}-{month}-{day}-{hour}-{minute}.md'
       field: create
     view:
       fields: [title, pubDate, published]
@@ -67,7 +67,14 @@ content:
       - name: pubDate
         type: date
         required: true
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm
       - name: published
         type: boolean
       - name: body
         type: rich-text
+        options:
+          rename: true
+          path: src/assets/now
+          media: ../../assets/now
