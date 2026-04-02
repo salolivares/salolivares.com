@@ -4,9 +4,10 @@ import { readFile } from 'node:fs/promises';
 import type { APIContext, GetStaticPathsResult } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
-import InterRegular from '@fontsource/inter/files/inter-latin-400-normal.woff';
-import InterBold from '@fontsource/inter/files/inter-latin-700-normal.woff';
 import { html } from 'satori-html';
+
+const INTER_REGULAR = './node_modules/@fontsource/inter/files/inter-latin-400-normal.woff';
+const INTER_BOLD = './node_modules/@fontsource/inter/files/inter-latin-700-normal.woff';
 
 interface Props {
   title: string;
@@ -19,7 +20,11 @@ export async function GET(context: APIContext) {
     dateStyle: 'full',
   });
 
-  const avatarBuffer = await readFile('./public/images/avatar.png');
+  const [avatarBuffer, interRegular, interBold] = await Promise.all([
+    readFile('./public/images/avatar.png'),
+    readFile(INTER_REGULAR),
+    readFile(INTER_BOLD),
+  ]);
   const avatar = `data:image/png;base64,${avatarBuffer.toString('base64')}`;
 
   const markup = html`<div tw="flex flex-col w-full h-full items-center justify-center bg-white">
@@ -45,12 +50,12 @@ export async function GET(context: APIContext) {
     fonts: [
       {
         name: 'Inter',
-        data: Buffer.from(InterRegular),
+        data: interRegular.buffer,
         weight: 400,
       },
       {
         name: 'Inter',
-        data: Buffer.from(InterBold),
+        data: interBold.buffer,
         weight: 700,
       },
     ],
