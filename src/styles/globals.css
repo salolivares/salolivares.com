@@ -1,68 +1,171 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 22%;
+@plugin '@tailwindcss/typography';
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+@custom-variant dark (&:where(.dark, .dark *));
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
 
-    --radius: 0.5rem;
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 22%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 10% 3.9%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 89%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 0 0% 62%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+}
+
+.prose-custom {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--foreground));
+
+  & :where(h1) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 800;
+    scroll-margin: 5rem;
   }
-
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 89%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 0 0% 62%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+  & :where(h2) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    border-bottom-width: 1px;
+    padding-bottom: 0.5rem;
+    scroll-margin: 5rem;
+  }
+  & :where(h3) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    scroll-margin: 5rem;
+  }
+  & :where(h4) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    scroll-margin: 5rem;
+  }
+  & :where(blockquote) {
+    border-left-width: 2px;
+    padding-left: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+  }
+  & :where(a) {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
+  & :where(a):hover {
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+  }
+  & :where(ul) {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 0;
+  }
+  & :where(ul) > :where(li) {
+    margin-top: 0.5rem;
+  }
+  & :where(abbr) {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
   }
 }
 
@@ -70,31 +173,31 @@
   * {
     @apply border-border;
   }
-  h1 {
+  h1:not(:where(.prose *)) {
     @apply scroll-m-20 text-xl font-extrabold;
   }
-  h2 {
+  h2:not(:where(.prose *)) {
     @apply scroll-m-20 border-b pb-2 text-lg font-bold tracking-tight transition-colors first:mt-0;
   }
-  h3 {
+  h3:not(:where(.prose *)) {
     @apply scroll-m-20 text-lg font-semibold tracking-tight;
   }
-  h4 {
+  h4:not(:where(.prose *)) {
     @apply scroll-m-20 text-base font-semibold tracking-tight;
   }
-  p {
-    @apply leading-7 [&:not(:first-child)]:mt-6;
+  p:not(:where(.prose *)) {
+    @apply leading-7 not-first:mt-6;
   }
-  blockquote {
+  blockquote:not(:where(.prose *)) {
     @apply mt-6 border-l-2 pl-6 italic;
   }
-  ul {
+  ul:not(:where(.prose *)) {
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
-  code {
-    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  code:not(:where(.prose *)) {
+    @apply relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
   }
-  a {
+  a:not(:where(.prose *)) {
     @apply underline underline-offset-4 hover:decoration-dotted hover:decoration-1;
   }
 }

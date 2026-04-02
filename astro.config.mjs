@@ -1,18 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { readFileSync } from 'node:fs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://salolivares.com',
   prefetch: true,
-  integrations: [
-    sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
+  integrations: [sitemap()],
   markdown: {
     shikiConfig: {
       theme: 'one-dark-pro',
@@ -22,7 +17,7 @@ export default defineConfig({
     domains: ['photos.salolivares.com'],
   },
   vite: {
-    plugins: [rawFonts(['.ttf', '.woff'])],
+    plugins: [tailwindcss(), rawFonts(['.ttf', '.woff'])],
     optimizeDeps: {
       exclude: ['@resvg/resvg-js'],
     },
