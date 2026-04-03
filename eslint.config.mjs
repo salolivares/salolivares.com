@@ -1,20 +1,24 @@
 // @ts-check
 
 import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
-export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.strict,
+export default defineConfig(
   {
-    files: ['*.d.ts'],
+    ignores: ['dist/', '.astro/'],
+  },
+  eslint.configs.recommended,
+  tseslint.configs.strict,
+  {
+    files: ['**/*.d.ts'],
     rules: {
       '@typescript-eslint/triple-slash-reference': 'off',
     },
   },
   {
-    files: ['*.ts'],
+    files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -22,6 +26,14 @@ export default tseslint.config(
       ],
     },
   },
-  ...tseslint.configs.stylistic,
+  tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
+  {
+    files: ['**/*.astro'],
+    languageOptions: {
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+  },
 );

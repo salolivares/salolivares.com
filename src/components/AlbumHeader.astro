@@ -12,7 +12,7 @@ const { title, year } = Astro.props;
 
 <header
   id="sticky-header"
-  class="fixed left-0 top-0 flex w-full justify-between p-5 transition-opacity duration-300"
+  class="fixed top-0 left-0 flex w-full justify-between p-5 transition-opacity duration-300"
 >
   <div class="flex items-center gap-3">
     <div class="text-2xl font-bold lowercase">
@@ -43,15 +43,8 @@ const { title, year } = Astro.props;
       function adjustOpacity() {
         if (header) {
           const scrollValue = window.scrollY;
-          let opacity = 1;
-
           const elementHeight = header.offsetHeight - 60;
-
-          if (scrollValue <= elementHeight) {
-            opacity = 1 - scrollValue / elementHeight;
-          } else {
-            opacity = 0;
-          }
+          const opacity = scrollValue <= elementHeight ? 1 - scrollValue / elementHeight : 0;
 
           header.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
           header.style.opacity = String(opacity);
