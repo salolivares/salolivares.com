@@ -22,6 +22,7 @@ const { title, description, image } = Astro.props.frontmatter || Astro.props;
     color: hsl(var(--foreground));
   }
   body {
+    background-color: hsl(var(--background));
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
@@ -29,6 +30,7 @@ const { title, description, image } = Astro.props.frontmatter || Astro.props;
     padding: 20px;
     max-width: 70ch;
     min-width: 320px;
+    min-height: 100dvh;
     overflow-wrap: break-word;
     scroll-behavior: smooth;
   }

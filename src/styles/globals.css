@@ -37,8 +37,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 :root {
@@ -103,12 +103,18 @@
   --ring: 240 4.9% 83.9%;
 }
 
-.prose-custom {
+@utility prose-custom {
   --tw-prose-body: hsl(var(--foreground));
   --tw-prose-headings: hsl(var(--foreground));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-code: hsl(var(--foreground));
   --tw-prose-links: hsl(var(--foreground));
+
+  --tw-prose-invert-body: hsl(var(--foreground));
+  --tw-prose-invert-headings: hsl(var(--foreground));
+  --tw-prose-invert-quotes: hsl(var(--foreground));
+  --tw-prose-invert-code: hsl(var(--foreground));
+  --tw-prose-invert-links: hsl(var(--foreground));
 
   & :where(h1) {
     font-size: 1.25rem;
@@ -173,31 +179,31 @@
   * {
     @apply border-border;
   }
-  h1:not(:where(.prose *)) {
+  h1 {
     @apply scroll-m-20 text-xl font-extrabold;
   }
-  h2:not(:where(.prose *)) {
+  h2 {
     @apply scroll-m-20 border-b pb-2 text-lg font-bold tracking-tight transition-colors first:mt-0;
   }
-  h3:not(:where(.prose *)) {
+  h3 {
     @apply scroll-m-20 text-lg font-semibold tracking-tight;
   }
-  h4:not(:where(.prose *)) {
+  h4 {
     @apply scroll-m-20 text-base font-semibold tracking-tight;
   }
-  p:not(:where(.prose *)) {
+  p {
     @apply leading-7 not-first:mt-6;
   }
-  blockquote:not(:where(.prose *)) {
+  blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
-  ul:not(:where(.prose *)) {
+  ul {
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
-  code:not(:where(.prose *)) {
-    @apply relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  code {
+    @apply bg-muted relative rounded-sm px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
   }
-  a:not(:where(.prose *)) {
+  a {
     @apply underline underline-offset-4 hover:decoration-dotted hover:decoration-1;
   }
 }
