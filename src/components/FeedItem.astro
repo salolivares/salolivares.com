@@ -1,0 +1,49 @@
+---
+import Badge from './Badge.astro';
+import { relativeTime } from '@/lib/relative-time';
+
+interface Props {
+  pubDate: Date;
+  type: string;
+  permalink: string;
+}
+
+const { pubDate, type, permalink } = Astro.props;
+---
+
+<article class="border-b border-border py-5">
+  <div class="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
+    <a href={permalink} class="decoration-muted-foreground/50 hover:decoration-foreground">
+      <time datetime={pubDate.toISOString()} data-relative>
+        {relativeTime(pubDate)}
+      </time>
+    </a>
+    <span>&middot;</span>
+    <Badge variant="outline" class="px-1.5 py-0 text-[10px]">{type}</Badge>
+  </div>
+  <div class="prose prose-sm prose-custom dark:prose-invert max-w-none [&>p:first-child]:mt-0">
+    <slot />
+  </div>
+</article>
+
+<script>
+  function relativeTime(date: Date): string {
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+    if (seconds < 60) return 'just now';
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 30) return `${days}d ago`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return `${months}mo ago`;
+    const years = Math.floor(days / 365);
+    return `${years}y ago`;
+  }
+
+  document.querySelectorAll('time[data-relative]').forEach((el) => {
+    const dt = el.getAttribute('datetime');
+    if (dt) el.textContent = relativeTime(new Date(dt));
+  });
+</script>
