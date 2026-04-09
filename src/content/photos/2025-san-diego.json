@@ -1,0 +1,18 @@
+{
+    "title": "San Diego",
+    "location": "San Diego",
+    "year": 2025,
+    "published": true,
+    "images": [
+        {
+            "id": "mts-blue-line",
+            "name": "MTS Blue Line",
+            "camera": "Fujifilm X-T30 II"
+        },
+        {
+            "id": "patio-view",
+            "name": "Patio view",
+            "camera": "Fujifilm X-T30 II"
+        }
+    ]
+}

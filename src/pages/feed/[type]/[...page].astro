@@ -1,0 +1,63 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FeedItem from '@/components/FeedItem.astro';
+import Pagination from '@/components/Pagination.astro';
+import { getFeedItems, getPermalink, renderFeedItem, FEED_TYPES } from '@/lib/feed';
+import type { FeedItemType } from '@/lib/feed';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const results = [];
+  for (const type of FEED_TYPES) {
+    const items = await getFeedItems(type);
+    results.push(
+      ...paginate(items, {
+        params: { type },
+        pageSize: 10,
+      }),
+    );
+  }
+  return results;
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props as Props;
+const { type } = Astro.params as { type: FeedItemType };
+
+const renderedItems = await Promise.all(
+  page.data.map(async (item) => {
+    const { Content } = await renderFeedItem(item);
+    return { ...item, Content };
+  }),
+);
+---
+
+<BaseLayout title={`Feed - ${type}`}>
+  <h1 class="sr-only">Feed - {type}</h1>
+
+  <nav class="mt-6 flex gap-3 text-sm" aria-label="Feed filters">
+    <a href="/feed" data-astro-prefetch>All</a>
+    {FEED_TYPES.map((t) =>
+      t === type ? (
+        <span class="font-semibold">{t}</span>
+      ) : (
+        <a href={`/feed/${t}`} data-astro-prefetch>{t}</a>
+      )
+    )}
+  </nav>
+
+  <section class="mt-4">
+    {renderedItems.map(({ Content, ...item }) => (
+      <FeedItem pubDate={item.pubDate} type={item.type} permalink={getPermalink(item)}>
+        <Content />
+      </FeedItem>
+    ))}
+  </section>
+
+  <Pagination
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    currentPage={page.currentPage}
+    lastPage={page.lastPage}
+  />
+</BaseLayout>
