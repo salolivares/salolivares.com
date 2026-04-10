@@ -1,0 +1,63 @@
+{
+  "title": "Germany",
+  "location": "Germany",
+  "year": 2025,
+  "published": true,
+  "images": [
+    {
+      "id": "wavy",
+      "name": "wavy",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "dokumentationszentrum-topographie-des-terrors",
+      "name": "Dokumentationszentrum Topographie des Terrors",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "neue-wache",
+      "name": "Neue Wache",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "berliner-dom",
+      "name": "Berliner Dom",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "sankt-hedwigs-kathedrale",
+      "name": "Sankt Hedwigs-Kathedrale",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "jdisches-museum",
+      "name": "Jüdisches Museum",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "wittenbergplatz",
+      "name": "Wittenbergplatz",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "danke-andrej-sacharow",
+      "name": "Danke, Andrej Sacharow",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "checkpoint-charlie",
+      "name": "Checkpoint Charlie",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "dark-matter",
+      "name": "dark matter",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "berliner-fernsehturm",
+      "name": "Berliner Fernsehturm",
+      "camera": "Fujifilm X-T30 II"
+    }
+  ]
+}
