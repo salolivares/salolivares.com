@@ -15,7 +15,7 @@ const name = image.name ?? 'Untitled';
 ---
 
 <div class:list={[className, 'flex flex-col']}>
-  <RemoteImage src={image.src} alt={name} />
+  <RemoteImage src={image.src} alt={name} loading="eager" fetchpriority="high" />
   <div class="mt-2 flex flex-col justify-end">
     <div class="text-right text-base font-semibold">{name}</div>
   </div>

@@ -5,27 +5,34 @@ interface Props {
   src: string;
   alt?: string;
   class?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
   [index: string]: any;
 }
 
 const host = 'https://photos.salolivares.com';
-const { src: propSrc, alt = '', class: className, ...rest } = Astro.props;
+const { src: propSrc, alt = '', class: className, loading = 'lazy', fetchpriority, ...rest } = Astro.props;
 const src = encodeURIComponent(propSrc);
+const sizes = '(max-width: 1280px) 100vw, 1280px';
 ---
 
 <picture class={className} {...rest}>
   <source
     srcset={`${host}/${src}_1280.webp 1280w, ${host}/${src}_2880.webp 2880w`}
+    sizes={sizes}
     type="image/webp"
   />
   <source
     srcset={`${host}/${src}_1280.jpg 1280w, ${host}/${src}_2880.jpg 2880w`}
+    sizes={sizes}
     type="image/jpeg"
   />
   <img
     alt={alt}
-    loading="lazy"
+    loading={loading}
+    fetchpriority={fetchpriority}
     src={`${host}/${src}_1280.jpg`}
+    sizes={sizes}
     width="1280"
     style="height: auto; max-height: 80vh; width: auto; max-width: 100%;"
   />

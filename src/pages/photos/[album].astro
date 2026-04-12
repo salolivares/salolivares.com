@@ -25,9 +25,14 @@ const { images } = album.data;
 <AlbumLayout album={album}>
   <div class="flex flex-col items-center">
     {
-      images.map((image) => (
+      images.map((image, i) => (
         <div class="flex min-h-screen max-w-screen-lg flex-col justify-center">
-          <RemoteImage src={`${album.id}/${image.id}`} alt={image.name ?? 'Untitled'} />
+          <RemoteImage
+            src={`${album.id}/${image.id}`}
+            alt={image.name ?? 'Untitled'}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+          />
           <div class="mt-3 text-right text-base font-semibold">{image.name ?? 'Untitled'}</div>
         </div>
       ))
