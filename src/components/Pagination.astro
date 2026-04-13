@@ -13,24 +13,20 @@ const { prevUrl, nextUrl, currentPage, lastPage } = Astro.props;
   lastPage > 1 && (
     <nav class="flex items-center justify-between border-t border-border pt-5" aria-label="Pagination">
       <div>
-        {prevUrl ? (
+        {prevUrl && (
           <a href={prevUrl} class="text-sm" data-astro-prefetch>
             &larr; Newer
           </a>
-        ) : (
-          <span class="text-sm text-muted-foreground">&larr; Newer</span>
         )}
       </div>
       <span class="text-sm text-muted-foreground">
         {currentPage} / {lastPage}
       </span>
       <div>
-        {nextUrl ? (
+        {nextUrl && (
           <a href={nextUrl} class="text-sm" data-astro-prefetch>
             Older &rarr;
           </a>
-        ) : (
-          <span class="text-sm text-muted-foreground">Older &rarr;</span>
         )}
       </div>
     </nav>
