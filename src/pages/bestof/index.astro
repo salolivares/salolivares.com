@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const entries = await getCollection('bestof', ({ data }) => {
+  return import.meta.env.PROD ? data.published === true : true;
+});
+
+entries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const rendered = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+---
+
+<BaseLayout
+  title="Best Of"
+  description="A collection of quotes I've had the privilege and/or misfortune of coming across on the internet."
+>
+  <article class="prose prose-custom dark:prose-invert prose-hr:my-5 max-w-none mt-6">
+    <h1>Best Of</h1>
+    <p>
+      Here are a collection of quotes I've had the privilege and/or misfortune
+      of coming across on the internet.
+    </p>
+
+    <hr />
+
+    {rendered.map(({ entry, Content }, i) => (
+      <>
+        {entry.data.source ? (
+          <a href={entry.data.source}>{entry.data.title}</a>
+        ) : (
+          <span>{entry.data.title}</span>
+        )}
+        <Content />
+        {i < rendered.length - 1 && <hr />}
+      </>
+    ))}
+  </article>
+</BaseLayout>
