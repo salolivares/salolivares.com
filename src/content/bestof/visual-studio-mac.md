@@ -1,7 +1,7 @@
 ---
 title: On Visual Studio beta being release on Mac
 source: https://www.reddit.com/r/programming/comments/5da1oa/visual_studio_for_mac_preview_download/da2w99m/?context=3
-pubDate: 2021-03-07
+pubDate: 2021-03-11
 published: true
 ---
 

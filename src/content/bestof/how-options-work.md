@@ -1,7 +1,7 @@
 ---
 title: On How Options Work
 source: https://www.reddit.com/r/wallstreetbets/comments/5xw74h/what_were_your_moves_today_march_6_2017/deld7pu/
-pubDate: 2021-03-07
+pubDate: 2021-03-15
 published: true
 ---
 

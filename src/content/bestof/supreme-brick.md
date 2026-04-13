@@ -1,7 +1,7 @@
 ---
 title: On the Supreme Brick
 source: https://www.reddit.com/r/streetwear/comments/9dt12o/why_supreme_can_not_register_its_trademark/e5jupgx/
-pubDate: 2021-03-07
+pubDate: 2021-03-20
 published: true
 ---
 

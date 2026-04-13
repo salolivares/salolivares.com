@@ -1,7 +1,7 @@
 ---
 title: On Breakups
 source: https://www.reddit.com/r/LifeProTips/comments/8nridy/lpt_when_you_go_on_vacation_bring_a_new/dzy05rk/
-pubDate: 2021-03-07
+pubDate: 2021-03-16
 published: true
 ---
 

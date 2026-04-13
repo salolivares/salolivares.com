@@ -1,7 +1,7 @@
 ---
 title: On how we suck at software
 source: https://www.reddit.com/r/webdev/duplicates/95sofq/were_all_terrible_at_what_we_do/
-pubDate: 2022-06-10
+pubDate: 2022-06-12
 published: true
 ---
 

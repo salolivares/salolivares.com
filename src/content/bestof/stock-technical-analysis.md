@@ -1,7 +1,7 @@
 ---
 title: On Stock Technical Analysis
 source: https://www.reddit.com/r/wallstreetbets/comments/lw7z8v/update_gme_broke_through_the_pennant_next_stop_is/gpftqkc/
-pubDate: 2021-03-07
+pubDate: 2021-03-21
 published: true
 ---
 

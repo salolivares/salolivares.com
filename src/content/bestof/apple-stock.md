@@ -1,7 +1,7 @@
 ---
 title: On Apple Stock
 source: https://news.ycombinator.com/user?id=archmikhail
-pubDate: 2021-03-07
+pubDate: 2021-03-14
 published: true
 ---
 

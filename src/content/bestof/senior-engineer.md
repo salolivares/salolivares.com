@@ -1,7 +1,7 @@
 ---
 title: On moving past senior software engineer
 source: https://news.ycombinator.com/item?id=30077184
-pubDate: 2022-06-10
+pubDate: 2022-06-11
 published: true
 ---
 

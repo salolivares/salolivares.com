@@ -1,7 +1,7 @@
 ---
 title: On Pre-Match Prayer - Brazil v Mexico - FIFA World Cup R. of 16
 source: https://www.reddit.com/r/LigaMX/comments/8va31z/prematch_thread_brazil_vs_mexico_fifa_world_cup_r/e1mdndq/
-pubDate: 2021-03-07
+pubDate: 2021-03-18
 published: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: On Spanish vs English Futbol Commentators
 source: https://www.reddit.com/r/LatinoPeopleTwitter/comments/8r2go2/goooooooooooooooooooool/e0ogd1c/
-pubDate: 2021-03-07
+pubDate: 2021-03-17
 published: true
 ---
 
