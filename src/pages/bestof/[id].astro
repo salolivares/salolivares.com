@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import Badge from '@/components/Badge.astro';
+import { CornerDownLeft } from '@lucide/astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('bestof', ({ data }) => {
+    return import.meta.env.PROD ? data.published === true : true;
+  });
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title}>
+  <article class="mt-6">
+    <div class="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
+      <FormattedDate date={post.data.pubDate} />
+      <span>&middot;</span>
+      <Badge variant="outline" class="px-1.5 py-0 text-[10px]">bestof</Badge>
+    </div>
+    {post.data.source && (
+      <a href={post.data.source} class="text-sm text-muted-foreground hover:text-foreground">
+        source
+      </a>
+    )}
+    <div class="prose prose-custom dark:prose-invert max-w-none">
+      <Content />
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="my-24">
+        <a
+          href="/feed"
+          data-astro-prefetch="viewport"
+          aria-label="Back to feed"
+          class="rounded-full p-6 transition-colors duration-200 hover:opacity-50 dark:hover:opacity-75"
+        >
+          <CornerDownLeft />
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

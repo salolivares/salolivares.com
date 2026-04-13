@@ -46,6 +46,35 @@ content:
       - name: body
         type: rich-text
 
+  - name: bestof
+    label: Best Of
+    type: collection
+    path: src/content/bestof
+    format: yaml-frontmatter
+    filename:
+      template: '{primary}.md'
+      field: create
+    view:
+      fields: [title, pubDate, published]
+      primary: title
+      sort: [pubDate, title]
+      default:
+        sort: pubDate
+        order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: source
+        type: string
+      - name: pubDate
+        type: date
+        required: true
+      - name: published
+        type: boolean
+      - name: body
+        type: rich-text
+
   - name: now
     label: Now
     type: collection
