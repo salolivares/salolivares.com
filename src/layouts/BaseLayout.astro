@@ -7,13 +7,15 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  articleDate?: string;
+  articleUpdatedDate?: string;
   // https://docs.astro.build/en/core-concepts/layouts/#using-one-layout-for-md-mdx-and-astro
   frontmatter?: MarkdownLayoutProps<Props>['frontmatter'];
 }
 
 const isMarkdown = Astro.props.frontmatter !== undefined;
 
-const { title, description, image } = Astro.props.frontmatter || Astro.props;
+const { title, description, image, articleDate, articleUpdatedDate } = Astro.props.frontmatter || Astro.props;
 ---
 
 <style>
@@ -66,7 +68,7 @@ const { title, description, image } = Astro.props.frontmatter || Astro.props;
 
       window.localStorage.setItem('theme', theme);
     </script>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} articleDate={articleDate} articleUpdatedDate={articleUpdatedDate} />
   </head>
   <body>
     <Header />
