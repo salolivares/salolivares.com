@@ -4,6 +4,7 @@ subtitle: 'A *highly* objective rating system for anything and everything.'
 description: 'A highly objective rating system for anything and everything.'
 pubDate: '2024-01-03'
 published: true
+comments: false
 ---
 
 Did I say objective? I meant _highly_ subjective. For my own sanity I needed a consistent way

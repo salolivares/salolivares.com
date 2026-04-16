@@ -28,6 +28,7 @@ const blog = defineCollection({
       heroImage: image().optional(),
       heroImageAlt: z.string().optional(),
       published: z.boolean().default(false),
+      comments: z.boolean().default(true),
     }),
 });
 

@@ -43,6 +43,7 @@ import { Sun, Moon } from '@lucide/astro';
 
     const isDark = element.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.dispatchEvent(new CustomEvent('theme-change', { detail: { theme: isDark ? 'dark' : 'light' } }));
   };
 
   document.getElementById('themeToggle').addEventListener('click', handleToggleClick);
