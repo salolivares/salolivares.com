@@ -1,3 +1,9 @@
+## Development workflow
+
+- Run the dev server (`pnpm dev`) and use Chrome DevTools MCP to visually verify changes in the browser
+- After making UI/styling changes, take screenshots to confirm the result looks correct
+- Use `pnpm build` to check for build errors before considering work complete
+
 ## Pages CMS
 
 Configured in `.pages.yml` at repo root. Docs: https://pagescms.org/docs/
