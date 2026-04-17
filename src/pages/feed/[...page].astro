@@ -25,13 +25,19 @@ const renderedItems = await Promise.all(
   <h1 class="sr-only">Feed</h1>
 
   <nav class="mt-6 flex gap-3 text-sm" aria-label="Feed filters">
-    <span class="font-semibold">All</span>
+    <span class="text-accent-blue">[all]</span>
     {FEED_TYPES.map((type) => (
-      <a href={`/feed/${type}`} data-astro-prefetch>{type}</a>
+      <a
+        href={`/feed/${type}`}
+        class="hover:text-accent-blue no-underline"
+        data-astro-prefetch
+      >
+        [{type}]
+      </a>
     ))}
   </nav>
 
-  <section class="mt-4">
+  <section class="mt-6">
     {renderedItems.map(({ Content, ...item }) => (
       <FeedItem pubDate={item.pubDate} type={item.type} permalink={getPermalink(item)}>
         <Content />

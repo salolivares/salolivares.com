@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 
 const albums = (
   await getCollection('photos', ({ data }) => {
-    // Only return published posts in production
     return import.meta.env.PROD ? data.published === true : true;
   })
 ).sort((a, b) => b.data.year - a.data.year);
@@ -28,14 +27,26 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 <BaseLayout title="Photos">
   <h1 class="sr-only">Photos</h1>
   <FeaturedImage image={featuredImage} class="mt-6" />
-  <section class="mb-20">
-    <ul class="m-0 list-none">
+  <section class="mt-10 mb-20">
+    <ul class="m-0 list-none space-y-3">
       {
         albums.map((photo) => (
-          <li class="mt-5 flex flex-col sm:mt-2 sm:flex-row">
-            <div class="sm:basis-20">{photo.data.year}</div>
-            <a href={`/photos/${photo.id}`} class="font-semibold" data-astro-prefetch>
+          <li class="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4">
+            <div class="text-muted-foreground tabular-nums">{photo.data.year}</div>
+            <a
+              href={`/photos/${photo.id}`}
+              class="hover:text-accent-blue font-semibold no-underline"
+              data-astro-prefetch
+            >
               {photo.data.title}
+            </a>
+            <a
+              href={`/photos/${photo.id}`}
+              class="text-accent-blue hidden no-underline sm:inline"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              [view &rarr;]
             </a>
           </li>
         ))

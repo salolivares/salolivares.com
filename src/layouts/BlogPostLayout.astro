@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import { Image } from 'astro:assets';
 
@@ -9,21 +8,32 @@ type Props = CollectionEntry<'blog'>;
 const { data, id } = Astro.props;
 const { title, subtitle, description, heroImage, heroImageAlt = null, pubDate, updatedDate, comments = true } = data;
 const ogImage = `/og-image/${id}.png`;
+
+const isoDate = (d: Date) => d.toISOString().slice(0, 10);
 ---
 
 <BaseLayout title={title} description={description} image={ogImage} articleDate={pubDate.toISOString()} articleUpdatedDate={updatedDate?.toISOString()}>
   <article class="prose prose-custom dark:prose-invert">
-    {heroImage && <Image width={720} height={360} src={heroImage} alt={heroImageAlt} />}
+    {heroImage && (
+      <Image
+        class="border-border not-prose mb-6 border"
+        width={720}
+        height={360}
+        src={heroImage}
+        alt={heroImageAlt}
+      />
+    )}
     <h1 class="mb-1">{title}</h1>
     {subtitle && <div class="text-muted-foreground mt-1 mb-3 italic">{subtitle}</div>}
-    <FormattedDate date={pubDate} />
-    {
-      updatedDate && (
-        <div class="italic">
-          Last updated on <FormattedDate date={updatedDate} />
-        </div>
-      )
-    }
+    <div class="text-muted-foreground text-sm tracking-wider uppercase">
+      Published <time datetime={pubDate.toISOString()} class="tabular-nums">{isoDate(pubDate)}</time>
+      {updatedDate && (
+        <>
+          &nbsp;·&nbsp;Updated
+          <time datetime={updatedDate.toISOString()} class="tabular-nums">{isoDate(updatedDate)}</time>
+        </>
+      )}
+    </div>
     <hr class="not-prose my-5 border-(--tw-prose-hr)" />
     <slot />
   </article>
