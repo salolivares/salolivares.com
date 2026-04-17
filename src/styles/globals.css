@@ -122,30 +122,42 @@
   --shadow: 0 0% 20%;
 }
 
+@utility active-item {
+  border-left: 2px solid hsl(var(--accent-blue));
+  padding-left: 0.75rem;
+}
+
 @utility prose-custom {
   --tw-prose-body: hsl(var(--foreground));
   --tw-prose-headings: hsl(var(--foreground));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-code: hsl(var(--foreground));
   --tw-prose-links: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
 
   --tw-prose-invert-body: hsl(var(--foreground));
   --tw-prose-invert-headings: hsl(var(--foreground));
   --tw-prose-invert-quotes: hsl(var(--foreground));
   --tw-prose-invert-code: hsl(var(--foreground));
   --tw-prose-invert-links: hsl(var(--foreground));
+  --tw-prose-invert-bold: hsl(var(--foreground));
+  --tw-prose-invert-bullets: hsl(var(--muted-foreground));
+  --tw-prose-invert-counters: hsl(var(--muted-foreground));
+  --tw-prose-invert-hr: hsl(var(--border));
 
   & :where(h1) {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 800;
     scroll-margin: 5rem;
   }
   & :where(h2) {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
     border-bottom-width: 1px;
     padding-bottom: 0.5rem;
     scroll-margin: 5rem;
@@ -154,15 +166,18 @@
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
-    letter-spacing: -0.025em;
     scroll-margin: 5rem;
   }
   & :where(h4) {
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 600;
-    letter-spacing: -0.025em;
     scroll-margin: 5rem;
+  }
+  & :where(hr) {
+    border-top-style: dashed;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   & :where(blockquote) {
     border-left-width: 2px;
@@ -175,8 +190,18 @@
     text-underline-offset: 4px;
   }
   & :where(a):hover {
-    text-decoration-style: dotted;
-    text-decoration-thickness: 1px;
+    color: hsl(var(--accent-blue));
+    text-decoration-color: hsl(var(--accent-blue));
+  }
+  & :where(code) {
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--muted));
+    padding: 0.1rem 0.3rem;
+    font-weight: 600;
+  }
+  & :where(code)::before,
+  & :where(code)::after {
+    content: '';
   }
   & :where(ul) {
     list-style-type: disc;
@@ -199,16 +224,16 @@
     @apply border-border;
   }
   h1 {
-    @apply scroll-m-20 text-xl font-extrabold;
+    @apply scroll-m-20 text-2xl font-extrabold;
   }
   h2 {
-    @apply scroll-m-20 border-b pb-2 text-lg font-bold tracking-tight transition-colors first:mt-0;
+    @apply scroll-m-20 border-b pb-2 text-xl font-bold transition-colors first:mt-0;
   }
   h3 {
-    @apply scroll-m-20 text-lg font-semibold tracking-tight;
+    @apply scroll-m-20 text-lg font-semibold;
   }
   h4 {
-    @apply scroll-m-20 text-base font-semibold tracking-tight;
+    @apply scroll-m-20 text-base font-semibold;
   }
   p {
     @apply leading-7 not-first:mt-6;
@@ -220,9 +245,9 @@
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
   code {
-    @apply bg-muted relative rounded-none px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+    @apply bg-muted border-border relative rounded-none border px-[0.3rem] py-[0.2rem] text-sm font-semibold;
   }
   a {
-    @apply underline underline-offset-4 hover:decoration-dotted hover:decoration-1;
+    @apply hover:text-accent-blue underline underline-offset-4;
   }
 }
