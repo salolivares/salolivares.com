@@ -148,13 +148,13 @@
   --tw-prose-invert-counters: hsl(var(--muted-foreground));
   --tw-prose-invert-hr: hsl(var(--border));
 
-  & :where(h1) {
+  &.prose :where(h1) {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 800;
     scroll-margin: 5rem;
   }
-  & :where(h2) {
+  &.prose :where(h2) {
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700;
@@ -162,56 +162,56 @@
     padding-bottom: 0.5rem;
     scroll-margin: 5rem;
   }
-  & :where(h3) {
+  &.prose :where(h3) {
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
     scroll-margin: 5rem;
   }
-  & :where(h4) {
+  &.prose :where(h4) {
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 600;
     scroll-margin: 5rem;
   }
-  & :where(hr) {
+  &.prose :where(hr) {
     border-top-style: dashed;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  & :where(blockquote) {
+  &.prose :where(blockquote) {
     border-left-width: 2px;
     padding-left: 1.5rem;
     font-style: italic;
     font-weight: 400;
   }
-  & :where(a) {
+  &.prose :where(a) {
     text-decoration-line: underline;
     text-underline-offset: 4px;
   }
-  & :where(a):hover {
+  &.prose :where(a):hover {
     color: hsl(var(--accent-blue));
     text-decoration-color: hsl(var(--accent-blue));
   }
-  & :where(code) {
+  &.prose :where(code) {
     border: 1px solid hsl(var(--border));
     background-color: hsl(var(--muted));
     padding: 0.1rem 0.3rem;
     font-weight: 600;
   }
-  & :where(code)::before,
-  & :where(code)::after {
+  &.prose :where(code)::before,
+  &.prose :where(code)::after {
     content: '';
   }
-  & :where(ul) {
+  &.prose :where(ul) {
     list-style-type: disc;
     margin-left: 1.5rem;
     padding-left: 0;
   }
-  & :where(ul) > :where(li) {
+  &.prose :where(ul) > :where(li) {
     margin-top: 0.5rem;
   }
-  & :where(abbr) {
+  &.prose :where(abbr) {
     text-decoration-line: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
