@@ -52,10 +52,10 @@
 
 :root {
   color-scheme: light;
-  --background: 42 20% 95%;
+  --background: 0 0% 100%;
   --foreground: 0 0% 14%;
 
-  --card: 0 0% 100%;
+  --card: 42 20% 95%;
   --card-foreground: 0 0% 14%;
 
   --popover: 0 0% 100%;
