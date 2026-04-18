@@ -9,6 +9,7 @@ const { data, id } = Astro.props;
 const { title, subtitle, description, heroImage, heroImageAlt = null, pubDate, updatedDate, comments = true } = data;
 const ogImage = `/og-image/${id}.png`;
 
+// Keep metadata dates fixed-width for scanability and consistency with list pages.
 const isoDate = (d: Date) => d.toISOString().slice(0, 10);
 ---
 
@@ -85,7 +86,7 @@ const isoDate = (d: Date) => d.toISOString().slice(0, 10);
       data-astro-prefetch="viewport"
       class="hover:text-accent-blue no-underline"
     >
-      [&larr; back to posts]
+      [back to posts]
     </a>
   </div>
 </BaseLayout>
