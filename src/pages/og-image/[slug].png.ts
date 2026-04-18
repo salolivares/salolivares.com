@@ -9,12 +9,6 @@ import { html } from 'satori-html';
 const INTER_REGULAR = './node_modules/@fontsource/inter/files/inter-latin-400-normal.woff';
 const INTER_BOLD = './node_modules/@fontsource/inter/files/inter-latin-700-normal.woff';
 
-const PAPER = '#f3efe7';
-const INK = '#242322';
-const MUTED = '#6a6a6a';
-const BORDER = '#c7c7c7';
-const ACCENT = '#2a5cd8';
-
 interface Props {
   title: string;
   pubDate: Date;
@@ -22,7 +16,9 @@ interface Props {
 
 export async function GET(context: APIContext) {
   const { title, pubDate } = context.props as Props;
-  const date = pubDate.toISOString().slice(0, 10);
+  const date = pubDate.toLocaleDateString('en-US', {
+    dateStyle: 'full',
+  });
 
   const [avatarBuffer, interRegular, interBold] = await Promise.all([
     readFile('./public/images/avatar.png'),
@@ -31,30 +27,18 @@ export async function GET(context: APIContext) {
   ]);
   const avatar = `data:image/png;base64,${avatarBuffer.toString('base64')}`;
 
-  const markup = html`<div
-    tw="flex flex-col w-full h-full items-stretch justify-center p-10"
-    style=${{ backgroundColor: PAPER, color: INK }}
-  >
-    <div
-      tw="flex flex-col w-full h-full p-16 justify-between border"
-      style=${{ borderColor: BORDER, backgroundColor: '#ffffff' }}
-    >
-      <div tw="flex flex-col">
-        <div tw="text-2xl mb-8" style=${{ color: MUTED, letterSpacing: '0.12em' }}>
-          POST · ${date}
-        </div>
-        <div tw="text-6xl font-bold leading-snug">${title}</div>
-      </div>
-      <div tw="flex w-full justify-between items-end">
-        <div tw="text-2xl" style=${{ color: ACCENT, textDecoration: 'underline' }}>
-          salolivares.com
-        </div>
-        <div tw="flex items-center">
-          <img src="${avatar}" tw="w-16 mr-4" />
-          <div tw="flex flex-col">
-            <div tw="font-bold text-2xl">sal olivares</div>
-            <div tw="text-xl" style=${{ color: MUTED }}>@0x102c</div>
-          </div>
+  const markup = html`<div tw="flex flex-col w-full h-full items-center justify-center bg-white">
+    <div tw="flex flex-col w-full h-4/5 p-10 justify-center">
+      <div tw="text-3xl font-normal mb-10">${date}</div>
+      <div tw="text-6xl font-bold leading-snug tracking-tight">${title}</div>
+    </div>
+    <div tw="flex w-full h-1/5 px-10 pb-10 justify-between">
+      <div tw="text-3xl font-normal items-center" style={{ textDecoration: 'underline' }}>salolivares.com</div>
+      <div tw="flex items-center">
+        <img src="${avatar}" tw="w-20 mr-5" />
+        <div tw="flex flex-col">
+          <div tw="font-bold text-3xl">sal olivares</div>
+          <div tw="text-2xl">@0x102c</div>
         </div>
       </div>
     </div>
