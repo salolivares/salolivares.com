@@ -1,21 +1,18 @@
 ---
-import { config } from '@/site.config';
+import Card from './Card.astro';
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
-
-const title = config.title;
 ---
 
-<header class="mb-10 sm:mt-5">
-  <div class="mb-1 text-2xl font-bold lowercase">
-    {title}
-  </div>
-  <nav class="flex justify-between">
-    <div class="flex gap-3">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/photos">Photos</HeaderLink>
-    </div>
-    <ThemeToggle />
-  </nav>
+<header class="mt-5 mb-10">
+  <Card padded={false}>
+    <nav class="flex items-center justify-between gap-4 px-5 py-3">
+      <div class="flex flex-wrap gap-x-4 gap-y-1">
+        <HeaderLink href="/" label="~" />
+        <HeaderLink href="/blog" label="~/blog" />
+        <HeaderLink href="/photos" label="~/photos" />
+      </div>
+      <ThemeToggle />
+    </nav>
+  </Card>
 </header>

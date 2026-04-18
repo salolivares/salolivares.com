@@ -1,16 +1,31 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type Props = HTMLAttributes<'a'>;
+type Props = HTMLAttributes<'a'> & {
+  href: string;
+  label: string;
+};
 
-const { href, class: className, ...props } = Astro.props;
+const { href, label, class: className, ...props } = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const normalizedHref = href.replace(/\/+$/, '') || '/';
+const isActive =
+  normalizedHref === '/'
+    ? pathname === '/'
+    : pathname === normalizedHref || pathname.startsWith(normalizedHref + '/');
 ---
 
 <a
   href={href}
-  class:list={[className, 'no-underline underline-offset-4 hover:underline hover:decoration-solid']}
+  aria-current={isActive ? 'page' : undefined}
+  class:list={[
+    'hover:text-accent-blue no-underline',
+    isActive && 'text-accent-blue',
+    className,
+  ]}
   data-astro-prefetch="viewport"
   {...props}
 >
-  <slot />
+  [{label}]
 </a>

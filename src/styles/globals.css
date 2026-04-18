@@ -27,6 +27,8 @@
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
 
+  --color-accent-blue: hsl(var(--accent-blue));
+
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
@@ -34,75 +36,95 @@
   --color-card-foreground: hsl(var(--card-foreground));
 
   --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-sm: var(--radius);
 
-  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --shadow-card: 6px 6px 0 0 hsl(var(--shadow));
+  --shadow-card-sm: 4px 4px 0 0 hsl(var(--shadow));
+
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-sans:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
 }
 
 :root {
   color-scheme: light;
   --background: 0 0% 100%;
-  --foreground: 0 0% 22%;
+  --foreground: 0 0% 14%;
 
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
+  --card: 42 20% 95%;
+  --card-foreground: 0 0% 14%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
+  --popover-foreground: 0 0% 14%;
 
-  --primary: 240 5.9% 10%;
+  --primary: 0 0% 14%;
   --primary-foreground: 0 0% 98%;
 
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
+  --secondary: 42 20% 92%;
+  --secondary-foreground: 0 0% 14%;
 
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
+  --muted: 42 20% 92%;
+  --muted-foreground: 0 0% 42%;
 
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent: 42 20% 92%;
+  --accent-foreground: 0 0% 14%;
 
-  --destructive: 0 84.2% 60.2%;
+  --accent-blue: 221 73% 50%;
+
+  --destructive: 0 74% 50%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 10% 3.9%;
+  --border: 0 0% 78%;
+  --input: 0 0% 78%;
+  --ring: 221 73% 50%;
 
-  --radius: 0.5rem;
+  --shadow: 0 0% 75%;
+
+  --radius: 0;
 }
 
 .dark {
   color-scheme: dark;
-  --background: 0 0% 10%;
-  --foreground: 0 0% 89%;
+  --background: 0 0% 3%;
+  --foreground: 0 0% 92%;
 
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 92%;
 
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 92%;
 
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
+  --primary: 0 0% 92%;
+  --primary-foreground: 0 0% 7%;
 
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 92%;
 
-  --muted: 240 3.7% 15.9%;
+  --muted: 0 0% 12%;
   --muted-foreground: 0 0% 62%;
 
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 0 0% 12%;
+  --accent-foreground: 0 0% 92%;
 
-  --destructive: 0 62.8% 30.6%;
+  --accent-blue: 215 85% 62%;
+
+  --destructive: 0 62% 45%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --border: 0 0% 22%;
+  --input: 0 0% 22%;
+  --ring: 215 85% 62%;
+
+  --shadow: 0 0% 20%;
+}
+
+@utility active-item {
+  border-left: 2px solid hsl(var(--accent-blue));
+  padding-left: 0.75rem;
 }
 
 @utility prose-custom {
@@ -111,65 +133,85 @@
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-code: hsl(var(--foreground));
   --tw-prose-links: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
 
   --tw-prose-invert-body: hsl(var(--foreground));
   --tw-prose-invert-headings: hsl(var(--foreground));
   --tw-prose-invert-quotes: hsl(var(--foreground));
   --tw-prose-invert-code: hsl(var(--foreground));
   --tw-prose-invert-links: hsl(var(--foreground));
+  --tw-prose-invert-bold: hsl(var(--foreground));
+  --tw-prose-invert-bullets: hsl(var(--muted-foreground));
+  --tw-prose-invert-counters: hsl(var(--muted-foreground));
+  --tw-prose-invert-hr: hsl(var(--border));
 
-  & :where(h1) {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  &.prose :where(h1) {
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 800;
     scroll-margin: 5rem;
   }
-  & :where(h2) {
-    font-size: 1.125rem;
+  &.prose :where(h2) {
+    font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
     border-bottom-width: 1px;
     padding-bottom: 0.5rem;
     scroll-margin: 5rem;
   }
-  & :where(h3) {
+  &.prose :where(h3) {
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
-    letter-spacing: -0.025em;
     scroll-margin: 5rem;
   }
-  & :where(h4) {
+  &.prose :where(h4) {
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 600;
-    letter-spacing: -0.025em;
     scroll-margin: 5rem;
   }
-  & :where(blockquote) {
+  &.prose :where(hr) {
+    border-top-style: dashed;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  &.prose :where(blockquote) {
     border-left-width: 2px;
     padding-left: 1.5rem;
     font-style: italic;
     font-weight: 400;
   }
-  & :where(a) {
+  &.prose :where(a) {
     text-decoration-line: underline;
     text-underline-offset: 4px;
   }
-  & :where(a):hover {
-    text-decoration-style: dotted;
-    text-decoration-thickness: 1px;
+  &.prose :where(a):hover {
+    color: hsl(var(--accent-blue));
+    text-decoration-color: hsl(var(--accent-blue));
   }
-  & :where(ul) {
+  &.prose :where(code) {
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--muted));
+    padding: 0.1rem 0.3rem;
+    font-weight: 600;
+  }
+  &.prose :where(code)::before,
+  &.prose :where(code)::after {
+    content: '';
+  }
+  &.prose :where(ul) {
     list-style-type: disc;
     margin-left: 1.5rem;
     padding-left: 0;
   }
-  & :where(ul) > :where(li) {
+  &.prose :where(ul) > :where(li) {
     margin-top: 0.5rem;
   }
-  & :where(abbr) {
+  &.prose :where(abbr) {
     text-decoration-line: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
@@ -182,16 +224,16 @@
     @apply border-border;
   }
   h1 {
-    @apply scroll-m-20 text-xl font-extrabold;
+    @apply scroll-m-20 text-2xl font-extrabold;
   }
   h2 {
-    @apply scroll-m-20 border-b pb-2 text-lg font-bold tracking-tight transition-colors first:mt-0;
+    @apply scroll-m-20 border-b pb-2 text-xl font-bold transition-colors first:mt-0;
   }
   h3 {
-    @apply scroll-m-20 text-lg font-semibold tracking-tight;
+    @apply scroll-m-20 text-lg font-semibold;
   }
   h4 {
-    @apply scroll-m-20 text-base font-semibold tracking-tight;
+    @apply scroll-m-20 text-base font-semibold;
   }
   p {
     @apply leading-7 not-first:mt-6;
@@ -203,9 +245,9 @@
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
   code {
-    @apply bg-muted relative rounded-sm px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+    @apply bg-muted border-border relative rounded-none border px-[0.3rem] py-[0.2rem] text-sm font-semibold;
   }
   a {
-    @apply underline underline-offset-4 hover:decoration-dotted hover:decoration-1;
+    @apply hover:text-accent-blue underline underline-offset-4;
   }
 }
