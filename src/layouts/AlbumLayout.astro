@@ -59,7 +59,11 @@ const { album } = Astro.props;
 
       window.localStorage.setItem('theme', theme);
     </script>
-    <BaseHead title={album.data.title} />
+    <BaseHead
+      title={`${album.data.title} ${album.data.year}`}
+      description={album.data.description}
+      image={`/og-image/photos/${album.id}.png`}
+    />
   </head>
   <body>
     <AlbumHeader title={album.data.title} year={album.data.year} />
