@@ -18,7 +18,7 @@ const { prevUrl, nextUrl, currentPage, lastPage } = Astro.props;
       <div>
         {prevUrl && (
           <a href={prevUrl} class="hover:text-accent-blue no-underline" data-astro-prefetch>
-            [&larr; newer]
+            [newer]
           </a>
         )}
       </div>
@@ -28,7 +28,7 @@ const { prevUrl, nextUrl, currentPage, lastPage } = Astro.props;
       <div>
         {nextUrl && (
           <a href={nextUrl} class="hover:text-accent-blue no-underline" data-astro-prefetch>
-            [older &rarr;]
+            [older]
           </a>
         )}
       </div>

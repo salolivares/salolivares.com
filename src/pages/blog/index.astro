@@ -4,7 +4,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (
   await getCollection('blog', ({ data }) => {
-    // Only return published posts in production
     return import.meta.env.PROD ? data.published === true : true;
   })
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -13,19 +12,34 @@ const posts = (
 <BaseLayout title="Blog">
   <h1 class="sr-only">Blog</h1>
   <section class="mt-6">
-    <ul class="m-0 list-none">
+    <ul class="m-0 list-none space-y-3">
       {
         posts.map((post) => (
-          <li class="mt-5 flex flex-col sm:mt-2 sm:flex-row">
-            <time datetime={post.data.pubDate.toISOString()} class="sm:basis-32">
+          <li class="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4">
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="text-muted-foreground tabular-nums"
+            >
               {post.data.pubDate.toLocaleDateString('fr-ca', {
                 year: 'numeric',
-                month: 'numeric',
-                day: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
               })}
             </time>
-            <a href={`/blog/${post.id}`} class="font-semibold" data-astro-prefetch>
+            <a
+              href={`/blog/${post.id}`}
+              class="hover:text-accent-blue font-semibold no-underline"
+              data-astro-prefetch
+            >
               {post.data.title}
+            </a>
+            <a
+              href={`/blog/${post.id}`}
+              class="text-accent-blue hidden no-underline sm:inline"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              [read]
             </a>
           </li>
         ))

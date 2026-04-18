@@ -15,12 +15,10 @@ const { title, year } = Astro.props;
   class="fixed top-0 left-0 flex w-full justify-between p-5 transition-opacity duration-300"
 >
   <div class="flex items-center gap-3">
-    <div class="text-2xl font-bold lowercase">
+    <div class="text-xl font-bold tracking-wider uppercase">
       {title}
     </div>
-    <div>
-      <Badge variant="secondary">{year}</Badge>
-    </div>
+    <Badge variant="bracket">{year}</Badge>
   </div>
   <ThemeToggle />
 </header>
