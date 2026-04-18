@@ -33,7 +33,7 @@ export async function GET(context: APIContext) {
       <div tw="text-6xl font-bold leading-snug tracking-tight">${title}</div>
     </div>
     <div tw="flex w-full h-1/5 px-10 pb-10 justify-between">
-      <div tw="text-3xl font-normal items-center" style={{ textDecoration: 'underline' }}>salolivares.com</div>
+      <div tw="text-3xl font-normal items-center" style={{ textDecoration: 'underline', textUnderlineOffset: '12px' }}>salolivares.com</div>
       <div tw="flex items-center">
         <img src="${avatar}" tw="w-20 mr-5" />
         <div tw="flex flex-col">

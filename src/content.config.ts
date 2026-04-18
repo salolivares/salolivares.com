@@ -61,6 +61,7 @@ const photos = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/photos' }),
   schema: z.object({
     title: z.string(),
+    description: z.string(),
     location: z.string().optional(),
     year: z.number(),
     published: z.boolean().default(false),
