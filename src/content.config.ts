@@ -57,8 +57,8 @@ const bestof = defineCollection({
   }),
 });
 
-const photos = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/photos' }),
+const travel = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/travel' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -75,4 +75,26 @@ const photos = defineCollection({
   }),
 });
 
-export const collections = { bestof, blog, now, photos };
+const series = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/series' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    location: z.string().optional(),
+    year: z.number().optional(),
+    updatedDate: z
+      .string()
+      .optional()
+      .transform((str) => (str ? new Date(str) : undefined)),
+    published: z.boolean().default(false),
+    images: z.array(
+      z.object({
+        id: z.string(),
+        name: z.string().optional(),
+        camera: z.string().optional(),
+      }),
+    ),
+  }),
+});
+
+export const collections = { bestof, blog, now, travel, series };

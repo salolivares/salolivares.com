@@ -10,7 +10,7 @@ const INTER_BOLD = './node_modules/@fontsource/inter/files/inter-latin-700-norma
 
 interface Props {
   title: string;
-  year: number;
+  year?: number;
 }
 
 export async function GET(context: APIContext) {
@@ -33,7 +33,7 @@ export async function GET(context: APIContext) {
           props: {
             tw: 'flex flex-col w-full h-4/5 p-10 justify-center',
             children: [
-              {
+              year !== undefined && {
                 type: 'div',
                 props: { tw: 'text-3xl font-normal mb-10', children: String(year) },
               },
@@ -44,7 +44,7 @@ export async function GET(context: APIContext) {
                   children: title,
                 },
               },
-            ],
+            ].filter(Boolean),
           },
         },
         {
@@ -120,8 +120,9 @@ export async function GET(context: APIContext) {
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const albums = await getCollection('photos');
-  return albums.map((album) => ({
+  const travel = await getCollection('travel');
+  const series = await getCollection('series');
+  return [...travel, ...series].map((album) => ({
     params: { album: album.id },
     props: { title: album.data.title, year: album.data.year },
   }));

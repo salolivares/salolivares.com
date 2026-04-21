@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   title: string;
-  year: number;
+  year?: number;
 }
 
 const { title, year } = Astro.props;
@@ -18,7 +18,7 @@ const { title, year } = Astro.props;
     <div class="text-xl font-bold tracking-wider uppercase">
       {title}
     </div>
-    <Badge variant="bracket">{year}</Badge>
+    {year !== undefined && <Badge variant="bracket">{year}</Badge>}
   </div>
   <ThemeToggle />
 </header>
