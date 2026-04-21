@@ -5,23 +5,24 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const getStaticPaths = (async () => {
-  const albums = await getCollection('photos');
-  return albums.map((album) => ({
-    params: {
-      album: album.id,
-    },
-    props: {
-      album,
-    },
+  const travel = await getCollection('travel');
+  const series = await getCollection('series');
+  const entries = [
+    ...travel.map((album) => ({ album, kind: 'travel' as const })),
+    ...series.map((album) => ({ album, kind: 'series' as const })),
+  ];
+  return entries.map(({ album, kind }) => ({
+    params: { album: album.id },
+    props: { album, kind },
   }));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { album } = Astro.props;
+const { album, kind } = Astro.props;
 const { images } = album.data;
 ---
 
-<AlbumLayout album={album}>
+<AlbumLayout album={album} kind={kind}>
   <div class="flex flex-col items-center">
     {
       images.map((image, i) => (

@@ -3,19 +3,27 @@ import FeaturedImage from '@/components/FeaturedImage.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const albums = (
-  await getCollection('photos', ({ data }) => {
+const travel = (
+  await getCollection('travel', ({ data }) => {
     return import.meta.env.PROD ? data.published === true : true;
   })
 ).sort((a, b) => b.data.year - a.data.year);
 
-const allImages = albums
+const series = (
+  await getCollection('series', ({ data }) => {
+    return import.meta.env.PROD ? data.published === true : true;
+  })
+).sort((a, b) => {
+  const aDate = a.data.updatedDate?.getTime() ?? 0;
+  const bDate = b.data.updatedDate?.getTime() ?? 0;
+  if (aDate !== bDate) return bDate - aDate;
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const allImages = [...travel, ...series]
   .map((photo) =>
     photo.data.images.map((image) => ({
       ...image,
-      location: photo.data.location,
-      year: photo.data.year,
-      title: photo.data.title,
       src: `${photo.id}/${image.id}`,
     })),
   )
@@ -27,12 +35,43 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 <BaseLayout title="Photos">
   <h1 class="sr-only">Photos</h1>
   <FeaturedImage image={featuredImage} class="mt-6" />
-  <section class="mt-10 mb-20">
+  <section class="mt-10">
+    <h2 class="text-muted-foreground mb-3 text-sm font-semibold tracking-wider uppercase">
+      Travel
+    </h2>
     <ul class="m-0 list-none space-y-3">
       {
-        albums.map((photo) => (
+        travel.map((photo) => (
           <li class="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4">
             <div class="text-muted-foreground tabular-nums">{photo.data.year}</div>
+            <a
+              href={`/photos/${photo.id}`}
+              class="hover:text-accent-blue font-semibold no-underline"
+              data-astro-prefetch
+            >
+              {photo.data.title}
+            </a>
+            <a
+              href={`/photos/${photo.id}`}
+              class="text-accent-blue hidden no-underline sm:inline"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              [view]
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="mt-10 mb-20">
+    <h2 class="text-muted-foreground mb-3 text-sm font-semibold tracking-wider uppercase">
+      Series
+    </h2>
+    <ul class="m-0 list-none space-y-3">
+      {
+        series.map((photo) => (
+          <li class="grid grid-cols-[1fr_auto] items-baseline gap-x-4">
             <a
               href={`/photos/${photo.id}`}
               class="hover:text-accent-blue font-semibold no-underline"
