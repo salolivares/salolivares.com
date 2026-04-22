@@ -7,7 +7,10 @@ interface Props {
   class?: string;
   loading?: 'lazy' | 'eager';
   fetchpriority?: 'high' | 'low' | 'auto';
-  sizes?: string;
+  /** Max CSS px the image will render at. Drives srcset selection:
+   * at 2×DPR the browser needs maxWidth × 2 physical px. With CDN
+   * variants of 1280w/2880w, keep maxWidth ≤ 640 to land on 1280w. */
+  maxWidth?: number;
   [index: string]: any;
 }
 
@@ -18,10 +21,11 @@ const {
   class: className,
   loading = 'lazy',
   fetchpriority,
-  sizes = '(max-width: 1280px) 100vw, 1280px',
+  maxWidth = 1280,
   ...rest
 } = Astro.props;
 const src = encodeURIComponent(propSrc);
+const sizes = `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`;
 ---
 
 <picture class={className} {...rest}>
