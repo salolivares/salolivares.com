@@ -15,7 +15,18 @@ const name = image.name ?? 'Untitled';
 
 <div class:list={[className, 'flex flex-col']}>
   <div class="border-border flex justify-center border [&_img]:!max-h-[65vh]">
-    <RemoteImage src={image.src} alt={name} loading="eager" fetchpriority="high" />
+    {/*
+      Featured image is capped at 65vh within the ~640px main column,
+      so the 1280w variant is enough at 2×DPR. Without this override
+      the browser picks 2880w (~1.5MB) per RemoteImage's default sizes.
+    */}
+    <RemoteImage
+      src={image.src}
+      alt={name}
+      loading="eager"
+      fetchpriority="high"
+      sizes="(max-width: 640px) 100vw, 640px"
+    />
   </div>
   <div class="mt-2 flex flex-col justify-end">
     <div class="text-right text-base font-semibold">{name}</div>

@@ -7,13 +7,21 @@ interface Props {
   class?: string;
   loading?: 'lazy' | 'eager';
   fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
   [index: string]: any;
 }
 
 const host = 'https://photos.salolivares.com';
-const { src: propSrc, alt = '', class: className, loading = 'lazy', fetchpriority, ...rest } = Astro.props;
+const {
+  src: propSrc,
+  alt = '',
+  class: className,
+  loading = 'lazy',
+  fetchpriority,
+  sizes = '(max-width: 1280px) 100vw, 1280px',
+  ...rest
+} = Astro.props;
 const src = encodeURIComponent(propSrc);
-const sizes = '(max-width: 1280px) 100vw, 1280px';
 ---
 
 <picture class={className} {...rest}>
