@@ -15,7 +15,14 @@ const name = image.name ?? 'Untitled';
 
 <div class:list={[className, 'flex flex-col']}>
   <div class="border-border flex justify-center border [&_img]:!max-h-[65vh]">
-    <RemoteImage src={image.src} alt={name} loading="eager" fetchpriority="high" />
+    {/* Capped at 65vh in the ~640px main column, so 1280w suffices at 2×DPR. */}
+    <RemoteImage
+      src={image.src}
+      alt={name}
+      loading="eager"
+      fetchpriority="high"
+      maxWidth={640}
+    />
   </div>
   <div class="mt-2 flex flex-col justify-end">
     <div class="text-right text-base font-semibold">{name}</div>
