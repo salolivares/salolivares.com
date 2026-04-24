@@ -10,12 +10,12 @@
   ],
   "rewrites": [
     {
-      "source": "/js/script.js",
-      "destination": "https://plausible.salolivares.com/js/pa-afhHhi8CXbKwUFEsklVn6.js"
+      "source": "/script.js",
+      "destination": "https://umami.salolivares.com/script.js"
     },
     {
-      "source": "/api/event",
-      "destination": "https://plausible.salolivares.com/api/event"
+      "source": "/api/submit",
+      "destination": "https://umami.salolivares.com/api/submit"
     }
   ]
 }

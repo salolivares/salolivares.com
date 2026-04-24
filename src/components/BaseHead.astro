@@ -73,12 +73,8 @@ const socialImageURL = new URL(image, Astro.url);
 {
   import.meta.env.PROD && (
     <>
-      {/* Privacy-friendly analytics by Plausible (proxied via /js/script.js + /api/event) */}
-      <script async src="/js/script.js" />
-      <script
-        is:inline
-        set:html={`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({endpoint:"/api/event"});`}
-      />
+      {/* Umami analytics (proxied via /script.js + /api/send) */}
+      <script is:inline defer src="/script.js" data-website-id="1428040f-11cf-4cde-af31-475f18942be7" />
     </>
   )
 }
