@@ -14,8 +14,8 @@
       "destination": "https://umami.salolivares.com/script.js"
     },
     {
-      "source": "/api/send",
-      "destination": "https://umami.salolivares.com/api/send"
+      "source": "/api/submit",
+      "destination": "https://umami.salolivares.com/api/submit"
     }
   ]
 }
