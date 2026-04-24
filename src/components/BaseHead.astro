@@ -33,6 +33,7 @@ const socialImageURL = new URL(image, Astro.url);
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="preconnect" href="https://photos.salolivares.com" />
+<link rel="preconnect" href="https://plausible.salolivares.com" />
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -71,3 +72,15 @@ const socialImageURL = new URL(image, Astro.url);
 <meta property="twitter:image" content={socialImageURL} />
 
 <SpeedInsights />
+
+{
+  import.meta.env.PROD && (
+    <>
+      {/* Privacy-friendly analytics by Plausible */}
+      <script async src="https://plausible.salolivares.com/js/pa-afhHhi8CXbKwUFEsklVn6.js" />
+      <script is:inline>
+        {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();`}
+      </script>
+    </>
+  )
+}
