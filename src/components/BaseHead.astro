@@ -78,9 +78,10 @@ const socialImageURL = new URL(image, Astro.url);
     <>
       {/* Privacy-friendly analytics by Plausible */}
       <script async src="https://plausible.salolivares.com/js/pa-afhHhi8CXbKwUFEsklVn6.js" />
-      <script is:inline>
-        {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();`}
-      </script>
+      <script
+        is:inline
+        set:html="window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();"
+      />
     </>
   )
 }
