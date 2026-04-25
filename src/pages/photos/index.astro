@@ -33,6 +33,7 @@ const featuredImage = allImages[Math.floor(Math.random() * allImages.length)];
 ---
 
 <BaseLayout title="Photos">
+  <link slot="head" rel="preconnect" href="https://photos.salolivares.com" />
   <h1 class="sr-only">Photos</h1>
   <FeaturedImage image={featuredImage} class="mt-6" />
   <section class="mt-10">

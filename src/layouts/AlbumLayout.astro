@@ -65,7 +65,9 @@ const headTitle = kind === 'travel' ? `${album.data.title} ${album.data.year}` :
       title={headTitle}
       description={album.data.description}
       image={`/og-image/photos/${album.id}.png`}
-    />
+    >
+      <link slot="head" rel="preconnect" href="https://photos.salolivares.com" />
+    </BaseHead>
   </head>
   <body>
     <AlbumHeader title={album.data.title} year={album.data.year} />
