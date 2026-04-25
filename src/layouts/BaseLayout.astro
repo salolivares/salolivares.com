@@ -69,7 +69,9 @@ const { title, description, image, articleDate, articleUpdatedDate } = Astro.pro
 
       window.localStorage.setItem('theme', theme);
     </script>
-    <BaseHead title={title} description={description} image={image} articleDate={articleDate} articleUpdatedDate={articleUpdatedDate} />
+    <BaseHead title={title} description={description} image={image} articleDate={articleDate} articleUpdatedDate={articleUpdatedDate}>
+      <slot name="head" slot="head" />
+    </BaseHead>
   </head>
   <body>
     <Header />
