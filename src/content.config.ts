@@ -64,6 +64,8 @@ const travel = defineCollection({
     description: z.string(),
     location: z.string().optional(),
     year: z.number(),
+    // Sorts albums within the same year, newest first.
+    month: z.number().int().min(1).max(12).optional(),
     published: z.boolean().default(false),
     images: z.array(
       z.object({
