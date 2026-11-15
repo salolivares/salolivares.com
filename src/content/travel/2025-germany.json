@@ -3,6 +3,7 @@
   "description": "A weekend trip to Berlin.",
   "location": "Germany",
   "year": 2025,
+  "month": 9,
   "published": true,
   "images": [
     {

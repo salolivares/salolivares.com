@@ -7,7 +7,7 @@ const travel = (
   await getCollection('travel', ({ data }) => {
     return import.meta.env.PROD ? data.published === true : true;
   })
-).sort((a, b) => b.data.year - a.data.year);
+).sort((a, b) => b.data.year - a.data.year || (b.data.month ?? 0) - (a.data.month ?? 0));
 
 const series = (
   await getCollection('series', ({ data }) => {
