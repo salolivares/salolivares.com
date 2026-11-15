@@ -65,7 +65,7 @@ export async function GET(context: APIContext) {
     .render()
     .asPng();
 
-  return new Response(png);
+  return new Response(new Uint8Array(png));
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
