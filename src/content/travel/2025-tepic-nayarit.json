@@ -1,0 +1,49 @@
+{
+  "title": "Tepic, Nayarit",
+  "description": "Visiting family for a wedding.",
+  "location": "Mexico",
+  "year": 2025,
+  "published": true,
+  "images": [
+    {
+      "id": "view-from-cerro-de-la-cruz",
+      "name": "View from Cerro De La Cruz",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "cruz-hike",
+      "name": "Cruz Hike",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "night-market",
+      "name": "Night Market",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "scoring-some-deals",
+      "name": "Scoring some deals",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "av-mxico-nte",
+      "name": "Av. México Nte.",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "centro",
+      "name": "Centro",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "farmacia",
+      "name": "Farmacia",
+      "camera": "Fujifilm X-T30 II"
+    },
+    {
+      "id": "wellpappe-monument",
+      "name": "Wellpappe Monument",
+      "camera": "Fujifilm X-T30 II"
+    }
+  ]
+}
