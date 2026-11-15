@@ -21,7 +21,7 @@
     "astro": "^7.4.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "satori": "^0.19.1",
+    "satori": "^0.63.2",
     "satori-html": "^0.3.2",
     "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.0",
