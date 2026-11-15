@@ -32,8 +32,8 @@ export async function GET(context: APIContext) {
       <div tw="text-3xl font-normal mb-10">${date}</div>
       <div tw="text-6xl font-bold leading-snug tracking-tight">${title}</div>
     </div>
-    <div tw="flex w-full h-1/5 px-10 pb-10 justify-between">
-      <div tw="text-3xl font-normal items-center" style={{ textDecoration: 'underline', textUnderlineOffset: '12px' }}>salolivares.com</div>
+    <div tw="flex w-full h-1/5 px-10 pb-10 justify-between items-center">
+      <div tw="text-3xl font-normal items-center" style="text-decoration: underline; text-underline-offset: 12px">salolivares.com</div>
       <div tw="flex items-center">
         <img src="${avatar}" tw="w-20 mr-5" />
         <div tw="flex flex-col">
@@ -65,7 +65,7 @@ export async function GET(context: APIContext) {
     .render()
     .asPng();
 
-  return new Response(png);
+  return new Response(new Uint8Array(png));
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {

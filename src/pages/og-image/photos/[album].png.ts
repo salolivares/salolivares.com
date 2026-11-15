@@ -50,7 +50,7 @@ export async function GET(context: APIContext) {
         {
           type: 'div',
           props: {
-            tw: 'flex w-full h-1/5 px-10 pb-10 justify-between',
+            tw: 'flex w-full h-1/5 px-10 pb-10 justify-between items-center',
             children: [
               {
                 type: 'div',
@@ -116,7 +116,7 @@ export async function GET(context: APIContext) {
     .render()
     .asPng();
 
-  return new Response(png);
+  return new Response(new Uint8Array(png));
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {

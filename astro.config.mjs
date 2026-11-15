@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://salolivares.com',
   prefetch: true,
+  // Astro 7 defaults to 'jsx', which drops spaces between inline elements and text.
+  compressHTML: true,
   integrations: [sitemap()],
   markdown: {
     shikiConfig: {
