@@ -67,15 +67,24 @@ const isoDate = (d: Date) => d.toISOString().slice(0, 10);
         s.async = true;
         container.appendChild(s);
 
-        document.addEventListener('theme-change', function (e) {
+        // The iframe is lazy-loaded, so a toggle before it loads posts into
+        // about:blank and is dropped. Sync once giscus reports in, then on
+        // every toggle after that.
+        var giscusOrigin = 'https://giscus.app';
+        function syncTheme() {
           var iframe = document.querySelector('iframe.giscus-frame');
-          if (iframe) {
-            iframe.contentWindow.postMessage(
-              { giscus: { setConfig: { theme: e.detail.theme === 'dark' ? darkTheme : lightTheme } } },
-              'https://giscus.app'
-            );
-          }
-        });
+          if (!iframe) return;
+          var current = document.documentElement.classList.contains('dark') ? darkTheme : lightTheme;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: current } } }, giscusOrigin);
+        }
+
+        function onGiscusMessage(e) {
+          if (e.origin !== giscusOrigin || !e.data || !e.data.giscus) return;
+          window.removeEventListener('message', onGiscusMessage);
+          syncTheme();
+        }
+        window.addEventListener('message', onGiscusMessage);
+        document.addEventListener('theme-change', syncTheme);
       })();
     </script>
   )}
